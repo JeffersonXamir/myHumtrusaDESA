@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/02/2020 2:44:17 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="Genempresas" table="genempresas" catalog="cursoextjs">
+        <composite-id name="id" class="GenempresasId">
+            <key-property name="codempresa" type="string">
+                <column name="codempresa" length="16777215" />
+            </key-property>
+            <key-property name="nombre" type="string">
+                <column name="nombre" length="80" />
+            </key-property>
+            <key-property name="gerente" type="string">
+                <column name="gerente" length="80" />
+            </key-property>
+            <key-property name="ruccontador" type="string">
+                <column name="ruccontador" length="13" />
+            </key-property>
+            <key-property name="tipoidreplegal" type="string">
+                <column name="tipoidreplegal" length="80" />
+            </key-property>
+            <key-property name="idreplegal" type="string">
+                <column name="idreplegal" length="80" />
+            </key-property>
+            <key-property name="codusuario" type="string">
+                <column name="codusuario" length="80" />
+            </key-property>
+            <key-property name="fecha" type="date">
+                <column name="fecha" length="10" />
+            </key-property>
+            <key-property name="codpais" type="string">
+                <column name="codpais" length="16777215" />
+            </key-property>
+            <key-property name="hostcorreo" type="string">
+                <column name="hostcorreo" length="100" />
+            </key-property>
+            <key-property name="rucempresa" type="string">
+                <column name="rucempresa" length="13" />
+            </key-property>
+            <key-property name="tipoidempresa" type="string">
+                <column name="tipoidempresa" length="16777215" />
+            </key-property>
+            <key-property name="escontribuyenteespecial" type="string">
+                <column name="escontribuyenteespecial" length="2" />
+            </key-property>
+            <key-property name="numresolucion" type="string">
+                <column name="numresolucion" length="20" />
+            </key-property>
+            <key-property name="lineagrupoempresarial" type="string">
+                <column name="lineagrupoempresarial" length="16777215" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

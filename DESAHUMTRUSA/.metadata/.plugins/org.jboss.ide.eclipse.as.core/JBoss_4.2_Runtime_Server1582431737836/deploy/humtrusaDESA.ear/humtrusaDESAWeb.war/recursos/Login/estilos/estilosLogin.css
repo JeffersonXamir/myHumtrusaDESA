@@ -1,0 +1,12 @@
+<!--
+body {
+	background-color: #e0e0e0;
+}
+body,td,th,input,select {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #000000;
+}
+td img {display: block;}
+.icono_cargador {background:transparent url(../../../imagenes/cargador_login.png) no-repeat top left;height:128px;}
+-->

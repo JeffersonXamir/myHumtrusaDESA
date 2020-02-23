@@ -1,0 +1,89 @@
+@CHARSET "ISO-8859-1";
+.icon-edit {
+	background-image:url(../../../imagenes/page_white_magnify.png) ! important;
+}
+.icon-edit-distribucion {
+	background-image:url(../../../imagenes/application_osx_cascade.png) ! important;
+}
+.icon-edit-anulacion {
+	background-image:url(../../../imagenes/application_error.png) ! important;
+}
+.icon-lock-precio {
+	background-image:url(../../../imagenes/lock_break.png) ! important;
+}
+.icon-lock-descuento{
+	background-image:url(../../../imagenes/lock_break.png) ! important;
+}
+.icon-lock-precio-abierto {
+	background-image:url(../../../imagenes/lock_open.png) ! important;
+}
+.icon-lock-descuento-abierto{
+	background-image:url(../../../imagenes/lock_open.png) ! important;
+}
+.ux-cell-value {
+	position:relative;
+	zoom:1;
+	height:16px;
+}
+.ux-cell-actions {
+	position:absolute;
+	right:0;
+	top:-2px;
+}
+.ux-cell-actions-left {
+	left:0;
+	top:-2px;
+}
+.ux-cell-action {
+	width:16px;
+	height:16px;
+	float:left;
+	cursor:pointer;
+	margin: 0 0 0 4px;
+}
+.ux-cell-actions-left .ux-cell-action {
+	margin: 0 4px 0 0;
+}
+.ux-boton-mensaje{
+	color: blue;
+	font-weight: 800;
+	text-decoration: under;
+}
+.x-form-field-wrap .x-form-browse-trigger {
+	background: transparent url(../../../imagenes/browse_trigger_field.gif) no-repeat 0 0;
+	cursor: pointer;
+	right: 0px;
+}
+
+.radios_en_toolbar{
+	background: #D0DEF0 repeat-x scroll left top;
+}
+
+.iconoVentanaAgrupador{
+	background: url(../../../imagenes/folder_page.png);
+}
+.icon-impresion{
+	background-image:url(../../../imagenes/printer_go.png) ! important;
+}
+.icon-seleccion{
+	background-image:url(../../../imagenes/arrow_right.png) ! important;
+}
+.icon-lock-break {
+	background-image:url(../../../imagenes/lock_break.png) ! important;
+}
+.icon-refresh {
+	background-image:url(../../../imagenes/arrow_rotate_clockwise.png) ! important;
+}
+
+.icon-undneg {
+	background-image:url(../../../imagenes/table.png) ! important;
+}
+.icon-canal {
+	background-image:url(../../../imagenes/table.png) ! important;
+}
+.icon-cliente {
+	background-image:url(../../../imagenes/table.png) ! important;
+}
+.icon-marca {
+	background-image:url(../../../imagenes/table.png) ! important;
+}

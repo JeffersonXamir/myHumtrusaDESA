@@ -1,0 +1,62 @@
+@CHARSET "ISO-8859-1";
+.lbl_totales{
+	text-align:right !important;
+	font-weight: 700 !important;
+	font-size: 12px !important;
+	width: 120px !important;
+
+}
+.field_totales{
+	text-align:right !important;
+	font-weight:650 !important;
+	border:1px solid black !important;
+	width: 160px !important;
+	background: #FFFFCC !important;
+}
+.field_totales_izq{
+	text-align:left !important;
+	border:1px solid #CCCCFF !important;
+	width: 120px !important;
+	background: #FFFFCC !important;
+}
+.field_totales_cent{
+	text-align:center !important;
+	border:1px solid #CCCCFF !important;
+	width: 120px !important;
+	background: #FFFFCC !important;
+}
+.field_totales_cent_nombre{
+	text-align:center !important;
+	border:1px solid #CCCCFF !important;
+	width: 195px !important;
+	background: #FFFFCC !important;
+}
+.lbl_dat_peq{
+	text-align:left !important;
+	font-weight: 400 !important;
+	font-size: 12px !important;
+	width: 80px !important;
+
+}
+.field_dat_peq{
+	text-align:right !important;
+	font-weight:350 !important;
+	border:1px solid black !important;
+	width: 140px !important;	
+	background: white;
+}
+
+.campo_numerico{
+	text-align:right !important;
+}
+
+.campo_totales{
+	text-align:right !important;
+	font-weight:650 !important;
+	border:1px solid black !important;
+	background: #FFFFCC !important;
+}
+
+.total-recuadro1{font-size:12px !important;background: #FFFFCC !important;border: solid black 1px !important;text-align: right;font-weight: bold !important; }
+.total-recuadro12{font-size:12px !important;background: #FFFFCC !important;border: solid black 1px !important;text-align: right;font-weight: bold !important; width:150!important; margin-left: 250px !important}
+.recuadro-descripcion{font-size:12px !important;background: #FFFFCC !important;border: solid black 1px !important;text-align: left;font-weight: bold !important; }

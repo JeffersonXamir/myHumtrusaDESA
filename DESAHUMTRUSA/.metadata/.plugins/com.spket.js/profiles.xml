@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<profiles>
+<profile id="Extjs" name="Extjs">use namespace ExtJS;
+include 'C:\\DESAHUMTRUSA\\humtrusaDESAWeb\\WebContent\\js\\ext-2.2\\ext-all.js';
+include 'C:\\DESAHUMTRUSA\\humtrusaDESAWeb\\WebContent\\js\\ext-2.2\\ext-all-debug.js';
+include 'C:\\DESAHUMTRUSA\\humtrusaDESAWeb\\WebContent\\js\\ext-2.2\\ext-core.js';
+include 'C:\\DESAHUMTRUSA\\humtrusaDESAWeb\\WebContent\\js\\ext-2.2\\ext-core-debug.js';
+</profile>
+</profiles>

@@ -1,0 +1,1 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %><%@ taglib tagdir="/WEB-INF/tags/etech" prefix="etech" %><%@ taglib tagdir="/WEB-INF/tags/etech/utilidades" prefix="etech-utilidades" %><%@ taglib tagdir="/WEB-INF/tags/ext/util" prefix="extutil" %>

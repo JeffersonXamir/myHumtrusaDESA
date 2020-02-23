@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/02/2020 2:44:17 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="Genciudades" table="genciudades" catalog="cursoextjs">
+        <composite-id name="id" class="GenciudadesId">
+            <key-property name="codciudad" type="long">
+                <column name="codciudad" />
+            </key-property>
+            <key-property name="codpais" type="long">
+                <column name="codpais" />
+            </key-property>
+            <key-property name="codprovincia" type="long">
+                <column name="codprovincia" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="genprovincias" class="Genprovincias" update="false" insert="false" fetch="select">
+            <column name="codprovincia" not-null="true" />
+            <column name="codpais" not-null="true" />
+        </many-to-one>
+        <property name="codestado" type="java.lang.Long">
+            <column name="codestado" />
+        </property>
+        <property name="nombreciudad" type="string">
+            <column name="nombreciudad" length="50" />
+        </property>
+        <property name="codusuario" type="string">
+            <column name="codusuario" length="30" />
+        </property>
+        <property name="fecharegistro" type="date">
+            <column name="fecharegistro" length="10" />
+        </property>
+        <property name="codarea" type="string">
+            <column name="codarea" length="3" />
+        </property>
+    </class>
+</hibernate-mapping>

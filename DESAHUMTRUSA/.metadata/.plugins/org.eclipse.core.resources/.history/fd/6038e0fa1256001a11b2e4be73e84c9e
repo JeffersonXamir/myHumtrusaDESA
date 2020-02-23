@@ -1,0 +1,22 @@
+package com.humtrusa.daoext;
+
+import java.util.List;
+
+import org.hibernate.Session;
+
+import com.humtrusa.Sessionfactory.HibernateSessionFactory;
+import com.humtrusa.entities.Alumnos;
+
+public class AlumnoDAOEXT {
+	public List<Alumnos> obtenerAlumnos(String nombres, String apellidos, long Codestado){
+		List<Alumnos> lisalumno = null;
+		try {
+		Session ses = HibernateSessionFactory.getSession();
+		lisalumno = ses.createQuery(" from Alumnos ").list();
+		
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lisalumno;
+	}
+}

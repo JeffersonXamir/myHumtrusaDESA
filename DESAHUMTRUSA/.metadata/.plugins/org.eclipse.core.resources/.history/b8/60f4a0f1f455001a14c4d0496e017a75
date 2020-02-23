@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 12/01/2020 22:52:30 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.humtrusa.entities.Materias" table="materias" catalog="cursoextjs">
+        <id name="idMateria" type="java.lang.Long">
+            <column name="id_materia" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="70" not-null="true" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="2" />
+        </property>
+        <set name="calificacioneses" table="calificaciones" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_materia" not-null="true" />
+            </key>
+            <one-to-many class="com.humtrusa.entities.Calificaciones" />
+        </set>
+        <set name="calificacioneses_1" table="calificaciones" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_materia" not-null="true" />
+            </key>
+            <one-to-many class="com.humtrusa.entities.Calificaciones" />
+        </set>
+    </class>
+</hibernate-mapping>

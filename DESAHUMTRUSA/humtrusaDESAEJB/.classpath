@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="ejbModule"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.6.0_45">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.jboss.ide.eclipse.as.core.server.runtime.runtimeTarget/JBoss 4.2 Runtime">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.ejb"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/activation.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/barbecue-1.1.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/BarCode.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/barcode4j-2.0.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/bcmail-jdk16-1.45.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/bcprov-jdk16-1.45.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/bctsp-jdk16-1.45.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/c3p0-0.9.2-pre4.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/c3p0-oracle-thin-extras-0.9.2-pre4.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/commons-codec-1.8.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/commons-httpclient-3.0.1.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/commons-logging-1.1.3.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/DNIeJCAProvider-1.4.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/dsn.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/firma-xades.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/framework_etech.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/gimap.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/htmllexer.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/htmlparser.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/iaikPkcs11Wrapper-1.1.7.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/icu4j-3.4.4.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/imap.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/jasypt-1.4.1.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/java-json.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/javacsv.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/jdom-2.0.6-contrib.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/jdom-2.0.6-javadoc.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/jdom-2.0.6-junit.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/jdom-2.0.6-sources.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/jdom-2.0.6.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/json.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/jss-4.2.5.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/jxl.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/log4j-1.2.16.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/mail.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/mailapi.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/mchange-commons-java-0.2.2.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/MITyCLibAPI-1.1.7.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/MITyCLibCert-1.1.7.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/MITyCLibCrypt-1.1.7.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/MITyCLibOCSP-1.1.7.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/MITyCLibPolicy-1.1.7.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/MITyCLibTrust-1.1.7.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/MITyCLibTSA-1.1.7.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/MITyCLibXADES-1.1.7.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/mysql-connector-java-5.1.47.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/mysql-connector-java-5.1.6.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/ojdbc14.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/ojdbc7.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/pop3.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/serializer-2.7.1.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/smtp.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/sunpkcs11-1.0.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/ucp.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/XadesBes.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/xalan-2.7.1.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/xml-apis-1.3.04.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/xmlpull-1.1.3.1.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/xmlsec-1.4.2-ADSI-1.1.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/xmlsec-1.5.5.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/xstream-1.4.1.jar"/>
+	<classpathentry kind="output" path="build/classes"/>
+</classpath>

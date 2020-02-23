@@ -1,0 +1,11 @@
+.radios_en_toolbar{
+	background: #D0DEF0 repeat-x scroll left top;
+}
+.x-form-field-wrap .x-form-browse-trigger {
+  	background: transparent url(../imagenes/browse_trigger_field.gif) no-repeat 0 0;
+  	cursor: pointer;
+  	right: 0px;
+}
+.iconoVentanaAgrupador{
+	background: url("../imagenes/folder_page.png");
+}

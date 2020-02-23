@@ -1,0 +1,117 @@
+package com.humtrusa.entidades;
+// Generated 23/02/2020 2:48:00 by Hibernate Tools 3.5.0.Final
+
+import java.util.List;
+import javax.naming.InitialContext;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.hibernate.LockMode;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Example;
+
+/**
+ * Home object for domain model class Genempresas.
+ * @see com.humtrusa.entidades.Genempresas
+ * @author Hibernate Tools
+ */
+public class GenempresasHome {
+
+	private static final Log log = LogFactory.getLog(GenempresasHome.class);
+
+	private final SessionFactory sessionFactory = getSessionFactory();
+
+	protected SessionFactory getSessionFactory() {
+		try {
+			return (SessionFactory) new InitialContext().lookup("SessionFactory");
+		} catch (Exception e) {
+			log.error("Could not locate SessionFactory in JNDI", e);
+			throw new IllegalStateException("Could not locate SessionFactory in JNDI");
+		}
+	}
+
+	public void persist(Genempresas transientInstance) {
+		log.debug("persisting Genempresas instance");
+		try {
+			sessionFactory.getCurrentSession().persist(transientInstance);
+			log.debug("persist successful");
+		} catch (RuntimeException re) {
+			log.error("persist failed", re);
+			throw re;
+		}
+	}
+
+	public void attachDirty(Genempresas instance) {
+		log.debug("attaching dirty Genempresas instance");
+		try {
+			sessionFactory.getCurrentSession().saveOrUpdate(instance);
+			log.debug("attach successful");
+		} catch (RuntimeException re) {
+			log.error("attach failed", re);
+			throw re;
+		}
+	}
+
+	public void attachClean(Genempresas instance) {
+		log.debug("attaching clean Genempresas instance");
+		try {
+			sessionFactory.getCurrentSession().lock(instance, LockMode.NONE);
+			log.debug("attach successful");
+		} catch (RuntimeException re) {
+			log.error("attach failed", re);
+			throw re;
+		}
+	}
+
+	public void delete(Genempresas persistentInstance) {
+		log.debug("deleting Genempresas instance");
+		try {
+			sessionFactory.getCurrentSession().delete(persistentInstance);
+			log.debug("delete successful");
+		} catch (RuntimeException re) {
+			log.error("delete failed", re);
+			throw re;
+		}
+	}
+
+	public Genempresas merge(Genempresas detachedInstance) {
+		log.debug("merging Genempresas instance");
+		try {
+			Genempresas result = (Genempresas) sessionFactory.getCurrentSession().merge(detachedInstance);
+			log.debug("merge successful");
+			return result;
+		} catch (RuntimeException re) {
+			log.error("merge failed", re);
+			throw re;
+		}
+	}
+
+	public Genempresas findById(com.humtrusa.entidades.GenempresasId id) {
+		log.debug("getting Genempresas instance with id: " + id);
+		try {
+			Genempresas instance = (Genempresas) sessionFactory.getCurrentSession()
+					.get("com.humtrusa.entidades.Genempresas", id);
+			if (instance == null) {
+				log.debug("get successful, no instance found");
+			} else {
+				log.debug("get successful, instance found");
+			}
+			return instance;
+		} catch (RuntimeException re) {
+			log.error("get failed", re);
+			throw re;
+		}
+	}
+
+	public List findByExample(Genempresas instance) {
+		log.debug("finding Genempresas instance by example");
+		try {
+			List results = sessionFactory.getCurrentSession().createCriteria("com.humtrusa.entidades.Genempresas")
+					.add(Example.create(instance)).list();
+			log.debug("find by example successful, result size: " + results.size());
+			return results;
+		} catch (RuntimeException re) {
+			log.error("find by example failed", re);
+			throw re;
+		}
+	}
+}

@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/02/2020 2:48:00 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.humtrusa.entidades.Alumnos" table="alumnos" catalog="cursoextjs">
+        <id name="idAlumno" type="java.lang.Long">
+            <column name="id_alumno" />
+            <generator class="identity" />
+        </id>
+        <property name="nombres" type="string">
+            <column name="nombres" length="70" />
+        </property>
+        <property name="apellidos" type="string">
+            <column name="apellidos" length="70" />
+        </property>
+        <property name="cedula" type="string">
+            <column name="cedula" length="70" not-null="true" />
+        </property>
+        <property name="fechaNacimiento" type="date">
+            <column name="fecha_nacimiento" length="10" />
+        </property>
+        <property name="estado" type="string">
+            <column name="estado" length="2" />
+        </property>
+        <set name="calificacioneses" table="calificaciones" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_alumno" not-null="true" />
+            </key>
+            <one-to-many class="com.humtrusa.entidades.Calificaciones" />
+        </set>
+        <set name="calificacioneses_1" table="calificaciones" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_alumno" not-null="true" />
+            </key>
+            <one-to-many class="com.humtrusa.entidades.Calificaciones" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -10,7 +10,6 @@ import com.humtrusa.entidades.Alumnos;
 public class AlumnoDAOEXT {
 	
 	public static void main(String[] args) {
-	
 		
 	}
 	

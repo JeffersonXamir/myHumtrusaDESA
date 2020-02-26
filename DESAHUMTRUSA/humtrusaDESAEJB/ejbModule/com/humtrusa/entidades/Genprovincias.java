@@ -1,5 +1,5 @@
 package com.humtrusa.entidades;
-// Generated 23/02/2020 2:47:59 by Hibernate Tools 3.5.0.Final
+// Generated 25/02/2020 21:11:45 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -10,10 +10,10 @@ import java.util.Set;
  */
 public class Genprovincias implements java.io.Serializable {
 
-	private GenprovinciasId id;
+	private Long codprovincia;
+	private Genestados genestados;
 	private Genpaises genpaises;
-	private Long codestado;
-	private Long codregion;
+	private Genregiones genregiones;
 	private String nombre;
 	private String codusuario;
 	private Date fecharegistro;
@@ -23,17 +23,15 @@ public class Genprovincias implements java.io.Serializable {
 	public Genprovincias() {
 	}
 
-	public Genprovincias(GenprovinciasId id, Genpaises genpaises) {
-		this.id = id;
+	public Genprovincias(Genpaises genpaises) {
 		this.genpaises = genpaises;
 	}
 
-	public Genprovincias(GenprovinciasId id, Genpaises genpaises, Long codestado, Long codregion, String nombre,
+	public Genprovincias(Genestados genestados, Genpaises genpaises, Genregiones genregiones, String nombre,
 			String codusuario, Date fecharegistro, String codarea, Set genciudadeses) {
-		this.id = id;
+		this.genestados = genestados;
 		this.genpaises = genpaises;
-		this.codestado = codestado;
-		this.codregion = codregion;
+		this.genregiones = genregiones;
 		this.nombre = nombre;
 		this.codusuario = codusuario;
 		this.fecharegistro = fecharegistro;
@@ -41,12 +39,20 @@ public class Genprovincias implements java.io.Serializable {
 		this.genciudadeses = genciudadeses;
 	}
 
-	public GenprovinciasId getId() {
-		return this.id;
+	public Long getCodprovincia() {
+		return this.codprovincia;
 	}
 
-	public void setId(GenprovinciasId id) {
-		this.id = id;
+	public void setCodprovincia(Long codprovincia) {
+		this.codprovincia = codprovincia;
+	}
+
+	public Genestados getGenestados() {
+		return this.genestados;
+	}
+
+	public void setGenestados(Genestados genestados) {
+		this.genestados = genestados;
 	}
 
 	public Genpaises getGenpaises() {
@@ -57,20 +63,12 @@ public class Genprovincias implements java.io.Serializable {
 		this.genpaises = genpaises;
 	}
 
-	public Long getCodestado() {
-		return this.codestado;
+	public Genregiones getGenregiones() {
+		return this.genregiones;
 	}
 
-	public void setCodestado(Long codestado) {
-		this.codestado = codestado;
-	}
-
-	public Long getCodregion() {
-		return this.codregion;
-	}
-
-	public void setCodregion(Long codregion) {
-		this.codregion = codregion;
+	public void setGenregiones(Genregiones genregiones) {
+		this.genregiones = genregiones;
 	}
 
 	public String getNombre() {

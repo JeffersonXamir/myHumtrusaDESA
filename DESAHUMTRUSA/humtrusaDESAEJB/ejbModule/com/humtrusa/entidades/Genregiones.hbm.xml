@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/02/2020 21:11:46 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.humtrusa.entidades.Genregiones" table="genregiones" catalog="cursoextjs">
+        <id name="codregion" type="java.lang.Long">
+            <column name="codregion" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="genestados" class="com.humtrusa.entidades.Genestados" fetch="select">
+            <column name="codestado" not-null="true" />
+        </many-to-one>
+        <many-to-one name="genpaises" class="com.humtrusa.entidades.Genpaises" fetch="select">
+            <column name="codpais" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="200" not-null="true" />
+        </property>
+        <property name="codusuario" type="string">
+            <column name="codusuario" length="30" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" />
+        </property>
+        <property name="codarea" type="string">
+            <column name="codarea" length="3" />
+        </property>
+        <set name="genprovinciases" table="genprovincias" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codregion" />
+            </key>
+            <one-to-many class="com.humtrusa.entidades.Genprovincias" />
+        </set>
+    </class>
+</hibernate-mapping>

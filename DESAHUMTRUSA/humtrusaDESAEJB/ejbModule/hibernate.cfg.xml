@@ -5,41 +5,26 @@
 <hibernate-configuration>
     <session-factory name="Sessionfactory">
         <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.autoReconnect">true</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
         <property name="hibernate.connection.password"></property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/cursoextjs</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.max_fetch_depth">1</property>
         <property name="hibernate.search.autoregister_listeners">true</property>
+        <property name="hibernate.show_sql">false</property>
         <property name="hibernate.validator.apply_to_ddl">false</property>
-        
-        <property name="max_fetch_depth">1</property>
-		<property name="show_sql">false</property>
-		<property name="connection.autoReconnect">true</property>
-        
-        <!-- configuration pool via c3p0 -->
-		<!-- Database connection settings - seconds -->
-		<!-- 
-		<property name="connection.pool_size">5</property>
-		<property name="current_session_context_class">thread</property>
-		<property name="connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
-		<property name="c3p0.acquire_increment">1</property>
-		<property name="c3p0.idle_test_period">5</property>
-		<property name="c3p0.max_size">20</property>
-		<property name="c3p0.max_statements">0</property>
-		<property name="c3p0.min_size">5</property>
-		<property name="c3p0.timeout">1800</property> 
-		<property name="order_updates">true</property>
-		<property name="c3p0.maxConnectionAge">900</property>
-	  	<property name="c3p0.maxIdleTimeExcessConnections">300</property>  -->
-		<!-- configuration pool via c3p0 --> 
-        
+        <mapping resource="com/humtrusa/entidades/Genestados.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Genproveedores.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Genempresas.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Calificaciones.hbm.xml" />
+        <mapping resource="com/humtrusa/entidades/Genrecursos.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Genpaises.hbm.xml" />
-        <mapping resource="com/humtrusa/entidades/Alumnos.hbm.xml" />
+        <mapping resource="com/humtrusa/entidades/Genopciones.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Genciudades.hbm.xml" />
+        <mapping resource="com/humtrusa/entidades/Genregiones.hbm.xml" />
+        <mapping resource="com/humtrusa/entidades/Alumnos.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Materias.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Genagencias.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Genprovincias.hbm.xml" />

@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/02/2020 21:11:46 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.humtrusa.entidades.Genopciones" table="genopciones" catalog="cursoextjs">
+        <id name="codopcion" type="java.lang.Long">
+            <column name="codopcion" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="genopciones" class="com.humtrusa.entidades.Genopciones" fetch="select">
+            <column name="opcioncontenedora" />
+        </many-to-one>
+        <property name="titulo" type="string">
+            <column name="titulo" length="50" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="50" not-null="true" />
+        </property>
+        <property name="codsistema" type="string">
+            <column name="codsistema" length="3" />
+        </property>
+        <property name="tipoprograma" type="java.lang.Character">
+            <column name="tipoprograma" length="1" />
+        </property>
+        <property name="confirmaclave" type="java.lang.Character">
+            <column name="confirmaclave" length="1" />
+        </property>
+        <property name="ordenpresentacion" type="java.lang.Long">
+            <column name="ordenpresentacion" />
+        </property>
+        <property name="icono" type="string">
+            <column name="icono" length="30" />
+        </property>
+        <property name="href" type="string">
+            <column name="href" length="100" />
+        </property>
+        <property name="codestado" type="long">
+            <column name="codestado" not-null="true" />
+        </property>
+        <property name="usuariocambioestado" type="string">
+            <column name="usuariocambioestado" length="10" />
+        </property>
+        <property name="fechacambioestado" type="date">
+            <column name="fechacambioestado" length="10" />
+        </property>
+        <property name="codusuario" type="string">
+            <column name="codusuario" length="15" not-null="true" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" not-null="true" />
+        </property>
+        <property name="minutosbloqueo" type="java.lang.Long">
+            <column name="minutosbloqueo" />
+        </property>
+        <property name="especial" type="string">
+            <column name="especial" length="1" />
+        </property>
+        <property name="titulopagina" type="string">
+            <column name="titulopagina" length="300" />
+        </property>
+        <property name="titulopanel" type="string">
+            <column name="titulopanel" length="300" />
+        </property>
+        <property name="descripcionpagina" type="string">
+            <column name="descripcionpagina" length="300" />
+        </property>
+        <property name="anchopanelfiltros" type="java.lang.Long">
+            <column name="anchopanelfiltros" />
+        </property>
+        <property name="opciondinamica" type="java.lang.Long">
+            <column name="opciondinamica" />
+        </property>
+        <set name="genrecursoses" table="genrecursos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codopcion" not-null="true" />
+            </key>
+            <one-to-many class="com.humtrusa.entidades.Genrecursos" />
+        </set>
+        <set name="genopcioneses" table="genopciones" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="opcioncontenedora" />
+            </key>
+            <one-to-many class="com.humtrusa.entidades.Genopciones" />
+        </set>
+    </class>
+</hibernate-mapping>

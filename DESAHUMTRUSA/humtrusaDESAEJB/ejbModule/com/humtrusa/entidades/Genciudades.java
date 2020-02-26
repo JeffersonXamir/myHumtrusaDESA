@@ -1,5 +1,5 @@
 package com.humtrusa.entidades;
-// Generated 23/02/2020 2:47:59 by Hibernate Tools 3.5.0.Final
+// Generated 25/02/2020 21:11:45 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 
@@ -8,9 +8,10 @@ import java.util.Date;
  */
 public class Genciudades implements java.io.Serializable {
 
-	private GenciudadesId id;
+	private Long codciudad;
+	private Genestados genestados;
 	private Genprovincias genprovincias;
-	private Long codestado;
+	private Genpaises genpaises;
 	private String nombreciudad;
 	private String codusuario;
 	private Date fecharegistro;
@@ -19,28 +20,36 @@ public class Genciudades implements java.io.Serializable {
 	public Genciudades() {
 	}
 
-	public Genciudades(GenciudadesId id, Genprovincias genprovincias) {
-		this.id = id;
+	public Genciudades(Genprovincias genprovincias, Genpaises genpaises) {
 		this.genprovincias = genprovincias;
+		this.genpaises = genpaises;
 	}
 
-	public Genciudades(GenciudadesId id, Genprovincias genprovincias, Long codestado, String nombreciudad,
+	public Genciudades(Genestados genestados, Genprovincias genprovincias, Genpaises genpaises, String nombreciudad,
 			String codusuario, Date fecharegistro, String codarea) {
-		this.id = id;
+		this.genestados = genestados;
 		this.genprovincias = genprovincias;
-		this.codestado = codestado;
+		this.genpaises = genpaises;
 		this.nombreciudad = nombreciudad;
 		this.codusuario = codusuario;
 		this.fecharegistro = fecharegistro;
 		this.codarea = codarea;
 	}
 
-	public GenciudadesId getId() {
-		return this.id;
+	public Long getCodciudad() {
+		return this.codciudad;
 	}
 
-	public void setId(GenciudadesId id) {
-		this.id = id;
+	public void setCodciudad(Long codciudad) {
+		this.codciudad = codciudad;
+	}
+
+	public Genestados getGenestados() {
+		return this.genestados;
+	}
+
+	public void setGenestados(Genestados genestados) {
+		this.genestados = genestados;
 	}
 
 	public Genprovincias getGenprovincias() {
@@ -51,12 +60,12 @@ public class Genciudades implements java.io.Serializable {
 		this.genprovincias = genprovincias;
 	}
 
-	public Long getCodestado() {
-		return this.codestado;
+	public Genpaises getGenpaises() {
+		return this.genpaises;
 	}
 
-	public void setCodestado(Long codestado) {
-		this.codestado = codestado;
+	public void setGenpaises(Genpaises genpaises) {
+		this.genpaises = genpaises;
 	}
 
 	public String getNombreciudad() {

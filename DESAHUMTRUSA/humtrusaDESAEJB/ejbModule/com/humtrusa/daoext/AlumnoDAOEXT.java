@@ -8,6 +8,11 @@ import com.humtrusa.Sessionfactory.HibernateSessionFactory;
 import com.humtrusa.entidades.Alumnos;
 
 public class AlumnoDAOEXT {
+	
+	public static void main(String[] args) {
+		
+	}
+	
 	public List<Alumnos> obtenerAlumnos(String nombres, String apellidos, long Codestado){
 		List<Alumnos> lisalumno = null;
 		try {

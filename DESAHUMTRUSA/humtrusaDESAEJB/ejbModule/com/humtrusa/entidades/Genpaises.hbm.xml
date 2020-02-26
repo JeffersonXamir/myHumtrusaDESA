@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 23/02/2020 2:48:00 by Hibernate Tools 3.5.0.Final -->
+<!-- Generated 25/02/2020 21:11:46 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="com.humtrusa.entidades.Genpaises" table="genpaises" catalog="cursoextjs">
         <id name="codpais" type="long">
@@ -25,6 +25,18 @@
                 <column name="codpais" not-null="true" />
             </key>
             <one-to-many class="com.humtrusa.entidades.Genprovincias" />
+        </set>
+        <set name="genciudadeses" table="genciudades" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codpais" not-null="true" />
+            </key>
+            <one-to-many class="com.humtrusa.entidades.Genciudades" />
+        </set>
+        <set name="genregioneses" table="genregiones" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codpais" not-null="true" />
+            </key>
+            <one-to-many class="com.humtrusa.entidades.Genregiones" />
         </set>
     </class>
 </hibernate-mapping>

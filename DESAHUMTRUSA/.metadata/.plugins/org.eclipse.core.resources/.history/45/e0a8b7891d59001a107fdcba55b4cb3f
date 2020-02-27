@@ -1,0 +1,21 @@
+
+
+var inicioLogin = function (){
+	new Ext.Viewport({
+	    layout: 'border',
+	    items: [{
+	        region: 'center',
+	        html: '<h1 class="x-panel-header">Page Title</h1>',
+	        
+	        autoHeight: true,
+	        border: false,
+	        margins: '0 0 5 0'
+	    }]
+	});
+	
+}
+
+Ext.onReady(function() {
+	document.pantallainicial = new inicioLogin();
+});
+

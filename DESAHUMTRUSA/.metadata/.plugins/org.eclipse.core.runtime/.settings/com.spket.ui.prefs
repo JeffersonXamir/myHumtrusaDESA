@@ -1,2 +1,6 @@
 eclipse.preferences.version=1
+spket.taskCaseSensitive=enabled
+spket.taskPriorities=NORMAL,HIGH,NORMAL
+spket.taskTags=TODO,FIXME,XXX
 spket.ver=3940650773233664
+tab.size=4

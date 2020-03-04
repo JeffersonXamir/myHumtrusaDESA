@@ -1,0 +1,141 @@
+
+
+var inicioLogin = function (){
+	/*
+	new Ext.Viewport({
+	    layout: 'border',
+	    items: [{
+	        region: 'center',
+	        html: '<h1 class="x-panel-header">Page Title</h1>',
+	        tpl: '<img src="vistas/Login/logo.jpg" />',
+	        autoHeight: true,
+	        border: false,
+	        margins: '0 0 5 0'
+	    }]
+	});
+	*/
+	
+	var fieldSetsForma = {
+			flsDatosValidacion: new Ext.form.FieldSet({
+				title:"-PASO 1- Cantidad de Bonificados",
+				//tag: 'div',
+				//html: '<div class="app-msg"> <img src="img/magic-wand.png" class="app-img" />Log in to The Magic Forum</div>',
+				items: [      
+					{ xtype: 'box', 
+					autoEl: { tag: 'div',
+								html: '<div class="app-msg"> <img src="imagenes/usuarioLogin.png" class="app-img" />INGRESO AL SISTEMA </div>' }
+					 }
+				],
+				autoHeight: true
+				//height:140,
+				//width:350
+				//items:[
+				//    componentesDatosGenerales.idPremio,
+				//	componentesDatosGenerales.txtCantidad
+				//]
+			}),
+		
+			flsDatosClasificacion: new Ext.form.FieldSet({
+				title:"-PASO 2- Escoger Clasificaci&oacute;n",
+				autoHeight: true
+				//height:210,
+				//width:350
+				//items:[	]
+			})
+		};
+	
+	var loginForm = { xtype: 'form',  
+				id: 'login-form',   
+				bodyStyle: 'padding:15px;background:transparent',   
+				border: false,   
+				//url:'login.php',   
+				items: [      
+					{ xtype: 'box', 
+					autoEl: { tag: 'div',
+								html: '<div class="app-msg"> <img src="img/magic-wand.png" class="app-img" />Log in to The Magic Forum</div>' }
+					 },
+					{ xtype: 'textfield', 
+					id: 'login-user',
+					fieldLabel: 'Username', 
+					allowBlank: false, minLength: 3, maxLength: 32,  
+					msgTarget:'side'},  
+					{ xtype: 'textfield', id: 'login-pwd',  
+					fieldLabel: 'Password',    
+					inputType: 'password', allowBlank: false, minLength: 6,      
+					maxLength: 32, minLengthText: 'Password must be at least 6 characters long.', 
+					msgTarget:'side'  }  
+					], 
+				buttons: [{  text: 'Login', 
+							handler: function(){ 
+							Ext.getCmp('login-form').getForm().submit();      
+							}   },  
+							{ text: 'Cancel',    
+							handler: function() {     
+								win.hide();    
+							}   }] }
+
+	
+	var panelSecundario = new Ext.Panel({
+				layout : "column",
+				region : "center",
+				collapsible : true,
+				//bodyStyle: 'padding:15px;background:transparent', 
+				//autoHeight: true,
+				height : 250,
+				border : true,
+				items : [
+						new Ext.Panel({
+							border:true,
+							bodyStyle:"padding:5px",
+							layout:"form",
+							columnWidth:0.5,
+							height : 200,
+							items:[fieldSetsForma.flsDatosValidacion]
+							 //      fieldSetsForma.flsDatosClasificacion]
+						}),
+						new Ext.Panel({
+							border:true,
+							bodyStyle:"padding:5px",
+							layout:"form",
+							columnWidth:0.5,
+							height : 200,
+							items:[fieldSetsForma.flsDatosClasificacion]
+						})				
+				]
+	});
+			
+	var panelPrincipal = new Ext.form.FormPanel({
+		// region:"center",
+		layout : "border",
+		labelWidth : 70,
+		style : "padding:0px",
+		monitorValid : true,
+		buttonAlign : "center",
+		region : "center",
+		items : [panelSecundario]
+		//buttons : [botones.cmdGuardar, botones.cmdCancelar]
+	});
+	
+	var vntLogin = new Ext.Window({
+		xtype : "window",
+		title : "Login",
+		width : 700,
+		height : 300,
+		//resizable : true,
+		//modal : true,
+		closable : false,
+		//closeAction : "hide",
+		layout : "border",
+		items : [panelPrincipal]
+			// ,
+			// bbar: controladorBloqueos.crearBarraBloqueos()
+		});
+	//vntLogin.show();
+	vntLogin.setVisible(true);
+	vntLogin.center();
+}
+
+Ext.onReady(function() {
+	document.pantallainicial = new inicioLogin();
+});
+

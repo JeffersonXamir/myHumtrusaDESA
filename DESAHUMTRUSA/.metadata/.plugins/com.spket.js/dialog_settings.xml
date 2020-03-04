@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<item key="com.spket.jsformatter_page.white_space.java_view.inner" value="0"/>
+	<item key="com.spket.jsformatter_page.white_space_tab_page.node" value="0"/>
+	<item key="com.spket.jsformatter_page.line_wrapping_tab_page.last_category_index" value="1"/>
+	<item key="com.spket.jsformatter_pagemodify_dialog.preferred_width" value="993"/>
+	<item key="com.spket.jsformatter_pagemodify_dialog.preferred_height" value="728"/>
+	<item key="com.spket.jsformatter_pagemodify_dialog.preferred_x" value="187"/>
+	<item key="com.spket.jsformatter_pagemodify_dialog.preferred_y" value="0"/>
 	<section name="completion_proposal_size">
 	</section>
 </section>

@@ -1,4 +1,9 @@
 eclipse.preferences.version=1
-org.eclipse.wst.jsdt.core.PREF_JS_RUNTIME_INSTALLS_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<runtimeSettings/>\r\n
+org.eclipse.wst.jsdt.core.PREF_JS_RUNTIME_INSTALLS_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<runtimeSettings>\r\n<runtimeType defaultRuntime\="1583307185757" id\="org.eclipse.wst.jsdt.js.node.runtimeType">\r\n<runtime id\="1583307185757" name\="node.exe" path\="C\:\\Users\\usuario\\.webclipse\\nodejs\\node-v4.2.4-win32-x86_64\\node.exe"/>\r\n</runtimeType>\r\n<runtimeType defaultRuntime\="1583307218707" id\="org.eclipse.wst.jsdt.chromium.debug.js.runtimeType">\r\n<runtime id\="1583307218707" name\="node.exe" path\="C\:\\Users\\usuario\\.webclipse\\nodejs\\node-v4.2.4-win32-x86_64\\node.exe"/>\r\n</runtimeType>\r\n</runtimeSettings>\r\n
+org.eclipse.wst.jsdt.core.codeComplete.argumentPrefixes=
+org.eclipse.wst.jsdt.core.codeComplete.argumentSuffixes=
+org.eclipse.wst.jsdt.core.codeComplete.localPrefixes=
+org.eclipse.wst.jsdt.core.codeComplete.localSuffixes=
 org.eclipse.wst.jsdt.core.codeComplete.visibilityCheck=enabled
+org.eclipse.wst.jsdt.core.timeoutForParameterNameFromAttachedJavadoc=50
 strictOnKeywordUsage=disabled

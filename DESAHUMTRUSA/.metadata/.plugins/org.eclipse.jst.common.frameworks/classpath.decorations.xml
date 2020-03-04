@@ -1,0 +1,7 @@
+<classpath>
+  <container id="humtrusaDESAWeb!org.eclipse.jst.j2ee.internal.web.container">
+    <entry id="C:/ZDESARROLLO/DESAHUMTRUSA/humtrusaDESAWeb/WebContent/WEB-INF/lib/axis2-kernel-1.7.9.jar">
+      <source-attachment-path>C:/Users/usuario/.m2/repository/org/apache/axis2/axis2-kernel/1.7.9/axis2-kernel-1.7.9-sources.jar</source-attachment-path>
+    </entry>
+  </container>
+</classpath>

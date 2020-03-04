@@ -1,0 +1,13 @@
+package com.humtrusa.webServices;
+
+public class WSproveedor {
+	
+	public String Respuesta(String nombre) {
+		String retorno ="";
+		
+		retorno = "HOLA, BIENVENIDO "+nombre;
+		
+		return retorno;
+		
+	}
+}

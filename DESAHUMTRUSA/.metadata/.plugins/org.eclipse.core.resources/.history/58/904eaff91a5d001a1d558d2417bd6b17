@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>humtrusaDESAWeb</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>/axis2-web/index.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description>
+			Servicio de administracion de vendedores
+		</description>
+    <display-name>
+			Servicio del administracion de vendedores
+		</display-name>
+    <display-name>SAdministracionGeneral</display-name>
+    <servlet-name>SAdministracionGeneral</servlet-name>
+    <servlet-class>com.humtrusa.administracion.SAdministracionGeneral</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SAdministracionGeneral</servlet-name>
+    <url-pattern>/servlet/SAdministracionGeneral</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PantallaPrincipalDatos</display-name>
+    <servlet-name>PantallaPrincipalDatos</servlet-name>
+    <servlet-class>com.humtrusa.servicios.PantallaPrincipalDatos</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PantallaPrincipalDatos</servlet-name>
+    <url-pattern>/PantallaPrincipalDatos</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SAdministracionProveedores</display-name>
+    <servlet-name>SAdministracionProveedores</servlet-name>
+    <servlet-class>com.humtrusa.administracion.SAdministracionProveedores</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SAdministracionProveedores</servlet-name>
+    <url-pattern>/servlet/SAdministracionProveedores</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>humtrusaDESAWeb</display-name>
+    <servlet-name>humtrusaDESAWeb</servlet-name>
+    <servlet-class>com.humtrusa.webServices.humtrusaDESAWeb</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>humtrusaDESAWeb</servlet-name>
+    <url-pattern>/humtrusaDESAWeb</url-pattern>
+  </servlet-mapping>
+</web-app>

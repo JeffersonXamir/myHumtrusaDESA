@@ -8,6 +8,7 @@
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
+    <welcome-file>/axis2-web/index.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
     <description>
@@ -24,7 +25,6 @@
     <servlet-name>SAdministracionGeneral</servlet-name>
     <url-pattern>/servlet/SAdministracionGeneral</url-pattern>
   </servlet-mapping>
-
   <servlet>
     <description></description>
     <display-name>PantallaPrincipalDatos</display-name>
@@ -35,7 +35,6 @@
     <servlet-name>PantallaPrincipalDatos</servlet-name>
     <url-pattern>/PantallaPrincipalDatos</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>SAdministracionProveedores</display-name>
@@ -45,5 +44,25 @@
   <servlet-mapping>
     <servlet-name>SAdministracionProveedores</servlet-name>
     <url-pattern>/servlet/SAdministracionProveedores</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>humtrusaDESAWeb</display-name>
+    <servlet-name>humtrusaDESAWeb</servlet-name>
+    <servlet-class>com.humtrusa.webServices.humtrusaDESAWeb</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>humtrusaDESAWeb</servlet-name>
+    <url-pattern>/humtrusaDESAWeb</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>WSproveedores</display-name>
+    <servlet-name>WSproveedores</servlet-name>
+    <servlet-class>com.humtrusa.webServices.WSproveedores</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>WSproveedores</servlet-name>
+    <url-pattern>/WSproveedores</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -76,5 +76,6 @@
 	<classpathentry kind="lib" path="/humtrusaDESA/lib/xmlsec-1.4.2-ADSI-1.1.jar"/>
 	<classpathentry kind="lib" path="/humtrusaDESA/lib/xmlsec-1.5.5.jar"/>
 	<classpathentry kind="lib" path="/humtrusaDESA/lib/xstream-1.4.1.jar"/>
+	<classpathentry kind="lib" path="/humtrusaDESA/lib/org.apache.axis2.eclipse.service.plugin_1.7.9.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

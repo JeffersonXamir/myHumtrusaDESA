@@ -7,7 +7,7 @@ var PlantillasProceso = function() {
 		parametro_bloqueo : null,
 		codProveedor : null
 	};
-
+	
 	var campoCabecera = [["S", "S"], ["1", "1"], ["2", "2"], ["3", "3"]];
 
 	var ptr = this;

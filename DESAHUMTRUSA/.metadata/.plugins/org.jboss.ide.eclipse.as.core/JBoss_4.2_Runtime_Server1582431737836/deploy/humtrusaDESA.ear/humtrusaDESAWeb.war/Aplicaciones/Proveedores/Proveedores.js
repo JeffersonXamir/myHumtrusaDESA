@@ -1,8 +1,7 @@
 var Plantillas = function() {
-
 	var check = new Ext.grid.CheckboxSelectionModel();
 	var codigoSistema = "";
-
+	
 	var parametrosTransportador = {
 		listarSistemas : {
 			orden : "COMBO_SISTEMAS",

@@ -1,55 +1,60 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 25/02/2020 21:11:46 by Hibernate Tools 3.5.0.Final -->
+<!-- Generated 04/03/2020 18:22:18 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="com.humtrusa.entidades.Genempresas" table="genempresas" catalog="cursoextjs">
-        <composite-id name="id" class="com.humtrusa.entidades.GenempresasId">
-            <key-property name="codempresa" type="string">
-                <column name="codempresa" length="16777215" />
-            </key-property>
-            <key-property name="nombre" type="string">
-                <column name="nombre" length="80" />
-            </key-property>
-            <key-property name="gerente" type="string">
-                <column name="gerente" length="80" />
-            </key-property>
-            <key-property name="ruccontador" type="string">
-                <column name="ruccontador" length="13" />
-            </key-property>
-            <key-property name="tipoidreplegal" type="string">
-                <column name="tipoidreplegal" length="80" />
-            </key-property>
-            <key-property name="idreplegal" type="string">
-                <column name="idreplegal" length="80" />
-            </key-property>
-            <key-property name="codusuario" type="string">
-                <column name="codusuario" length="80" />
-            </key-property>
-            <key-property name="fecha" type="date">
-                <column name="fecha" length="10" />
-            </key-property>
-            <key-property name="codpais" type="string">
-                <column name="codpais" length="16777215" />
-            </key-property>
-            <key-property name="hostcorreo" type="string">
-                <column name="hostcorreo" length="100" />
-            </key-property>
-            <key-property name="rucempresa" type="string">
-                <column name="rucempresa" length="13" />
-            </key-property>
-            <key-property name="tipoidempresa" type="string">
-                <column name="tipoidempresa" length="16777215" />
-            </key-property>
-            <key-property name="escontribuyenteespecial" type="string">
-                <column name="escontribuyenteespecial" length="2" />
-            </key-property>
-            <key-property name="numresolucion" type="string">
-                <column name="numresolucion" length="20" />
-            </key-property>
-            <key-property name="lineagrupoempresarial" type="string">
-                <column name="lineagrupoempresarial" length="16777215" />
-            </key-property>
-        </composite-id>
+        <id name="codempresa" type="java.lang.Long">
+            <column name="codempresa" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="80" />
+        </property>
+        <property name="gerente" type="string">
+            <column name="gerente" length="80" />
+        </property>
+        <property name="ruccontador" type="string">
+            <column name="ruccontador" length="13" />
+        </property>
+        <property name="tipoidreplegal" type="string">
+            <column name="tipoidreplegal" length="80" />
+        </property>
+        <property name="idreplegal" type="string">
+            <column name="idreplegal" length="80" />
+        </property>
+        <property name="codusuario" type="string">
+            <column name="codusuario" length="80" />
+        </property>
+        <property name="fecha" type="date">
+            <column name="fecha" length="10" />
+        </property>
+        <property name="codpais" type="string">
+            <column name="codpais" length="16777215" />
+        </property>
+        <property name="hostcorreo" type="string">
+            <column name="hostcorreo" length="100" />
+        </property>
+        <property name="rucempresa" type="string">
+            <column name="rucempresa" length="13" />
+        </property>
+        <property name="tipoidempresa" type="string">
+            <column name="tipoidempresa" length="16777215" />
+        </property>
+        <property name="escontribuyenteespecial" type="string">
+            <column name="escontribuyenteespecial" length="2" />
+        </property>
+        <property name="numresolucion" type="string">
+            <column name="numresolucion" length="20" />
+        </property>
+        <property name="lineagrupoempresarial" type="string">
+            <column name="lineagrupoempresarial" length="16777215" />
+        </property>
+        <set name="genclienteses" table="genclientes" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codempresa" />
+            </key>
+            <one-to-many class="com.humtrusa.entidades.Genclientes" />
+        </set>
     </class>
 </hibernate-mapping>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 25/02/2020 21:11:46 by Hibernate Tools 3.5.0.Final -->
+<!-- Generated 04/03/2020 18:22:18 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="com.humtrusa.entidades.Genestados" table="genestados" catalog="cursoextjs">
         <id name="codestado" type="java.lang.Long">
@@ -17,6 +17,12 @@
         <property name="fecha" type="date">
             <column name="fecha" length="10" not-null="true" />
         </property>
+        <set name="genusuarioses" table="genusuarios" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codestado" />
+            </key>
+            <one-to-many class="com.humtrusa.entidades.Genusuarios" />
+        </set>
         <set name="genregioneses" table="genregiones" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="codestado" not-null="true" />

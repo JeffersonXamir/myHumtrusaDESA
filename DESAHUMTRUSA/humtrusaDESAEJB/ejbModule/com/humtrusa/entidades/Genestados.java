@@ -1,5 +1,5 @@
 package com.humtrusa.entidades;
-// Generated 25/02/2020 21:11:45 by Hibernate Tools 3.5.0.Final
+// Generated 04/03/2020 18:22:17 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -14,6 +14,7 @@ public class Genestados implements java.io.Serializable {
 	private String descripcion;
 	private String codusuario;
 	private Date fecha;
+	private Set genusuarioses = new HashSet(0);
 	private Set genregioneses = new HashSet(0);
 	private Set genciudadeses = new HashSet(0);
 	private Set genprovinciases = new HashSet(0);
@@ -27,11 +28,12 @@ public class Genestados implements java.io.Serializable {
 		this.fecha = fecha;
 	}
 
-	public Genestados(String descripcion, String codusuario, Date fecha, Set genregioneses, Set genciudadeses,
-			Set genprovinciases) {
+	public Genestados(String descripcion, String codusuario, Date fecha, Set genusuarioses, Set genregioneses,
+			Set genciudadeses, Set genprovinciases) {
 		this.descripcion = descripcion;
 		this.codusuario = codusuario;
 		this.fecha = fecha;
+		this.genusuarioses = genusuarioses;
 		this.genregioneses = genregioneses;
 		this.genciudadeses = genciudadeses;
 		this.genprovinciases = genprovinciases;
@@ -67,6 +69,14 @@ public class Genestados implements java.io.Serializable {
 
 	public void setFecha(Date fecha) {
 		this.fecha = fecha;
+	}
+
+	public Set getGenusuarioses() {
+		return this.genusuarioses;
+	}
+
+	public void setGenusuarioses(Set genusuarioses) {
+		this.genusuarioses = genusuarioses;
 	}
 
 	public Set getGenregioneses() {

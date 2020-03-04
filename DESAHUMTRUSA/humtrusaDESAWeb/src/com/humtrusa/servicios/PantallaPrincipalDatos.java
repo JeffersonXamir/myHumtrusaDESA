@@ -69,9 +69,15 @@ public class PantallaPrincipalDatos extends HttpServlet {
 		dispather.forward(request, response);*/
 		// MODO LOCAL 
 		System.out.println("alfn");
-		String[] recurso = { "<script type=\"text/javascript\"	src=\"Aplicaciones/Proveedores/Proveedores.js\"></script>",
+		/*String[] recurso = { "<script type=\"text/javascript\"	src=\"Aplicaciones/Proveedores/Proveedores.js\"></script>",
 							 "<script type=\"text/javascript\"	src=\"Aplicaciones/Proveedores/ProveedoresProceso.js\"></script>",
 							 "<script type=\"text/javascript\"	src=\"Aplicaciones/Proveedores/Inicializaciones.js\"></script>"};
+		*/
+		//muñoz clientes 
+		String[] recurso = { "<script type=\"text/javascript\"	src=\"Aplicaciones/Clientes/Clientes.js\"></script>",
+				 			"<script type=\"text/javascript\"	src=\"Aplicaciones/Clientes/ClientesProceso.js\"></script>",
+							"<script type=\"text/javascript\"	src=\"Aplicaciones/Clientes/Inicializaciones.js\"></script>"};
+		
 		String[] countries = {"ecuador","japon","chile"};
 		 
 		request.setAttribute("countries", countries);

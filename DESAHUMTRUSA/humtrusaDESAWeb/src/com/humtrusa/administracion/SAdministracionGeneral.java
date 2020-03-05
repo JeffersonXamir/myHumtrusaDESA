@@ -50,6 +50,19 @@ public class SAdministracionGeneral extends HttpServlet {
 				
 		return beanGeneral.obtenerVendedores(nombres,apellidos,codigoEstado);
 	}
+	
+	public String ACCESOLOGIN(HttpServletRequest request){
+		System.out.println("ACCESOLOGIN");
+		String user = (request.getParameter("user")!=null && !request.getParameter("user").replace(" ","").equals(""))?request.getParameter("user"):null;
+		String pass = (request.getParameter("pass")!=null && !request.getParameter("pass").replace(" ","").equals(""))?request.getParameter("pass"):null;
+		String str="";
+		try {		
+		str= beanGeneral.ACCESOLOGIN(user,pass);
+		}catch(Exception e) {
+			System.out.println("EROOR ");e.printStackTrace();
+		}
+		return str;
+	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -81,7 +94,11 @@ public class SAdministracionGeneral extends HttpServlet {
 				out.print(listarAlumnos(request));
 				break;
 				
-			
+			case LOGIN:
+				response.setContentType("text/json");
+				System.out.println("LOGIN");
+				out.print(ACCESOLOGIN(request));
+				break;
 		}
 		
 		out.flush();

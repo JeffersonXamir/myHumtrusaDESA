@@ -14,6 +14,12 @@ var inicioLogin = function (){
 	    }]
 	});
 	*/
+	var generales = {
+	
+		url: "servlet/SAdministracionGeneral"
+	
+	};
+	
 	var botones = {
 		cmdCancelar: new Ext.Button({text:"Cancelar",icon:"imagenes/cancel.png",cls:"x-btn-text-icon"}),
 		cmdIngreso: new Ext.Button({text:"Ingresar",icon:"imagenes/bullet_go.png",cls:"x-btn-text-icon"})
@@ -121,6 +127,55 @@ var inicioLogin = function (){
 	//vntLogin.show();
 	vntLogin.setVisible(true);
 	vntLogin.center();
+
+
+	botones.cmdIngreso.on("click",function(){
+		var usuario = Ext.getCmp("login-user").getValue();
+		var contra = Ext.getCmp("login-pwd").getValue();
+		var respuesta =null;
+		
+		if( usuario == "" ){
+			Ext.MessageBox.show({title:"Atenci\xf3n", 
+								msg: "Ingrese un Usuario", 
+								buttons:Ext.MessageBox.OK, 
+								icon:Ext.MessageBox.WARNING});
+			return;
+		}
+		if( contra == "" ){
+			Ext.MessageBox.show({title:"Atenci\xf3n", 
+								msg: "Ingrese una Contraseña", 
+								buttons:Ext.MessageBox.OK, 
+								icon:Ext.MessageBox.WARNING});
+			return;
+		}
+		var paramsDat = {			
+						url: generales.url,
+						params:{
+							orden: "LOGIN",
+							user: usuario,
+							pass: contra
+							
+						},
+						success: function(response){
+							respuesta = Ext.decode(response.responseText);
+							
+							if(respuesta.exito == false){
+								Ext.MessageBox.show({title:"Atenci\xf3n", 
+													msg: respuesta.mensaje, 
+													buttons:Ext.MessageBox.OK, 
+													icon:Ext.MessageBox.ERROR}
+													);
+							}else{
+							
+							}
+							 
+						}
+				}
+		Ext.Ajax.request(paramsDat);
+		
+	});
+
+
 }
 
 Ext.onReady(function() {

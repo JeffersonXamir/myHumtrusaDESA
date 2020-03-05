@@ -4,13 +4,16 @@ import java.util.List;
 
 import javax.ejb.Stateless;
 
+import org.hibernate.Query;
 import org.hibernate.Session;
 
-
+import com.humtrusa.General.AES;
 import com.humtrusa.Sessionfactory.HibernateSessionFactory;
 import com.humtrusa.daoext.AlumnoDAOEXT;
 import com.humtrusa.entidades.Alumnos;
+import com.humtrusa.entidades.Genusuarios;
 import com.humtrusa.estandarizadores.estandarizador;
+
 
 /**
  * Session Bean implementation class BAdministracionGeneral
@@ -72,5 +75,37 @@ public class BAdministracionGeneral implements BAdministracionGeneralLocal {
 		}
 		
 		return strBuff.toString();
+	}
+    
+    /**
+	 * ACCESO A HUMTRUSA VALIDACION DE USUARIO
+	 * @param nombres
+	 * @param apellidos
+	 * @param codigoEstado
+	 * @return
+	 */
+	public String ACCESOLOGIN(String user,String pass) {
+		String salida="";
+		Genusuarios usuario = new Genusuarios();
+		String aesPASS ="";
+		Session ses = null;
+		Query query = null;
+		try {
+			aesPASS = new AES().encrypt(pass);
+			ses = HibernateSessionFactory.getSession();
+			query = ses.createQuery("from Genusuarios g where g.codusuario = '"+user+"' and g.clave = '"+aesPASS+"' and g.genestados.codestado = 1 ");
+			usuario = (Genusuarios) query.uniqueResult();
+			
+			if(usuario == null)
+				throw new Exception("Usuario o Contraseña Incorrectas");
+			
+			salida = "{\"success\":\"true\",\"exito\":true,\"mensaje\":\"exito\"}";
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "{\"success\":\"true\",\"exito\":false,\"mensaje\":\""+e.getMessage()+"\"}";
+		}
+		
+		return salida;
 	}
 }

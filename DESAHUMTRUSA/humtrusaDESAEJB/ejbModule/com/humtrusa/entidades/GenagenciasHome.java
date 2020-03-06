@@ -1,5 +1,5 @@
 package com.humtrusa.entidades;
-// Generated 04/03/2020 18:22:18 by Hibernate Tools 3.5.0.Final
+// Generated 06/03/2020 14:23:57 by Hibernate Tools 3.5.0.Final
 
 import java.util.List;
 import javax.naming.InitialContext;
@@ -85,7 +85,7 @@ public class GenagenciasHome {
 		}
 	}
 
-	public Genagencias findById(com.humtrusa.entidades.GenagenciasId id) {
+	public Genagencias findById(java.lang.Long id) {
 		log.debug("getting Genagencias instance with id: " + id);
 		try {
 			Genagencias instance = (Genagencias) sessionFactory.getCurrentSession()

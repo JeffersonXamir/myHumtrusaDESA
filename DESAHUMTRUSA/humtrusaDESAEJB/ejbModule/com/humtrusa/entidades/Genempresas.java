@@ -1,5 +1,5 @@
 package com.humtrusa.entidades;
-// Generated 04/03/2020 18:22:17 by Hibernate Tools 3.5.0.Final
+// Generated 06/03/2020 14:23:56 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -11,6 +11,7 @@ import java.util.Set;
 public class Genempresas implements java.io.Serializable {
 
 	private Long codempresa;
+	private Genpaises genpaises;
 	private String nombre;
 	private String gerente;
 	private String ruccontador;
@@ -18,21 +19,21 @@ public class Genempresas implements java.io.Serializable {
 	private String idreplegal;
 	private String codusuario;
 	private Date fecha;
-	private String codpais;
 	private String hostcorreo;
 	private String rucempresa;
-	private String tipoidempresa;
+	private Long tipoidempresa;
 	private String escontribuyenteespecial;
 	private String numresolucion;
-	private String lineagrupoempresarial;
-	private Set genclienteses = new HashSet(0);
+	private Long lineagrupoempresarial;
+	private Set genagenciases = new HashSet(0);
 
 	public Genempresas() {
 	}
 
-	public Genempresas(String nombre, String gerente, String ruccontador, String tipoidreplegal, String idreplegal,
-			String codusuario, Date fecha, String codpais, String hostcorreo, String rucempresa, String tipoidempresa,
-			String escontribuyenteespecial, String numresolucion, String lineagrupoempresarial, Set genclienteses) {
+	public Genempresas(Genpaises genpaises, String nombre, String gerente, String ruccontador, String tipoidreplegal,
+			String idreplegal, String codusuario, Date fecha, String hostcorreo, String rucempresa, Long tipoidempresa,
+			String escontribuyenteespecial, String numresolucion, Long lineagrupoempresarial, Set genagenciases) {
+		this.genpaises = genpaises;
 		this.nombre = nombre;
 		this.gerente = gerente;
 		this.ruccontador = ruccontador;
@@ -40,14 +41,13 @@ public class Genempresas implements java.io.Serializable {
 		this.idreplegal = idreplegal;
 		this.codusuario = codusuario;
 		this.fecha = fecha;
-		this.codpais = codpais;
 		this.hostcorreo = hostcorreo;
 		this.rucempresa = rucempresa;
 		this.tipoidempresa = tipoidempresa;
 		this.escontribuyenteespecial = escontribuyenteespecial;
 		this.numresolucion = numresolucion;
 		this.lineagrupoempresarial = lineagrupoempresarial;
-		this.genclienteses = genclienteses;
+		this.genagenciases = genagenciases;
 	}
 
 	public Long getCodempresa() {
@@ -56,6 +56,14 @@ public class Genempresas implements java.io.Serializable {
 
 	public void setCodempresa(Long codempresa) {
 		this.codempresa = codempresa;
+	}
+
+	public Genpaises getGenpaises() {
+		return this.genpaises;
+	}
+
+	public void setGenpaises(Genpaises genpaises) {
+		this.genpaises = genpaises;
 	}
 
 	public String getNombre() {
@@ -114,14 +122,6 @@ public class Genempresas implements java.io.Serializable {
 		this.fecha = fecha;
 	}
 
-	public String getCodpais() {
-		return this.codpais;
-	}
-
-	public void setCodpais(String codpais) {
-		this.codpais = codpais;
-	}
-
 	public String getHostcorreo() {
 		return this.hostcorreo;
 	}
@@ -138,11 +138,11 @@ public class Genempresas implements java.io.Serializable {
 		this.rucempresa = rucempresa;
 	}
 
-	public String getTipoidempresa() {
+	public Long getTipoidempresa() {
 		return this.tipoidempresa;
 	}
 
-	public void setTipoidempresa(String tipoidempresa) {
+	public void setTipoidempresa(Long tipoidempresa) {
 		this.tipoidempresa = tipoidempresa;
 	}
 
@@ -162,20 +162,20 @@ public class Genempresas implements java.io.Serializable {
 		this.numresolucion = numresolucion;
 	}
 
-	public String getLineagrupoempresarial() {
+	public Long getLineagrupoempresarial() {
 		return this.lineagrupoempresarial;
 	}
 
-	public void setLineagrupoempresarial(String lineagrupoempresarial) {
+	public void setLineagrupoempresarial(Long lineagrupoempresarial) {
 		this.lineagrupoempresarial = lineagrupoempresarial;
 	}
 
-	public Set getGenclienteses() {
-		return this.genclienteses;
+	public Set getGenagenciases() {
+		return this.genagenciases;
 	}
 
-	public void setGenclienteses(Set genclienteses) {
-		this.genclienteses = genclienteses;
+	public void setGenagenciases(Set genagenciases) {
+		this.genagenciases = genagenciases;
 	}
 
 }

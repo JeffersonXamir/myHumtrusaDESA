@@ -1,11 +1,11 @@
-#Thu Mar 05 02:32:24 COT 2020
+#Fri Mar 06 13:48:33 COT 2020
 vl=How many times the 'Finish' button pressed during the day
 l=Wizard class name
 ct=jbt
-d=1583393544796
+d=1583520513080
 c=0
 cmp=usage
 a=finishWizard
 cl=org.eclipse.jdt.internal.ui.wizards.NewClassCreationWizard
 v=2.2.202
-s=6
+s=1

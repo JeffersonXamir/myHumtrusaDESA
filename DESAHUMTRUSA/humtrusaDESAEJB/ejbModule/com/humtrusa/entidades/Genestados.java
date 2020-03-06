@@ -1,5 +1,5 @@
 package com.humtrusa.entidades;
-// Generated 04/03/2020 18:22:17 by Hibernate Tools 3.5.0.Final
+// Generated 06/03/2020 14:23:56 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -15,9 +15,11 @@ public class Genestados implements java.io.Serializable {
 	private String codusuario;
 	private Date fecha;
 	private Set genusuarioses = new HashSet(0);
+	private Set usuariosxagencias = new HashSet(0);
 	private Set genregioneses = new HashSet(0);
 	private Set genciudadeses = new HashSet(0);
 	private Set genprovinciases = new HashSet(0);
+	private Set genagenciases = new HashSet(0);
 
 	public Genestados() {
 	}
@@ -28,15 +30,17 @@ public class Genestados implements java.io.Serializable {
 		this.fecha = fecha;
 	}
 
-	public Genestados(String descripcion, String codusuario, Date fecha, Set genusuarioses, Set genregioneses,
-			Set genciudadeses, Set genprovinciases) {
+	public Genestados(String descripcion, String codusuario, Date fecha, Set genusuarioses, Set usuariosxagencias,
+			Set genregioneses, Set genciudadeses, Set genprovinciases, Set genagenciases) {
 		this.descripcion = descripcion;
 		this.codusuario = codusuario;
 		this.fecha = fecha;
 		this.genusuarioses = genusuarioses;
+		this.usuariosxagencias = usuariosxagencias;
 		this.genregioneses = genregioneses;
 		this.genciudadeses = genciudadeses;
 		this.genprovinciases = genprovinciases;
+		this.genagenciases = genagenciases;
 	}
 
 	public Long getCodestado() {
@@ -79,6 +83,14 @@ public class Genestados implements java.io.Serializable {
 		this.genusuarioses = genusuarioses;
 	}
 
+	public Set getUsuariosxagencias() {
+		return this.usuariosxagencias;
+	}
+
+	public void setUsuariosxagencias(Set usuariosxagencias) {
+		this.usuariosxagencias = usuariosxagencias;
+	}
+
 	public Set getGenregioneses() {
 		return this.genregioneses;
 	}
@@ -101,6 +113,14 @@ public class Genestados implements java.io.Serializable {
 
 	public void setGenprovinciases(Set genprovinciases) {
 		this.genprovinciases = genprovinciases;
+	}
+
+	public Set getGenagenciases() {
+		return this.genagenciases;
+	}
+
+	public void setGenagenciases(Set genagenciases) {
+		this.genagenciases = genagenciases;
 	}
 
 }

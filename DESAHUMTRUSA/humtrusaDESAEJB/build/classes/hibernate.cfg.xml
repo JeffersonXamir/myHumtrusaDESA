@@ -15,7 +15,6 @@
         <property name="hibernate.search.autoregister_listeners">true</property>
         <property name="hibernate.show_sql">false</property>
         <property name="hibernate.validator.apply_to_ddl">false</property>
-        <mapping resource="com/humtrusa/entidades/Genclientes.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Genestados.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Genproveedores.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Genempresas.hbm.xml" />
@@ -27,6 +26,7 @@
         <mapping resource="com/humtrusa/entidades/Genregiones.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Genusuarios.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Alumnos.hbm.xml" />
+        <mapping resource="com/humtrusa/entidades/Usuariosxagencia.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Materias.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Genagencias.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Genprovincias.hbm.xml" />

@@ -63,6 +63,28 @@ public class SAdministracionGeneral extends HttpServlet {
 		}
 		return str;
 	}
+	
+	public String obtenerEmpresas(HttpServletRequest request){
+		String str="";
+		try {		
+		str= beanGeneral.obtenerEmpresas();
+		}catch(Exception e) {
+			System.out.println("EROOR ");e.printStackTrace();
+		}
+		return str;
+	}
+	
+	public String obtenerAgenciasxEmpresa(HttpServletRequest request){
+		String str="";
+		long codempresa = Long.parseLong(request.getParameter("codEmpresa")); 
+		long codestado = Long.parseLong(request.getParameter("estado"));
+		try {		
+		str= beanGeneral.obtenerAgenciasxEmpresa(codempresa,codestado);
+		}catch(Exception e) {
+			System.out.println("EROOR ");e.printStackTrace();
+		}
+		return str;
+	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -98,6 +120,16 @@ public class SAdministracionGeneral extends HttpServlet {
 				response.setContentType("text/json");
 				System.out.println("LOGIN");
 				out.print(ACCESOLOGIN(request));
+				break;
+				
+			case OBTENER_EMPRESAS:
+				System.out.println("OBTENER_EMPRESAS");
+				out.print(obtenerEmpresas(request));
+				break;
+				
+			case OBTENER_AGENCIASXEMPRESAS:
+				System.out.println("OBTENER_AGENCIASXEMPRESAS");
+				out.print(obtenerAgenciasxEmpresa(request));
 				break;
 		}
 		

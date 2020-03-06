@@ -21,4 +21,8 @@ public interface BAdministracionGeneralLocal {
 	 * @return
 	 */
 	public String ACCESOLOGIN(String user,String pass);
+	
+	public String obtenerEmpresas();
+	
+	public String obtenerAgenciasxEmpresa(long codempresa,long codestado);
 }

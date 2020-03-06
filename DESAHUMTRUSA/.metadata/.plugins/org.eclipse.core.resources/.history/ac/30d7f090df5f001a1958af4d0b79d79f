@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="cursoextjs" match-name="alumnos"/>
+  <table-filter match-catalog="cursoextjs" match-name="calificaciones"/>
+  <table-filter match-catalog="cursoextjs" match-name="genagencias"/>
+  <table-filter match-catalog="cursoextjs" match-name="genciudades"/>
+  <table-filter match-catalog="cursoextjs" match-name="genclientes"/>
+  <table-filter match-catalog="cursoextjs" match-name="genempresas"/>
+  <table-filter match-catalog="cursoextjs" match-name="genestados"/>
+  <table-filter match-catalog="cursoextjs" match-name="genopciones"/>
+  <table-filter match-catalog="cursoextjs" match-name="genpaises"/>
+  <table-filter match-catalog="cursoextjs" match-name="genproveedores"/>
+  <table-filter match-catalog="cursoextjs" match-name="genprovincias"/>
+  <table-filter match-catalog="cursoextjs" match-name="genrecursos"/>
+  <table-filter match-catalog="cursoextjs" match-name="genregiones"/>
+  <table-filter match-catalog="cursoextjs" match-name="genusuarios"/>
+  <table-filter match-catalog="cursoextjs" match-name="materias"/>
+</hibernate-reverse-engineering>

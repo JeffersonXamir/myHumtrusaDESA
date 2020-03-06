@@ -1,5 +1,5 @@
 package com.humtrusa.entidades;
-// Generated 04/03/2020 18:22:17 by Hibernate Tools 3.5.0.Final
+// Generated 06/03/2020 14:23:56 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -16,6 +16,7 @@ public class Genpaises implements java.io.Serializable {
 	private Date fecharegisto;
 	private String codinternacional;
 	private Set genprovinciases = new HashSet(0);
+	private Set genempresases = new HashSet(0);
 	private Set genciudadeses = new HashSet(0);
 	private Set genregioneses = new HashSet(0);
 
@@ -30,13 +31,14 @@ public class Genpaises implements java.io.Serializable {
 	}
 
 	public Genpaises(long codpais, String nombre, String codusuario, Date fecharegisto, String codinternacional,
-			Set genprovinciases, Set genciudadeses, Set genregioneses) {
+			Set genprovinciases, Set genempresases, Set genciudadeses, Set genregioneses) {
 		this.codpais = codpais;
 		this.nombre = nombre;
 		this.codusuario = codusuario;
 		this.fecharegisto = fecharegisto;
 		this.codinternacional = codinternacional;
 		this.genprovinciases = genprovinciases;
+		this.genempresases = genempresases;
 		this.genciudadeses = genciudadeses;
 		this.genregioneses = genregioneses;
 	}
@@ -87,6 +89,14 @@ public class Genpaises implements java.io.Serializable {
 
 	public void setGenprovinciases(Set genprovinciases) {
 		this.genprovinciases = genprovinciases;
+	}
+
+	public Set getGenempresases() {
+		return this.genempresases;
+	}
+
+	public void setGenempresases(Set genempresases) {
+		this.genempresases = genempresases;
 	}
 
 	public Set getGenciudadeses() {

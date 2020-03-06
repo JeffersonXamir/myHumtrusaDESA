@@ -10,7 +10,10 @@ import org.hibernate.Session;
 import com.humtrusa.General.AES;
 import com.humtrusa.Sessionfactory.HibernateSessionFactory;
 import com.humtrusa.daoext.AlumnoDAOEXT;
+import com.humtrusa.daoext.GenempresasDAOEXT;
 import com.humtrusa.entidades.Alumnos;
+import com.humtrusa.entidades.Genagencias;
+import com.humtrusa.entidades.Genempresas;
 import com.humtrusa.entidades.Genusuarios;
 import com.humtrusa.estandarizadores.estandarizador;
 
@@ -107,5 +110,80 @@ public class BAdministracionGeneral implements BAdministracionGeneralLocal {
 		}
 		
 		return salida;
+	}
+	
+	public String obtenerEmpresas() {
+		List<Genempresas> lsEmpresas = null;
+		Session ses = null;
+		StringBuffer strBuff = new StringBuffer(estandarizador.CABECERA_XML);
+		try{
+			
+			HibernateSessionFactory.getSession().clear();
+			ses = HibernateSessionFactory.getSession();
+			GenempresasDAOEXT dao = new GenempresasDAOEXT();
+
+			lsEmpresas = dao.obtenerEmpresas(); 
+			strBuff.append("<response success='true' >");
+			if(lsEmpresas!=null && lsEmpresas.size()>0){
+				//strBuff.append("<empresas><codigo>0</codigo><descripcion>TODOS</descripcion></empresas>");
+				for(Genempresas ep:lsEmpresas){
+									
+					strBuff.append("<empresas>");
+					strBuff.append("<codigo>"+ep.getCodempresa()+"</codigo>");
+					strBuff.append("<descripcion>"+(ep.getNombre()!=null?estandarizador.estandarizarCadena(ep.getNombre()):"")+"</descripcion>");
+					strBuff.append("</empresas>");
+				}
+			}else{
+				strBuff.append("<empresas><codigo>0</codigo><descripcion>TODOS</descripcion></empresas>");
+			}
+			
+			strBuff.append("</response>");
+		}catch(Exception e){
+			strBuff.delete(0,strBuff.length());
+			strBuff.append("");
+			strBuff.append("<response success='false'></response>");
+			e.printStackTrace();
+		}
+		
+		return strBuff.toString();
+		
+		
+	}
+	
+	public String obtenerAgenciasxEmpresa(long codempresa,long codestado) {
+		List<Genagencias> lsAgencias = null;
+		Session ses = null;
+		StringBuffer strBuff = new StringBuffer(estandarizador.CABECERA_XML);
+		try{
+			
+			HibernateSessionFactory.getSession().clear();
+			ses = HibernateSessionFactory.getSession();
+			GenempresasDAOEXT dao = new GenempresasDAOEXT();
+
+			lsAgencias = dao.obtenerAgenciasxEmpresa(codempresa, codestado); 
+			strBuff.append("<response success='true' >");
+			if(lsAgencias!=null && lsAgencias.size()>0){
+				//strBuff.append("<empresas><codigo>0</codigo><descripcion>TODOS</descripcion></empresas>");
+				for(Genagencias ep:lsAgencias){
+									
+					strBuff.append("<agencias>");
+					strBuff.append("<codigo>"+ep.getCodagencia()+"</codigo>");
+					strBuff.append("<descripcion>"+(ep.getNombre()!=null?estandarizador.estandarizarCadena(ep.getNombre()):"")+"</descripcion>");
+					strBuff.append("</agencias>");
+				}
+			}else{
+				strBuff.append("<agencias><codigo>0</codigo><descripcion>TODOS</descripcion></agencias>");
+			}
+			
+			strBuff.append("</response>");
+		}catch(Exception e){
+			strBuff.delete(0,strBuff.length());
+			strBuff.append("");
+			strBuff.append("<response success='false'></response>");
+			e.printStackTrace();
+		}
+		
+		return strBuff.toString();
+		
 	}
 }

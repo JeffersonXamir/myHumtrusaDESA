@@ -84,6 +84,7 @@ public class PantallaPrincipalDatos extends HttpServlet {
 		request.setAttribute("recurso", recurso);
 		
 		RequestDispatcher dispather = request.getRequestDispatcher("vistas/PantallaPrincipal/pantallaLocal.jsp");
+		//RequestDispatcher dispather = request.getRequestDispatcher("inicio.jsp");
 		dispather.forward(request, response);
 	} 
 	

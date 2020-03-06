@@ -1,5 +1,5 @@
 package com.humtrusa.entidades;
-// Generated 04/03/2020 18:22:17 by Hibernate Tools 3.5.0.Final
+// Generated 06/03/2020 14:23:56 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -18,7 +18,7 @@ public class Genciudades implements java.io.Serializable {
 	private String codusuario;
 	private Date fecharegistro;
 	private String codarea;
-	private Set genclienteses = new HashSet(0);
+	private Set genagenciases = new HashSet(0);
 
 	public Genciudades() {
 	}
@@ -29,7 +29,7 @@ public class Genciudades implements java.io.Serializable {
 	}
 
 	public Genciudades(Genestados genestados, Genprovincias genprovincias, Genpaises genpaises, String nombreciudad,
-			String codusuario, Date fecharegistro, String codarea, Set genclienteses) {
+			String codusuario, Date fecharegistro, String codarea, Set genagenciases) {
 		this.genestados = genestados;
 		this.genprovincias = genprovincias;
 		this.genpaises = genpaises;
@@ -37,7 +37,7 @@ public class Genciudades implements java.io.Serializable {
 		this.codusuario = codusuario;
 		this.fecharegistro = fecharegistro;
 		this.codarea = codarea;
-		this.genclienteses = genclienteses;
+		this.genagenciases = genagenciases;
 	}
 
 	public Long getCodciudad() {
@@ -104,12 +104,12 @@ public class Genciudades implements java.io.Serializable {
 		this.codarea = codarea;
 	}
 
-	public Set getGenclienteses() {
-		return this.genclienteses;
+	public Set getGenagenciases() {
+		return this.genagenciases;
 	}
 
-	public void setGenclienteses(Set genclienteses) {
-		this.genclienteses = genclienteses;
+	public void setGenagenciases(Set genagenciases) {
+		this.genagenciases = genagenciases;
 	}
 
 }

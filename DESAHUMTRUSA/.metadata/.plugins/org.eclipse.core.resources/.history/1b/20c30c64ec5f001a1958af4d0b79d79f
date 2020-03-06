@@ -1,0 +1,23 @@
+package com.humtrusa.daoext;
+
+import java.util.List;
+
+import org.hibernate.Session;
+
+import com.humtrusa.Sessionfactory.HibernateSessionFactory;
+import com.humtrusa.entidades.Genempresas;
+
+public class GenempresasDAOEXT {
+	
+	public List<Genempresas> obtenerEmpresas(){
+		List<Genempresas> lista = null;
+		try {
+		Session ses = HibernateSessionFactory.getSession();
+		lista = ses.createQuery(" FROM Genempresas ").list();
+		
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return lista;
+	}
+}

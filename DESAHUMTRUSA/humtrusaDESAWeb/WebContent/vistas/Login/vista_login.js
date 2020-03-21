@@ -16,8 +16,8 @@ var inicioLogin = function (){
 	*/
 	var generales = {
 	
-		url: "servlet/SAdministracionGeneral"
-	
+		url: "servlet/SAdministracionGeneral",
+		usuarioLog : ""
 	};
 	var modeloDatos = {
 			storeComboEmpresas: new Ext.data.Store({
@@ -240,7 +240,15 @@ var inicioLogin = function (){
 								mostrarSeleccionAgencia();
 							}
 							 
-						} 
+						},
+						error: function(){
+							Ext.MessageBox.show({title:"Atenci\xf3n", 
+													msg: "Error de Comunicación, Consulte con el Dpt de Sistemas", 
+													buttons:Ext.MessageBox.OK, 
+													icon:Ext.MessageBox.ERROR}
+													);
+						}
+						
 				}
 		Ext.Ajax.request(paramsDat);
 		
@@ -258,11 +266,42 @@ var inicioLogin = function (){
 	});
 	
 	botones.cmdAcceder.on("click",function(){
-		openPage("indexxxx.jsp");
+		//validarUsuarioAgencia();	
+		var usuario = generales.usuarioLog;
+		var codEmpresa = componentes.cmbEmpresas.getValue() || 0;
+		var codAgencia = componentes.cmbAgencias.getValue() || 0;
+		
+		if(codEmpresa == 0){
+			Ext.MessageBox.show({title:"Atenci\xf3n", 
+								 msg: "Seleccione una Empresa", 
+								 buttons:Ext.MessageBox.OK, 
+								 icon:Ext.MessageBox.ERROR}
+								);
+			return;
+		}
+		if(codAgencia == 0){
+			Ext.MessageBox.show({title:"Atenci\xf3n", 
+								 msg: "Seleccione una Agencia", 
+								 buttons:Ext.MessageBox.OK, 
+								 icon:Ext.MessageBox.ERROR}
+								);
+			return;
+		}
+		openPage("servlet/SIngreso?usuario="+usuario+"&codempresa="+codEmpresa+"&codagencia="+codAgencia+"");//cambiar a post
+		/*paramsAjax ={ 
+					url : "servlet/SIngreso",
+					method :"POST", 
+					params : { 
+						usuario : usuario,//document.parametrosSesion.codigoUsuario,
+						codempresa : codEmpresa,//document.parametrosSesion.codigoEmpresa,
+						codagencia : codAgencia //document.parametrosSesion.codigoAgencia
+					}
+				}
+		Ext.Ajax.request(paramsAjax);*/
 	});
 	
 	botones.cmdRegresar.on("click",function(){
-		openPage("index.jsp");
+		openPage("servlet/SSalida");
 	});
 	
 	
@@ -283,6 +322,9 @@ var inicioLogin = function (){
 	
 	var mostrarSeleccionAgencia = function(){
 		
+		generales.usuarioLog = Ext.getCmp("login-user").getValue();
+		console.log("USER: "+Ext.getCmp("login-user").getValue());
+		
 		Ext.getCmp("login-user").getEl().up('.x-form-item').setDisplayed(false);
 		Ext.getCmp("login-pwd").getEl().up('.x-form-item').setDisplayed(false);
 		
@@ -296,7 +338,46 @@ var inicioLogin = function (){
 		botones.cmdAcceder.setVisible(true);
 		
 	} 
+	/*
+	function validarUsuarioAgencia(){
+		var paramsDat = {			
+						url: generales.url,
+						params:{
+							orden: "LOGIN",
+							user: usuario,
+							pass: contra
+							
+						},
+						success: function(response){
+							Ext.MessageBox.hide();
+							respuesta = Ext.decode(response.responseText);
+							
+							if(respuesta.exito == false){
+								Ext.MessageBox.show({title:"Atenci\xf3n", 
+													msg: respuesta.mensaje, 
+													buttons:Ext.MessageBox.OK, 
+													icon:Ext.MessageBox.ERROR}
+													);
+							}else
+								
+							if(respuesta.exito == true){
+								
+								mostrarSeleccionAgencia();
+							}
+							 
+						},
+						error: function(){
+							Ext.MessageBox.show({title:"Atenci\xf3n", 
+													msg: "Error de Comunicación, Consulte con el Dpt de Sistemas", 
+													buttons:Ext.MessageBox.OK, 
+													icon:Ext.MessageBox.ERROR}
+													);
+						}
+						
+				}
+		Ext.Ajax.request(paramsDat);
 	
+	}*/
 }
 
 Ext.onReady(function() {

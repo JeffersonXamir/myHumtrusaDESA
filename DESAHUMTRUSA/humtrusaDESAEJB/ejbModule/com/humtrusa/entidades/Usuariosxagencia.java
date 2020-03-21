@@ -1,5 +1,5 @@
 package com.humtrusa.entidades;
-// Generated 06/03/2020 14:23:56 by Hibernate Tools 3.5.0.Final
+// Generated 20/03/2020 14:36:48 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 
@@ -10,6 +10,7 @@ public class Usuariosxagencia implements java.io.Serializable {
 
 	private Long codusuarioagencia;
 	private Genusuarios genusuarios;
+	private Genperfiles genperfiles;
 	private Genagencias genagencias;
 	private Genestados genestados;
 	private String usuariocambioestado;
@@ -18,9 +19,10 @@ public class Usuariosxagencia implements java.io.Serializable {
 	public Usuariosxagencia() {
 	}
 
-	public Usuariosxagencia(Genusuarios genusuarios, Genagencias genagencias, Genestados genestados,
-			String usuariocambioestado, Date fechacambioestado) {
+	public Usuariosxagencia(Genusuarios genusuarios, Genperfiles genperfiles, Genagencias genagencias,
+			Genestados genestados, String usuariocambioestado, Date fechacambioestado) {
 		this.genusuarios = genusuarios;
+		this.genperfiles = genperfiles;
 		this.genagencias = genagencias;
 		this.genestados = genestados;
 		this.usuariocambioestado = usuariocambioestado;
@@ -41,6 +43,14 @@ public class Usuariosxagencia implements java.io.Serializable {
 
 	public void setGenusuarios(Genusuarios genusuarios) {
 		this.genusuarios = genusuarios;
+	}
+
+	public Genperfiles getGenperfiles() {
+		return this.genperfiles;
+	}
+
+	public void setGenperfiles(Genperfiles genperfiles) {
+		this.genperfiles = genperfiles;
 	}
 
 	public Genagencias getGenagencias() {

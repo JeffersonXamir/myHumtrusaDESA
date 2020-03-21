@@ -1,0 +1,10 @@
+<%@ page language="java" pageEncoding="ISO-8859-1" session="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+document.parametrosSesion = {
+	codigoUsuario: '${sessionScope.session.codusuario}',
+	codigoEmpresa: ${sessionScope.codempresa},
+	codigoAgencia: ${sessionScope.codagencia}
+			
+};
+

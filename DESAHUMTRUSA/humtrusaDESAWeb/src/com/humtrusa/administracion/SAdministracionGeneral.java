@@ -7,8 +7,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.json.JSONObject;
+
 import com.etech.servicios.general.LocalizadorRecursos;
-import com.humtrusa.beans.BAdministracionGeneralLocal; 
+import com.humtrusa.beans.BAdministracionGeneralLocal;
+import com.humtrusa.entidades.Genusuarios;
 import com.humtrusa.enumRecursos.EnumRecursosGenerales;
 import java.io.PrintWriter;
 //import com.humtrusa.enumRecursos.EnumRecursosGenerales;
@@ -57,7 +62,14 @@ public class SAdministracionGeneral extends HttpServlet {
 		String pass = (request.getParameter("pass")!=null && !request.getParameter("pass").replace(" ","").equals(""))?request.getParameter("pass"):null;
 		String str="";
 		try {		
-		str= beanGeneral.ACCESOLOGIN(user,pass);
+		str = beanGeneral.ACCESOLOGIN(user,pass);
+		Genusuarios usuario = null; 
+		JSONObject obj = new JSONObject(str);
+			if(obj.getBoolean("exito")) {
+				usuario = beanGeneral.obtenerUsuario(user);
+				HttpSession ses = request.getSession();
+				ses.setAttribute("session", usuario);
+			}
 		}catch(Exception e) {
 			System.out.println("EROOR ");e.printStackTrace();
 		}

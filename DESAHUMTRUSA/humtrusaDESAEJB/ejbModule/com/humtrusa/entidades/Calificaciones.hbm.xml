@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 06/03/2020 14:23:56 by Hibernate Tools 3.5.0.Final -->
+<!-- Generated 20/03/2020 14:36:49 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="com.humtrusa.entidades.Calificaciones" table="calificaciones" catalog="cursoextjs">
         <id name="idSecuencial" type="java.lang.Long">

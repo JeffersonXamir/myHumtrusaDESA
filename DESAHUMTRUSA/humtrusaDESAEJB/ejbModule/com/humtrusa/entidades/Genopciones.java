@@ -1,5 +1,5 @@
 package com.humtrusa.entidades;
-// Generated 06/03/2020 14:23:56 by Hibernate Tools 3.5.0.Final
+// Generated 20/03/2020 14:36:48 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -11,6 +11,7 @@ import java.util.Set;
 public class Genopciones implements java.io.Serializable {
 
 	private Long codopcion;
+	private Genestados genestados;
 	private Genopciones genopciones;
 	private String titulo;
 	private String descripcion;
@@ -20,7 +21,6 @@ public class Genopciones implements java.io.Serializable {
 	private Long ordenpresentacion;
 	private String icono;
 	private String href;
-	private long codestado;
 	private String usuariocambioestado;
 	private Date fechacambioestado;
 	private String codusuario;
@@ -32,24 +32,26 @@ public class Genopciones implements java.io.Serializable {
 	private String descripcionpagina;
 	private Long anchopanelfiltros;
 	private Long opciondinamica;
+	private Set permisosxperfils = new HashSet(0);
 	private Set genrecursoses = new HashSet(0);
 	private Set genopcioneses = new HashSet(0);
 
 	public Genopciones() {
 	}
 
-	public Genopciones(String descripcion, long codestado, String codusuario, Date fecha) {
+	public Genopciones(Genestados genestados, String descripcion, String codusuario, Date fecha) {
+		this.genestados = genestados;
 		this.descripcion = descripcion;
-		this.codestado = codestado;
 		this.codusuario = codusuario;
 		this.fecha = fecha;
 	}
 
-	public Genopciones(Genopciones genopciones, String titulo, String descripcion, String codsistema,
-			Character tipoprograma, Character confirmaclave, Long ordenpresentacion, String icono, String href,
-			long codestado, String usuariocambioestado, Date fechacambioestado, String codusuario, Date fecha,
+	public Genopciones(Genestados genestados, Genopciones genopciones, String titulo, String descripcion,
+			String codsistema, Character tipoprograma, Character confirmaclave, Long ordenpresentacion, String icono,
+			String href, String usuariocambioestado, Date fechacambioestado, String codusuario, Date fecha,
 			Long minutosbloqueo, String especial, String titulopagina, String titulopanel, String descripcionpagina,
-			Long anchopanelfiltros, Long opciondinamica, Set genrecursoses, Set genopcioneses) {
+			Long anchopanelfiltros, Long opciondinamica, Set permisosxperfils, Set genrecursoses, Set genopcioneses) {
+		this.genestados = genestados;
 		this.genopciones = genopciones;
 		this.titulo = titulo;
 		this.descripcion = descripcion;
@@ -59,7 +61,6 @@ public class Genopciones implements java.io.Serializable {
 		this.ordenpresentacion = ordenpresentacion;
 		this.icono = icono;
 		this.href = href;
-		this.codestado = codestado;
 		this.usuariocambioestado = usuariocambioestado;
 		this.fechacambioestado = fechacambioestado;
 		this.codusuario = codusuario;
@@ -71,6 +72,7 @@ public class Genopciones implements java.io.Serializable {
 		this.descripcionpagina = descripcionpagina;
 		this.anchopanelfiltros = anchopanelfiltros;
 		this.opciondinamica = opciondinamica;
+		this.permisosxperfils = permisosxperfils;
 		this.genrecursoses = genrecursoses;
 		this.genopcioneses = genopcioneses;
 	}
@@ -81,6 +83,14 @@ public class Genopciones implements java.io.Serializable {
 
 	public void setCodopcion(Long codopcion) {
 		this.codopcion = codopcion;
+	}
+
+	public Genestados getGenestados() {
+		return this.genestados;
+	}
+
+	public void setGenestados(Genestados genestados) {
+		this.genestados = genestados;
 	}
 
 	public Genopciones getGenopciones() {
@@ -153,14 +163,6 @@ public class Genopciones implements java.io.Serializable {
 
 	public void setHref(String href) {
 		this.href = href;
-	}
-
-	public long getCodestado() {
-		return this.codestado;
-	}
-
-	public void setCodestado(long codestado) {
-		this.codestado = codestado;
 	}
 
 	public String getUsuariocambioestado() {
@@ -249,6 +251,14 @@ public class Genopciones implements java.io.Serializable {
 
 	public void setOpciondinamica(Long opciondinamica) {
 		this.opciondinamica = opciondinamica;
+	}
+
+	public Set getPermisosxperfils() {
+		return this.permisosxperfils;
+	}
+
+	public void setPermisosxperfils(Set permisosxperfils) {
+		this.permisosxperfils = permisosxperfils;
 	}
 
 	public Set getGenrecursoses() {

@@ -1,0 +1,111 @@
+package com.humtrusa.beans;
+
+import java.util.List;
+
+import javax.ejb.Stateless;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import com.humtrusa.Sessionfactory.HibernateSessionFactory;
+import com.humtrusa.entidades.Genopciones;
+import com.humtrusa.entidades.Genperfiles;
+
+/**
+ * Session Bean implementation class SMenu
+ */
+@Stateless
+public class BMenu implements BMenuLocal {
+
+    /**
+     * Default constructor. 
+     */
+    public BMenu() {
+        // TODO Auto-generated constructor stub
+    }
+    
+    /**
+	 * Obtengo el Menu x Perfiles de usuario
+	 * @param codempresa
+	 * @param codusuario
+	 * @return
+	 */
+    public String obtenerMenuxPerfiles(long codempresa, String codusuario) {
+    	Session ses = HibernateSessionFactory.getSession();
+    	Query query= null;
+    	Genperfiles perfil =null;
+    	List<Genperfiles> lsperfiles;
+    	List<Genopciones> lsopciones;
+    	StringBuffer cadenaMenu = new StringBuffer("");
+    	
+    	try {
+			query = ses.createQuery("from Genperfiles g where g.codusuario =:usuario and g.genestados.codestado = 1 and g.genempresas.codempresa =:codempresa");
+    		query.setString("usuario", codusuario);
+    		query.setLong("codempresa", codempresa);
+    		
+    		perfil =(Genperfiles)query.list().get(0);
+    		
+    		query = null;
+    		
+    		query = ses.createQuery("select x.genopciones from Permisosxperfil as x " +
+				    "  where x.genperfiles = :perfil "+
+				    "    and x.genopciones.genestados.codestado = 1 " +
+					"    and x.genopciones.genopciones is null " +
+					"  order by x.genopciones.ordenpresentacion");
+    		query.setParameter("perfil", perfil);
+    		
+    		lsopciones = query.list();
+    		
+    		try {
+    			int count = 0;
+				cadenaMenu.append("\"opciones\":[");
+    			for (Genopciones gop : lsopciones) {
+					cadenaMenu.append((count>0?",":""));
+    				cadenaMenu.append(this.evaluarRaiz(gop, perfil, codusuario, codempresa));
+    				count++;
+				}
+    			cadenaMenu.append("]");
+    			
+			} catch (Exception e) {
+				// TODO: handle exception
+			}
+    		
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace(); 
+		}
+    	 
+    	
+    	return cadenaMenu.toString();
+    }
+   
+    public String evaluarRaiz(Genopciones opcionRaiz, Genperfiles perfil, String codUsuario,long codEmpresa){
+		
+		Session ses = HibernateSessionFactory.getSession();
+		StringBuffer respuesta = new StringBuffer("");
+		
+		try{
+			respuesta.append("{");
+			respuesta.append("\"nombreopcion\":\""+opcionRaiz.getTitulo()+"\"");
+			respuesta.append("");
+			
+			//****************** EVALUO NODOS HIJOS **************************
+			//****************************************************************
+		//	List<Genopciones> listaModulos = new PermisosxperfilDAOEXT().obtenerOpcionesPermisosxPerfil(opcionRaiz, perfil, ses);
+		//	for(Genopciones hijo:listaModulos){
+				// evaluamos el menu respectivo
+		//		if(hijo.getGenestados().getCodestado() == GenestadosDAOEXT.ESTADO_ACTIVO)
+		//			respuesta.append(evaluaMenuXML(hijo, perfil, codUsuario,codEmpresa));
+		//	}
+			//****************************************************************
+			//****************************************************************
+			
+			respuesta.append("");
+			respuesta.append("}");
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return respuesta.toString();
+	}
+}

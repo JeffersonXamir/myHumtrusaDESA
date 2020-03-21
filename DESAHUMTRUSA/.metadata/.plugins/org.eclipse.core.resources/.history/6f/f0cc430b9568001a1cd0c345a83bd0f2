@@ -1,0 +1,17 @@
+package com.humtrusa.beans;
+
+import javax.ejb.Remote;
+
+import org.hibernate.Session;
+
+@Remote
+public interface BMenuLocal {
+	
+	/**
+	 * Obtengo el Menu x Perfiles de usuario
+	 * @param codempresa
+	 * @param codusuario
+	 * @return
+	 */
+	public String obtenerMenuxPerfiles(long codempresa, String codusuario,Session ses);
+}

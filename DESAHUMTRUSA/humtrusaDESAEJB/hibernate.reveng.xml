@@ -10,11 +10,14 @@
   <table-filter match-catalog="cursoextjs" match-name="genestados"/>
   <table-filter match-catalog="cursoextjs" match-name="genopciones"/>
   <table-filter match-catalog="cursoextjs" match-name="genpaises"/>
+  <table-filter match-catalog="cursoextjs" match-name="genperfiles"/>
   <table-filter match-catalog="cursoextjs" match-name="genproveedores"/>
   <table-filter match-catalog="cursoextjs" match-name="genprovincias"/>
   <table-filter match-catalog="cursoextjs" match-name="genrecursos"/>
   <table-filter match-catalog="cursoextjs" match-name="genregiones"/>
   <table-filter match-catalog="cursoextjs" match-name="genusuarios"/>
   <table-filter match-catalog="cursoextjs" match-name="materias"/>
+  <table-filter match-catalog="cursoextjs" match-name="permisosxperfil"/>
+  <table-filter match-catalog="cursoextjs" match-name="permisosxusuario"/>
   <table-filter match-catalog="cursoextjs" match-name="usuariosxagencia"/>
 </hibernate-reverse-engineering>

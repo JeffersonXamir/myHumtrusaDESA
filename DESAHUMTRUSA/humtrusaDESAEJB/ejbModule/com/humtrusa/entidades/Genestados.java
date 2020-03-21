@@ -1,5 +1,5 @@
 package com.humtrusa.entidades;
-// Generated 06/03/2020 14:23:56 by Hibernate Tools 3.5.0.Final
+// Generated 20/03/2020 14:36:48 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -14,7 +14,9 @@ public class Genestados implements java.io.Serializable {
 	private String descripcion;
 	private String codusuario;
 	private Date fecha;
+	private Set genperfileses = new HashSet(0);
 	private Set genusuarioses = new HashSet(0);
+	private Set genopcioneses = new HashSet(0);
 	private Set usuariosxagencias = new HashSet(0);
 	private Set genregioneses = new HashSet(0);
 	private Set genciudadeses = new HashSet(0);
@@ -30,12 +32,15 @@ public class Genestados implements java.io.Serializable {
 		this.fecha = fecha;
 	}
 
-	public Genestados(String descripcion, String codusuario, Date fecha, Set genusuarioses, Set usuariosxagencias,
-			Set genregioneses, Set genciudadeses, Set genprovinciases, Set genagenciases) {
+	public Genestados(String descripcion, String codusuario, Date fecha, Set genperfileses, Set genusuarioses,
+			Set genopcioneses, Set usuariosxagencias, Set genregioneses, Set genciudadeses, Set genprovinciases,
+			Set genagenciases) {
 		this.descripcion = descripcion;
 		this.codusuario = codusuario;
 		this.fecha = fecha;
+		this.genperfileses = genperfileses;
 		this.genusuarioses = genusuarioses;
+		this.genopcioneses = genopcioneses;
 		this.usuariosxagencias = usuariosxagencias;
 		this.genregioneses = genregioneses;
 		this.genciudadeses = genciudadeses;
@@ -75,12 +80,28 @@ public class Genestados implements java.io.Serializable {
 		this.fecha = fecha;
 	}
 
+	public Set getGenperfileses() {
+		return this.genperfileses;
+	}
+
+	public void setGenperfileses(Set genperfileses) {
+		this.genperfileses = genperfileses;
+	}
+
 	public Set getGenusuarioses() {
 		return this.genusuarioses;
 	}
 
 	public void setGenusuarioses(Set genusuarioses) {
 		this.genusuarioses = genusuarioses;
+	}
+
+	public Set getGenopcioneses() {
+		return this.genopcioneses;
+	}
+
+	public void setGenopcioneses(Set genopcioneses) {
+		this.genopcioneses = genopcioneses;
 	}
 
 	public Set getUsuariosxagencias() {

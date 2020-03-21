@@ -81,7 +81,7 @@ var Plantillas = function() {
 
 	var modeloDatos = {
 		storeGridPrincipal : new Ext.data.Store({
-			url : "servlet/SAdministracionProveedores",
+			url : "../../servlet/SAdministracionProveedores", 
 			baseParams : {
 				orden : "LISTAR_PROVEEDORES_X_FILTROS",
 				datosOrden : Ext.encode(parametrosTransportador.listarProveedoresBuscar),
@@ -234,7 +234,7 @@ var Plantillas = function() {
 					}, {
 						xtype : "button",
 						text : "Nuevo ",
-						icon : "imagenes/page_add.png",
+						icon : "../../imagenes/page_add.png",
 						cls : "x-btn-text-icon",
 						// disabled:!(document.parametrosSeguridad.puedeGuardar),
 						listeners : {
@@ -246,7 +246,7 @@ var Plantillas = function() {
 					}, {
 						xtype : "button",
 						text : "Eliminar ",
-						icon : "imagenes/delete.png",
+						icon : "../../imagenes/delete.png", 
 						cls : "x-btn-text-icon",
 						// disabled:!(document.parametrosSeguridad.puedeEliminar),
 						listeners : {

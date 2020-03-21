@@ -1,0 +1,99 @@
+package com.humtrusa.servicios;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+
+
+/**
+ * Servlet implementation class PantallaPrincipalDatos
+ */
+public class PantallaPrincipalDatos extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+		System.out.println("doGet");
+		procesar(request,response);
+		/*String[] countries = {"ecuador","japon","chile"};
+		
+		request.setAttribute("countries", countries);
+		
+		RequestDispatcher dispather = request.getRequestDispatcher("pantallaprincipal.jsp");
+		dispather.forward(request, response);*/
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		//doGet(request, response);
+		System.out.println("doPost");
+		//procesar(request,response);
+		/*String[] countries = {"ecuador","japon","chile"};
+		
+		request.setAttribute("countries", countries);
+		
+		RequestDispatcher dispather = request.getRequestDispatcher("pantallaprincipal.jsp");
+		dispather.forward(request, response);*/
+	}
+	
+		
+	public void procesar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		/*System.out.println("alfn");
+		String[] recurso = { "<script type=\"text/javascript\"	src=\"Aplicaciones/Plantillas.js\"></script>",
+							 "<script type=\"text/javascript\"	src=\"Aplicaciones/PlantillasProceso.js\"></script>",
+							 "<script type=\"text/javascript\"	src=\"Aplicaciones/Inicializaciones.js\"></script>"};
+		String[] countries = {"ecuador","japon","chile"};
+		 
+		request.setAttribute("countries", countries);
+		request.setAttribute("recurso", recurso);
+		
+		RequestDispatcher dispather = request.getRequestDispatcher("/pantallaprincipal.jsp");
+		dispather.forward(request, response);*/
+		// MODO LOCAL 
+		System.out.println("alfn");
+		/*String[] recurso = { "<script type=\"text/javascript\"	src=\"Aplicaciones/Proveedores/Proveedores.js\"></script>",
+							 "<script type=\"text/javascript\"	src=\"Aplicaciones/Proveedores/ProveedoresProceso.js\"></script>",
+							 "<script type=\"text/javascript\"	src=\"Aplicaciones/Proveedores/Inicializaciones.js\"></script>"};
+		*/
+		//muñoz clientes 
+		/*String[] recurso = { "<script type=\"text/javascript\"	src=\"Aplicaciones/Clientes/Clientes.js\"></script>",
+				 			"<script type=\"text/javascript\"	src=\"Aplicaciones/Clientes/ClientesProceso.js\"></script>",
+							"<script type=\"text/javascript\"	src=\"Aplicaciones/Clientes/Inicializaciones.js\"></script>"};
+		
+		String[] countries = {"ecuador","japon","chile"};
+		 
+		request.setAttribute("countries", countries);
+		request.setAttribute("recurso", recurso);
+		*/
+		//RequestDispatcher dispather = request.getRequestDispatcher("vistas/PantallaPrincipal/pantallaLocal.jsp");
+		//RequestDispatcher dispather = request.getRequestDispatcher("inicio.jsp");
+		//dispather.forward(request, response); 
+		//response.sendRedirect("vistas/PantallaPrincipal/pantallaLocal.jsp"); 
+		String destination = "/WebContent/vistas/PantallaPrincipal/pantallaLocal.jsp";
+		 
+		RequestDispatcher rd = getServletContext().getRequestDispatcher(destination);
+		rd.forward(request, response);
+	} 
+	
+	public void init() throws ServletException {
+		System.out.println("puta ESTAS EN ASEGURA");
+		}
+}

@@ -74,7 +74,7 @@ public class PantallaPrincipalDatos extends HttpServlet {
 							 "<script type=\"text/javascript\"	src=\"Aplicaciones/Proveedores/Inicializaciones.js\"></script>"};
 		*/
 		//muñoz clientes 
-		String[] recurso = { "<script type=\"text/javascript\"	src=\"Aplicaciones/Clientes/Clientes.js\"></script>",
+		/*String[] recurso = { "<script type=\"text/javascript\"	src=\"Aplicaciones/Clientes/Clientes.js\"></script>",
 				 			"<script type=\"text/javascript\"	src=\"Aplicaciones/Clientes/ClientesProceso.js\"></script>",
 							"<script type=\"text/javascript\"	src=\"Aplicaciones/Clientes/Inicializaciones.js\"></script>"};
 		
@@ -82,10 +82,15 @@ public class PantallaPrincipalDatos extends HttpServlet {
 		 
 		request.setAttribute("countries", countries);
 		request.setAttribute("recurso", recurso);
-		
-		RequestDispatcher dispather = request.getRequestDispatcher("vistas/PantallaPrincipal/pantallaLocal.jsp");
+		*/
+		//RequestDispatcher dispather = request.getRequestDispatcher("vistas/PantallaPrincipal/pantallaLocal.jsp");
 		//RequestDispatcher dispather = request.getRequestDispatcher("inicio.jsp");
-		dispather.forward(request, response);
+		//dispather.forward(request, response); 
+		//response.sendRedirect("vistas/PantallaPrincipal/pantallaLocal.jsp"); 
+		String destination = "/vistas/PantallaPrincipal/pantallaLocal.jsp"; 
+		 
+		RequestDispatcher rd = getServletContext().getRequestDispatcher(destination);
+		rd.forward(request, response);
 	} 
 	
 	public void init() throws ServletException {

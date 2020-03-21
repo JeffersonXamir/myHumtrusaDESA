@@ -1,5 +1,5 @@
 package com.humtrusa.entidades;
-// Generated 06/03/2020 14:23:56 by Hibernate Tools 3.5.0.Final
+// Generated 20/03/2020 14:36:48 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -25,6 +25,7 @@ public class Genempresas implements java.io.Serializable {
 	private String escontribuyenteespecial;
 	private String numresolucion;
 	private Long lineagrupoempresarial;
+	private Set genperfileses = new HashSet(0);
 	private Set genagenciases = new HashSet(0);
 
 	public Genempresas() {
@@ -32,7 +33,8 @@ public class Genempresas implements java.io.Serializable {
 
 	public Genempresas(Genpaises genpaises, String nombre, String gerente, String ruccontador, String tipoidreplegal,
 			String idreplegal, String codusuario, Date fecha, String hostcorreo, String rucempresa, Long tipoidempresa,
-			String escontribuyenteespecial, String numresolucion, Long lineagrupoempresarial, Set genagenciases) {
+			String escontribuyenteespecial, String numresolucion, Long lineagrupoempresarial, Set genperfileses,
+			Set genagenciases) {
 		this.genpaises = genpaises;
 		this.nombre = nombre;
 		this.gerente = gerente;
@@ -47,6 +49,7 @@ public class Genempresas implements java.io.Serializable {
 		this.escontribuyenteespecial = escontribuyenteespecial;
 		this.numresolucion = numresolucion;
 		this.lineagrupoempresarial = lineagrupoempresarial;
+		this.genperfileses = genperfileses;
 		this.genagenciases = genagenciases;
 	}
 
@@ -168,6 +171,14 @@ public class Genempresas implements java.io.Serializable {
 
 	public void setLineagrupoempresarial(Long lineagrupoempresarial) {
 		this.lineagrupoempresarial = lineagrupoempresarial;
+	}
+
+	public Set getGenperfileses() {
+		return this.genperfileses;
+	}
+
+	public void setGenperfileses(Set genperfileses) {
+		this.genperfileses = genperfileses;
 	}
 
 	public Set getGenagenciases() {

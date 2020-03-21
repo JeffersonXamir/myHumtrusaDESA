@@ -37,7 +37,6 @@
 	<classpathentry kind="lib" path="/humtrusaDESA/lib/icu4j-3.4.4.jar"/>
 	<classpathentry kind="lib" path="/humtrusaDESA/lib/imap.jar"/>
 	<classpathentry kind="lib" path="/humtrusaDESA/lib/jasypt-1.4.1.jar"/>
-	<classpathentry kind="lib" path="/humtrusaDESA/lib/java-json.jar"/>
 	<classpathentry kind="lib" path="/humtrusaDESA/lib/javacsv.jar"/>
 	<classpathentry kind="lib" path="/humtrusaDESA/lib/jdom-2.0.6-contrib.jar"/>
 	<classpathentry kind="lib" path="/humtrusaDESA/lib/jdom-2.0.6-javadoc.jar"/>

@@ -1,5 +1,5 @@
 package com.humtrusa.entidades;
-// Generated 06/03/2020 14:23:57 by Hibernate Tools 3.5.0.Final
+// Generated 20/03/2020 14:36:49 by Hibernate Tools 3.5.0.Final
 
 import java.util.List;
 import javax.naming.InitialContext;

@@ -2,14 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 document.parametrosSesion = {
-	codigoUsuario: '${sessionScope.modeloSeguridad.loginUsuario}',
-	codigoEmpresa: ${sessionScope.modeloSeguridad.codigoEmpresa},
-	codigoAgencia: ${sessionScope.modeloSeguridad.codigoAgencia},
-	nivelUsuario: ${sessionScope.modeloSeguridad.nivelUsuario}		
+	codigoUsuario: '${sessionScope.beanSeguridad.usuario}',
+	codigoEmpresa: ${sessionScope.beanSeguridad.empresa},
+	codigoAgencia: ${sessionScope.beanSeguridad.agencia}
+			
 };
-
-document.parametrosVista = {
-	codigoMantenimientoDinamico: ${sessionScope.modeloVista.codigoMantenimientoDinamico},
+ document.parametrosVista = {
 	nombreEntidad: "${sessionScope.modeloVista.nombreEntidad}",
 	descripcion: "${sessionScope.modeloVista.descripcionPagina}",
 	tituloPanelFiltros: "Filtros de Busqueda",
@@ -18,10 +16,15 @@ document.parametrosVista = {
 };
 
 document.parametrosSeguridad = {
-	puedeAbrir: ${sessionScope.modeloSeguridad.puedeAbrir},
-	puedeModificar: ${sessionScope.modeloSeguridad.puedeModificar},
-	puedeEliminar: ${sessionScope.modeloSeguridad.puedeEliminar},
-	puedeGuardar: ${sessionScope.modeloSeguridad.puedeGuardar},
+	puedeAbrir: "${sessionScope.modeloSeguridad.puedeAbrir}",
+	puedeModificar: "${sessionScope.modeloSeguridad.puedeModificar}",
+	puedeEliminar: "${sessionScope.modeloSeguridad.puedeEliminar}",
+	puedeGuardar: "${sessionScope.modeloSeguridad.puedeGuardar}",
 	permisosOpcion: new Array()
 };
 
+<c:forEach items="${sessionScope.modeloSeguridad.permisosOpcion}" var="permiso">document.parametrosSeguridad.permisosOpcion.push("${permiso}");</c:forEach>
+
+document.parametrosGenerales = {
+	registrosPorPagina: "${sessionScope.modeloSeguridad.registrosPorPagina}"
+};

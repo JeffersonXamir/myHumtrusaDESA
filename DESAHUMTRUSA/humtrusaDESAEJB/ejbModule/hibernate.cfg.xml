@@ -23,11 +23,14 @@
         <mapping resource="com/humtrusa/entidades/Genpaises.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Genopciones.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Genciudades.hbm.xml" />
+        <mapping resource="com/humtrusa/entidades/Permisosxusuario.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Genregiones.hbm.xml" />
+        <mapping resource="com/humtrusa/entidades/Genperfiles.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Genusuarios.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Alumnos.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Usuariosxagencia.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Materias.hbm.xml" />
+        <mapping resource="com/humtrusa/entidades/Permisosxperfil.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Genagencias.hbm.xml" />
         <mapping resource="com/humtrusa/entidades/Genprovincias.hbm.xml" />
     </session-factory>

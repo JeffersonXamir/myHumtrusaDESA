@@ -8,6 +8,7 @@ import org.hibernate.Session;
 import com.humtrusa.Sessionfactory.HibernateSessionFactory;
 import com.humtrusa.entidades.Genagencias;
 import com.humtrusa.entidades.Genempresas;
+import com.humtrusa.entidades.Genusuarios;
 
 public class GenempresasDAOEXT {
 	
@@ -36,5 +37,20 @@ public class GenempresasDAOEXT {
 			e.printStackTrace();
 		}
 		return lista;
+	}
+	
+	public Genusuarios obtenerUsuario(String codusuario) {
+		Query query;
+		Session ses = HibernateSessionFactory.getSession();
+		Genusuarios usuario =null;
+		try {
+			query= ses.createQuery(" from Genusuarios gu where gu.codusuario = '"+codusuario+"' ");
+			usuario = (Genusuarios)query.uniqueResult();
+		} catch (Exception e) {
+			// TODO: handle exception
+			usuario = null;
+			e.printStackTrace();
+		}
+		return usuario;
 	}
 }

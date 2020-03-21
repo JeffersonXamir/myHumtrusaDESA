@@ -9,6 +9,9 @@
 			<ejb-name>BAdministracionProveedores</ejb-name>
 			<jndi-name>servidor/BAdministracionProveedores</jndi-name>
 		</session>
-
+		<session>
+			<ejb-name>BMenu</ejb-name>
+			<jndi-name>servidor/BMenu</jndi-name>
+		</session>
 	</enterprise-beans>
 </jboss>

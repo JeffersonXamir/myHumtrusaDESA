@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 06/03/2020 14:23:56 by Hibernate Tools 3.5.0.Final -->
+<!-- Generated 20/03/2020 14:36:49 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="com.humtrusa.entidades.Genempresas" table="genempresas" catalog="cursoextjs">
         <id name="codempresa" type="java.lang.Long">
@@ -50,6 +50,12 @@
         <property name="lineagrupoempresarial" type="java.lang.Long">
             <column name="lineagrupoempresarial" />
         </property>
+        <set name="genperfileses" table="genperfiles" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codempresa" />
+            </key>
+            <one-to-many class="com.humtrusa.entidades.Genperfiles" />
+        </set>
         <set name="genagenciases" table="genagencias" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="codempresa" />

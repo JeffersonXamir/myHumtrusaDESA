@@ -8,12 +8,14 @@ var PantallaPrincipalLocal = function(configuraciones){
 	/**
 	*	Incorporado en modo de compatibilidad
 	*/
+	var menu = new dashboard("../../servelet/SMenu");
+	
 	var parametrosGlobales = {
-		descripcion: "hola",
-		tituloPanelFiltros: "filtros",
-		tituloPanelCentral:  "hola",
-		anchoPanelFiltros:  350,
-		usaPanelFiltros:  "true",
+		descripcion: document.parametrosVista.descripcion,
+		tituloPanelFiltros: document.parametrosVista.tituloPanelFiltros,
+		tituloPanelCentral: document.parametrosVista.tituloPanelCentral,
+		anchoPanelFiltros: document.parametrosVista.anchoPanelFiltros,
+		usaPanelFiltros: configuraciones.usaPanelFiltros,
 		panelFiltros: configuraciones.panelFiltros,
 		panelCentro: configuraciones.panelCentro,
 		urlServicioMenus: "../../servlet/SMenu",  
@@ -24,9 +26,18 @@ var PantallaPrincipalLocal = function(configuraciones){
 	var componentes = {
 		panelNorte: new Ext.Panel({
 			region:"north",
-			height:88,
+			id:"panelGeneral",
+			//height:88, 
 			border:false,
 			html:"<div id='contenedorCabecera'></div>",
+			bbar: new Ext.Toolbar({
+				id:"tbarGeneral",
+				name:"tbarGeneral",
+				items:[
+				       new Ext.Button({text:"Cerrar Sesion",
+				       handler: function(item) {document.location='../../servlet/SSalida';}})
+				]
+			}) 
 			/*bbar:new Etech.componentes.MenuPerfiles({
 				url:parametrosGlobales.urlServicioMenus,
 				items:[
@@ -39,18 +50,18 @@ var PantallaPrincipalLocal = function(configuraciones){
 	};
 	
 	var componentesViewport = [];
-	//componentesViewport[0] = componentes.panelNorte;
-	componentesViewport[0] = componentes.panelCentro;
-	//componentesViewport[2] = componentes.panelSur;
+	componentesViewport[0] = componentes.panelNorte;
+	componentesViewport[1] = componentes.panelCentro; 
+	//componentesViewport[2] = componentes.panelSur; 
 	
 	if(parametrosGlobales.usaPanelFiltros){
 		componentes.panelIzquierdo = new Ext.Panel({layout:"border",region:"west",frame : false,title:parametrosGlobales.tituloPanelFiltros,width:parametrosGlobales.anchoPanelFiltros,collapsible:true,items:[parametrosGlobales.panelFiltros]});
-		componentesViewport[1] = componentes.panelIzquierdo;
+		componentesViewport[2] = componentes.panelIzquierdo;
 	}
 	
 	new Ext.Viewport({
 		layout:"border",
-		items:componentesViewport,
+		items:componentesViewport
 		/*listeners:{
 			render: function(){
 				Ext.Ajax.request({

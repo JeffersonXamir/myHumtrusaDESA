@@ -33,7 +33,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>PantallaPrincipalDatos</servlet-name>
-    <url-pattern>/PantallaPrincipalDatos</url-pattern>
+    <url-pattern>/servlet/PantallaPrincipalDatos</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -64,5 +64,45 @@
   <servlet-mapping>
     <servlet-name>WSproveedores</servlet-name>
     <url-pattern>/WSproveedores</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SIngreso</display-name>
+    <servlet-name>SIngreso</servlet-name>
+    <servlet-class>com.humtrusa.servicios.SIngreso</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SIngreso</servlet-name>
+    <url-pattern>/servlet/SIngreso</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SSalida</display-name>
+    <servlet-name>SSalida</servlet-name>
+    <servlet-class>com.humtrusa.servicios.SSalida</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SSalida</servlet-name>
+    <url-pattern>/servlet/SSalida</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ControladorVistas</display-name>
+    <servlet-name>ControladorVistas</servlet-name>
+    <servlet-class>com.humtrusa.servicios.ControladorVistas</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorVistas</servlet-name>
+    <url-pattern>/servlet/ControladorVistas</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SMenu</display-name>
+    <servlet-name>SMenu</servlet-name>
+    <servlet-class>com.humtrusa.servicios.SMenu</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SMenu</servlet-name>
+    <url-pattern>/servelet/SMenu</url-pattern>
   </servlet-mapping>
 </web-app>

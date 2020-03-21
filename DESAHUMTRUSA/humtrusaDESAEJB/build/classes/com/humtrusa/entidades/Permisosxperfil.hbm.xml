@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 20/03/2020 14:36:49 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.humtrusa.entidades.Permisosxperfil" table="permisosxperfil" catalog="cursoextjs">
+        <id name="codpermisoperfil" type="java.lang.Long">
+            <column name="codpermisoperfil" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="genperfiles" class="com.humtrusa.entidades.Genperfiles" fetch="select">
+            <column name="codperfil" />
+        </many-to-one>
+        <many-to-one name="genopciones" class="com.humtrusa.entidades.Genopciones" fetch="select">
+            <column name="codopcion" />
+        </many-to-one>
+        <property name="puedeabrir" type="string">
+            <column name="puedeabrir" length="1" />
+        </property>
+        <property name="puedeagregar" type="string">
+            <column name="puedeagregar" length="1" />
+        </property>
+        <property name="puedemodificar" type="string">
+            <column name="puedemodificar" length="1" />
+        </property>
+        <property name="puedeeliminar" type="string">
+            <column name="puedeeliminar" length="1" />
+        </property>
+    </class>
+</hibernate-mapping>

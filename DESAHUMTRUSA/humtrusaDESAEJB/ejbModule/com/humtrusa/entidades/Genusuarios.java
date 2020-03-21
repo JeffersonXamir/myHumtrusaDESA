@@ -1,5 +1,5 @@
 package com.humtrusa.entidades;
-// Generated 06/03/2020 14:23:56 by Hibernate Tools 3.5.0.Final
+// Generated 20/03/2020 14:36:48 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -22,6 +22,7 @@ public class Genusuarios implements java.io.Serializable {
 	private String correo;
 	private String usuariocorreo;
 	private String clavecorreo;
+	private Set genperfileses = new HashSet(0);
 	private Set usuariosxagencias = new HashSet(0);
 
 	public Genusuarios() {
@@ -36,7 +37,7 @@ public class Genusuarios implements java.io.Serializable {
 
 	public Genusuarios(String codusuario, Genestados genestados, Long codempleado, String nombres, String clave,
 			Long nivel, Date fecharegistro, String usuariocambioestado, Date fechacambioestado, String correo,
-			String usuariocorreo, String clavecorreo, Set usuariosxagencias) {
+			String usuariocorreo, String clavecorreo, Set genperfileses, Set usuariosxagencias) {
 		this.codusuario = codusuario;
 		this.genestados = genestados;
 		this.codempleado = codempleado;
@@ -49,6 +50,7 @@ public class Genusuarios implements java.io.Serializable {
 		this.correo = correo;
 		this.usuariocorreo = usuariocorreo;
 		this.clavecorreo = clavecorreo;
+		this.genperfileses = genperfileses;
 		this.usuariosxagencias = usuariosxagencias;
 	}
 
@@ -146,6 +148,14 @@ public class Genusuarios implements java.io.Serializable {
 
 	public void setClavecorreo(String clavecorreo) {
 		this.clavecorreo = clavecorreo;
+	}
+
+	public Set getGenperfileses() {
+		return this.genperfileses;
+	}
+
+	public void setGenperfileses(Set genperfileses) {
+		this.genperfileses = genperfileses;
 	}
 
 	public Set getUsuariosxagencias() {

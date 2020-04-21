@@ -6,8 +6,13 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="Nuevo"/>
+		<item key="selection" value="Document"/>
 		<list key="findhistory">
+			<item value="document"/>
+			<item value="usuarioLog"/>
+			<item value="botones"/>
+			<item value="servlet|"/>
+			<item value="servlet"/>
 			<item value="nuevo"/>
 			<item value="pantalla"/>
 			<item value="p"/>
@@ -18,22 +23,17 @@
 			<item value="obtenerp"/>
 			<item value="obtener"/>
 			<item value="obtenerPerfilUsuarioPorEmpresa"/>
-			<item value="ACCESOLOGIN"/>
-			<item value="obtenerRecursosAdicionales"/>
-			<item value="remove"/>
-			<item value="documen"/>
-			<item value="document"/>
 		</list>
 		<list key="replacehistory">
-			<item value="return"/>
 			<item value="Return"/>
+			<item value="return"/>
 			<item value="String"/>
 			<item value="entidades"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="964"/>
-		<item key="DIALOG_Y_ORIGIN" value="171"/>
+		<item key="DIALOG_X_ORIGIN" value="576"/>
+		<item key="DIALOG_Y_ORIGIN" value="329"/>
 		<item key="DIALOG_WIDTH" value="284"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>

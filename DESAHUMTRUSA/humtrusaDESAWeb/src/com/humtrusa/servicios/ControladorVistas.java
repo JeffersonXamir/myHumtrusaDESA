@@ -61,7 +61,7 @@ public class ControladorVistas extends HttpServlet {
 		
 		Vistas beanVista = UtilidadesControladorVistas.obtenerModeloVista(request);
 		
-		request.getSession().setAttribute(EnumRecursosGenerales.MODELO_VISTAS.getRecurso(),beanVista);
+		request.getSession().setAttribute(EnumRecursosGenerales.MODELO_VISTAS.getRecurso(),beanVista); //sesion modelovista
 		
 		Seguridades modeloSeguridad = UtilidadesControladorVistas.obtenerModeloSeguridad(request);
 		BeanSeguridad beanSeguridad = (BeanSeguridad)sesion.getAttribute("beanSeguridad");

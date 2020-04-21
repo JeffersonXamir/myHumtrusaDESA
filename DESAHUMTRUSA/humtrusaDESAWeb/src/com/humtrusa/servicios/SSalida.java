@@ -40,7 +40,7 @@ public class SSalida extends HttpServlet {
 		sesion.removeAttribute("session");
 		sesion.removeAttribute("beanSeguridad");
 		
-		// Replica por modelo v2.0
+		// AQUI MATO LAS SESSIONES
 		sesion.removeAttribute(EnumRecursosGenerales.MODELO_SEGURIDADES.getRecurso());
 		sesion.removeAttribute(EnumRecursosGenerales.MODELO_VISTAS.getRecurso());
 		

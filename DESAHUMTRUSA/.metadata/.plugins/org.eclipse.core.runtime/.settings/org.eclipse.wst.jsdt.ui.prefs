@@ -1,8 +1,8 @@
 =**/*.min.js,**/node_modules/*,**/bower_components/*
 content_assist_autoactivation=true
 content_assist_autoactivation_triggers_javadoc=@\#
-content_assist_category_order=org.eclipse.wst.jsdt.ui.genericProposalCategory\:0\u0000tern.eclipse.ide.jsdt.ui.TernCompletionProposalCategory\:1\u0000org.eclipse.wst.jsdt.ui.templateProposalCategory\:2\u0000org.eclipse.wst.jsdt.ui.javaNoTypeProposalCategory\:3\u0000org.eclipse.wst.jsdt.ui.textProposalCategory\:65539\u0000org.eclipse.wst.jsdt.ui.defaultProposalCategory\:65540\u0000
-content_assist_disabled_computers=
+content_assist_category_order=org.eclipse.wst.jsdt.ui.genericProposalCategory\:0\u0000tern.eclipse.ide.jsdt.ui.TernCompletionProposalCategory\:65536\u0000org.eclipse.wst.jsdt.ui.templateProposalCategory\:2\u0000org.eclipse.wst.jsdt.ui.javaNoTypeProposalCategory\:3\u0000org.eclipse.wst.jsdt.ui.textProposalCategory\:65539\u0000org.eclipse.wst.jsdt.ui.defaultProposalCategory\:65540\u0000
+content_assist_disabled_computers=tern.eclipse.ide.jsdt.ui.TernCompletionProposalCategory\u0000org.eclipse.wst.jsdt.ui.templateProposalCategory\u0000org.eclipse.wst.jsdt.ui.textProposalCategory\u0000
 eclipse.preferences.version=1
 fontPropagated=true
 hoverModifierMasks=org.eclipse.wst.jsdt.ui.BestMatchHover;0;org.eclipse.wst.jsdt.debug.ui.variable.value.hover;0;tern.eclipse.ide.jsdt.ui.hover.JSDTProblemTernHover;0;tern.eclipse.ide.jsdt.ui.hover.TernHover;0;org.eclipse.wst.jsdt.ui.ProblemHover;0;org.eclipse.wst.jsdt.ui.NLS;0;org.eclipse.wst.jsdt.ui.JavadocHover;0;org.eclipse.wst.jsdt.ui.JavaSourceHover;131072;org.eclipse.wst.jsdt.ui.GenericHover;0;

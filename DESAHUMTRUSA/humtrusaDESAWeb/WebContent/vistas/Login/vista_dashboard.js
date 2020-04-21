@@ -129,7 +129,7 @@ var dashboard = function(direccion) {
 				Ext.Ajax.request(paramsAjax); */ 
 				//var tbarGeneral2 = Ext.getCmp("tbarGeneral");  
 				//Ext.Ajax.request(Queryajax); 
-				window.location.href = "servlet/SIngreso?usuario="+document.parametrosSesion.codigoUsuario+"&codempresa="+document.parametrosSesion.codigoEmpresa+"&codagencia="+document.parametrosSesion.codigoAgencia+"";//cambiar a post
+				window.location.href = "../../servlet/SIngreso?usuario="+document.parametrosSesion.codigoUsuario+"&codempresa="+document.parametrosSesion.codigoEmpresa+"&codagencia="+document.parametrosSesion.codigoAgencia+"";//cambiar a post
 				//"servlet/SIngreso?usuario="+usuario+"&codempresa="+codEmpresa+"&codagencia="+codAgencia+""
 			}
 			
@@ -145,4 +145,20 @@ var dashboard = function(direccion) {
 	 */
 	// var panel = document.getElementById('panelGeneral');
 	// console.log("paneltba "+paneltbar);
+	
+	/*
+	var panelnorte = Ext.getCmp("panelnorte");
+	console.log("holaaaaa"); 
+	var norte = [];
+	 
+		norte={ 	
+		xtype: 'box', 
+		autoEl: {  
+					tag: 'div',
+				  	html: '<div class="app-msg" > <img src="imagenes/dashboard/logo_humtrusa.jpg" class="app-img" /> </div>'
+				}
+		}; 
+	
+	panelnorte.add(norte);
+	*/
 }

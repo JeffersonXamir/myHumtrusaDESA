@@ -13,6 +13,8 @@ import javax.servlet.http.HttpSession;
 
 import com.humtrusa.General.LocalizadorBean;
 import com.humtrusa.beans.BAdministracionGeneralLocal;
+import com.humtrusa.entidades.Genagencias;
+import com.humtrusa.entidades.Genempresas;
 import com.humtrusa.entidades.Genusuarios;
 
 /**
@@ -72,7 +74,7 @@ public class SIngreso extends HttpServlet {
 			//ses.setAttribute("session", usuario);
 			usuario = (Genusuarios)ses.getAttribute("session");
 			
-			if(usuario == null)
+			if(usuario == null)//aqui hago esa validacion 
 				response.sendRedirect("/humtrusaDESAWeb/index.jsp");
 				
 			BeanSeguridad bseguridad = new BeanSeguridad();
@@ -86,13 +88,23 @@ public class SIngreso extends HttpServlet {
 			bseguridad.setNombreUsuario(usuario.getNombres());
 			bseguridad.setFechaActual(new Date());
 			
+			Genagencias agencia = beanGeneral.obtenerAgencia(Long.parseLong(bseguridad.getAgencia()));
+			Genempresas empresa = beanGeneral.obtenerEmpresa(agencia);//agencia.getGenempresas();
+			
+			bseguridad.setNombreAgencia(agencia.getNombre());
+			bseguridad.setNombreEmpresa(empresa.getNombre());
+			
+			bseguridad.setDetallePerfilUsuario(beanGeneral.obtenerDetallePerfilUsuario(usuario.getCodusuario(), Long.parseLong(bseguridad.getEmpresa())));
 			
 			ses.setAttribute("beanSeguridad", bseguridad);
 			
 			//RequestDispatcher dispather = request.getRequestDispatcher("vistas/PantallaPrincipal/pantallaLocal.jsp");
-			RequestDispatcher dispather = request.getRequestDispatcher("/dashboard.jsp");
-			dispather.forward(request, response);
-			//response.sendRedirect("/humtrusaDESAWeb/dashboard.jsp"); 
+			
+			//RequestDispatcher dispather = request.getRequestDispatcher("/dashboard.jsp");
+			//dispather.forward(request, response);
+			
+			//estable
+			response.sendRedirect("/humtrusaDESAWeb/vistas/Dashboard/dashboard.jsp");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

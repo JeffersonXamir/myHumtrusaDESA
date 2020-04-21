@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="../../js/ext-2.2/resources/css/ext-all.css"/>
 <link rel="stylesheet" href="../../recursos/Login/estilos/estilosLogin.css"/>
 <link rel="stylesheet" href="../../recursos/General/css/estiloTotales.css" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="../../js/ext-2.2/resources/css/xtheme-gray.css" /> 
 <script language="javascript" src="../../js/etech/Ext.ux.grid.CellActions.js" ></script>
 <script language="javascript" src="../../js/etech/Ext.ux.plugins.js" ></script>
 <script language="javascript" src="../../js/etech/Ext.ux.grid.CheckBoxColumn.js" ></script> 

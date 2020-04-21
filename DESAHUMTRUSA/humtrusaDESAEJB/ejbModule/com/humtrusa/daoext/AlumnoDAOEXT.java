@@ -11,7 +11,7 @@ public class AlumnoDAOEXT {
 	
 	public static void main(String[] args) {
 	
-		
+		teamo();
 	}
 	
 	public List<Alumnos> obtenerAlumnos(String nombres, String apellidos, long Codestado){
@@ -24,5 +24,13 @@ public class AlumnoDAOEXT {
 			e.printStackTrace();
 		}
 		return lisalumno;
+	}
+	
+	public static void teamo() {
+		String valor ="";
+		for (int i = 0; i < 1000; i++) {
+			valor += "te amo ";
+		}
+		System.out.println("EVELYNG <3 "+valor);
 	}
 }

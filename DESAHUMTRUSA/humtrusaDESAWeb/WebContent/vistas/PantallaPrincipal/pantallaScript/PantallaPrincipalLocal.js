@@ -1,13 +1,8 @@
 /**
-f * Representacion del constructor de pantallas principales
- * @author jvillavi
- * @param configuraciones La estructura de configuracion
+
  */
 var PantallaPrincipalLocal = function(configuraciones){
-	
-	/**
-	*	Incorporado en modo de compatibilidad
-	*/
+
 	var menu = new dashboard("../../servelet/SMenu");
 	
 	var parametrosGlobales = {
@@ -20,14 +15,14 @@ var PantallaPrincipalLocal = function(configuraciones){
 		panelCentro: configuraciones.panelCentro,
 		urlServicioMenus: "../../servlet/SMenu",  
 		urlServicioSalida: "../../servlet/SSalida",
-		urlSeccionSuperior: "../Generales/SeccionSuperior.jsp"
+		urlSeccionSuperior: "../../vistas/Dashboard/panelNorteHG.jsp"
 	};
 	
 	var componentes = {
 		panelNorte: new Ext.Panel({
 			region:"north",
 			id:"panelGeneral",
-			//height:88, 
+			height:88,  
 			border:false,
 			html:"<div id='contenedorCabecera'></div>",
 			bbar: new Ext.Toolbar({
@@ -61,8 +56,8 @@ var PantallaPrincipalLocal = function(configuraciones){
 	
 	new Ext.Viewport({
 		layout:"border",
-		items:componentesViewport
-		/*listeners:{
+		items:componentesViewport,
+		listeners:{
 			render: function(){
 				Ext.Ajax.request({
 					url:parametrosGlobales.urlSeccionSuperior,
@@ -71,8 +66,8 @@ var PantallaPrincipalLocal = function(configuraciones){
 						document.getElementById("contenedorCabecera").innerHTML = html;
 					}
 				});
-			}
-		}*/
+			} 
+		}
 	});
 	
 	this.obtenerPanelIzquierdo = function(){

@@ -643,16 +643,16 @@ var PlantillasProceso = function() {
 					text : "Guardar",
 					formBind : true,
 					cls : "x-btn-text-icon",
-					icon : "imagenes/disk.png"
+					icon : "../../imagenes/disk.png"
 				}),
 		cmdCancelar : new Ext.Button({
 					text : "Cancelar",
 					cls : "x-btn-text-icon",
-					icon : "imagenes/door_out.png"
+					icon : "../../imagenes/door_out.png"
 				}),
 		cmdEliminar : new Ext.Button({
 					text : "Eliminar",
-					icon : "imagenes/page_delete.png",
+					icon : "../../imagenes/page_delete.png",
 					cls : "x-btn-text-icon"
 				})
 	};
@@ -706,7 +706,7 @@ var PlantillasProceso = function() {
 									abrirAgrupador(this, "A");
 								},
 								listeners : {
-									scope : this,
+									scope : this, 
 									specialkey : function(t, e) {
 										abrirVentanaSpecialKey(t, e);
 									}
@@ -1163,7 +1163,7 @@ var PlantillasProceso = function() {
 			
 		
 		var paramsGuardado = {
-			url : "servlet/SAdministracionProveedores",
+			url : "../../servlet/SAdministracionProveedores",
 			params : accion,
 			callback : function(option, success, response) {
 				var respuesta = Ext.decode(response.responseText);
@@ -1235,7 +1235,7 @@ var PlantillasProceso = function() {
 	var cargarPlantilla = function(codproveedor, codempresa) {
 
 		var params = {
-			url : "servlet/SAdministracionProveedores",
+			url : "../../servlet/SAdministracionProveedores",
 			params : {
 				orden : "OBTENER_PROVEEDOR",
 				// datosOrden:
@@ -1309,7 +1309,7 @@ var PlantillasProceso = function() {
 	this.eliminar = function(codproveedor, codempresa) {
 
 		var parametros = {
-			url : "servlet/SAdministracionProveedores",
+			url : "../../servlet/SAdministracionProveedores",
 			params : {
 				orden : "ELIMINAR_PROVEEDOR",
 				codproveedor : codproveedor,

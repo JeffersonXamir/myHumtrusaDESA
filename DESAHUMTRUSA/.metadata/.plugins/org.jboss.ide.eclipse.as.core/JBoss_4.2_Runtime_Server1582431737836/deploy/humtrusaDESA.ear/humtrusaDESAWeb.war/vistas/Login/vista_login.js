@@ -170,13 +170,14 @@ var inicioLogin = function (){
 		items : [panelSecundario]
 	});
 	
-	var vntLogin = new Ext.Window({
+	var vntLogin = new Ext.Window({// ya estan guardadas mo habra pronlema 
 		xtype : "window",
 		title : "Login",
 		width : 500,
 		height : 250,  
-		//resizable : true,
-		//modal : true,
+		resizable : false,
+		draggable: false, 
+		//modal : true, 
 		closable : false,
 		//closeAction : "hide", 
 		layout : "border", 
@@ -287,6 +288,11 @@ var inicioLogin = function (){
 								);
 			return;
 		}
+		/**
+		 * me toco enviarlo por get
+		 * ahora como lo envio por post
+		 * como le hace tu
+		 */
 		openPage("servlet/SIngreso?usuario="+usuario+"&codempresa="+codEmpresa+"&codagencia="+codAgencia+"");//cambiar a post
 		/*paramsAjax ={ 
 					url : "servlet/SIngreso",

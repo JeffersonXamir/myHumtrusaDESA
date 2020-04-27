@@ -9,12 +9,16 @@
 	int tamanoagencia = 0;
 	int tamanousuario = 0; 
 	int tamano = 0; 
+	if(beanSeguridad!=null){
 	
-	tamanoEmpresa = beanSeguridad.getNombreEmpresa().length();
-	tamanoagencia = beanSeguridad.getNombreAgencia().length();
-	tamanousuario = beanSeguridad.getNombreUsuario().length();
-	
-
+		tamanoEmpresa = beanSeguridad.getNombreEmpresa().length();
+		tamanoagencia = beanSeguridad.getNombreAgencia().length();
+		tamanousuario = beanSeguridad.getNombreUsuario().length();
+	}else{
+		%>
+			
+		<%	
+	}
 %>
 <style>
 	.etiquetaCabecera{font-family:Arial, Helvetica, sans-serif;font-size:11px;font-weight:bold;}

@@ -22,7 +22,7 @@ var PantallaPrincipalLocal = function(configuraciones){
 		panelNorte: new Ext.Panel({
 			region:"north",
 			id:"panelGeneral",
-			height:88,  
+			height:85,  
 			border:false,
 			html:"<div id='contenedorCabecera'></div>",
 			bbar: new Ext.Toolbar({

@@ -954,7 +954,7 @@ var PlantillasProceso = function() {
 	/* Ventana del proceso */
 	var vntPrincipal = new Ext.Window({
 		xtype : "window",
-		title : "Mantenimiento Plantillas",
+		title : "Mantenimiento Proveedor",
 		width : 700,
 		height : 300,
 		resizable : true,

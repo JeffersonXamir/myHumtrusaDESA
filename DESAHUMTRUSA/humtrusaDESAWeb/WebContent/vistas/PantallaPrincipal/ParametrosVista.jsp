@@ -8,10 +8,10 @@ document.parametrosSesion = {
 			
 };
  document.parametrosVista = {
-	nombreEntidad: "${sessionScope.modeloVista.nombreEntidad}",
-	descripcion: "${sessionScope.modeloVista.descripcionPagina}",
-	tituloPanelFiltros: "Filtros de Busqueda",
-	tituloPanelCentral: "${sessionScope.modeloVista.tituloPanel}",
+	nombreEntidad: '${sessionScope.modeloVista.nombreEntidad}',
+	descripcion: '${sessionScope.modeloVista.descripcionPagina}',
+	tituloPanelFiltros: 'Filtros de Busqueda', 
+	tituloPanelCentral: '${sessionScope.modeloVista.tituloPanel}',
 	anchoPanelFiltros: "${sessionScope.modeloVista.anchoSeccionFiltros}"
 };
 

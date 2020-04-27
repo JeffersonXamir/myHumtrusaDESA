@@ -4,10 +4,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="etech" tagdir="/WEB-INF/tags/etech" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page language="java" import="com.humtrusa.modelo.*" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<% 
+	Seguridades modeloSeguridad = (Seguridades) request.getSession().getAttribute("modeloSeguridad");
+%>
+<script type="text/javascript">
+	document.parametrosGlobal = {
+			codigoUsuario: "<%=modeloSeguridad.getNombresUsuario()%>",
+			nombreEmpresa: "<%=modeloSeguridad.getNombreEmpresa()%>",
+			nombreAgencia: "<%=modeloSeguridad.getNombreAgencia()%>" 
+		};	
+</script>
 <!DOCTYPE html>
 <html> 
 <head>
@@ -16,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="cache-Control" content="no-store" />
 	<meta http-equiv="expires" content="0">
 	<meta charset="ISO-8859-1">  
-	<title>"${sessionScope.modeloVista.nombreEntidad}"</title>
+	<title>${sessionScope.modeloVista.nombreEntidad}</title>
 	<jsp:include page="../../vistas/Cabeceras2.jsp"></jsp:include> 
 	<script type="text/javascript" src="../../vistas/PantallaPrincipal/ParametrosVista.jsp"></script>
 	<script type="text/javascript" src="../../vistas/Login/vista_dashboard.js"></script>

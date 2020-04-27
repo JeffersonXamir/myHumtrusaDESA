@@ -69,7 +69,7 @@ public class ControladorVistas extends HttpServlet {
 		String permisosJSON = beanModeloSeguridad.obtenerPermisos(Long.parseLong(beanVista.getOpcion()),modeloSeguridad.getCodigoPerfil(),Long.parseLong(beanSeguridad.getEmpresa()));
 		
 		System.out.println("Permisos "+permisosJSON);
-		
+	
 		modeloSeguridad.setPuedeAbrir(false);
 		modeloSeguridad.setPuedeEliminar(false);
 		modeloSeguridad.setPuedeGuardar(false);

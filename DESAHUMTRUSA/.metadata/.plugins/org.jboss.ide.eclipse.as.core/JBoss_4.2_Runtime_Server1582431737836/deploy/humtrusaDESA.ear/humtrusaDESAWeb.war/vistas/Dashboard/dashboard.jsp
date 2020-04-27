@@ -5,20 +5,14 @@
 <%@ taglib prefix="ext" tagdir="/WEB-INF/tags/ext"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page import='java.util.*' %>
+
+
 <% 
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
 			+ path + "/"; 
 %>
-<%
-		BeanSeguridad beanSeguridad = null;
-		beanSeguridad = (BeanSeguridad) request.getSession().getAttribute("beanSeguridad");
-		
-		String fechaIngreso = estandarizador.obtenerFechaComoCadena(beanSeguridad.getFechaActual(),"dd/MM/yyyy"); 
-		
-		pageContext.setAttribute("fechaingreso", fechaIngreso);
-		
-%>
+
 <!DOCTYPE html>
 <html>
 
@@ -38,8 +32,20 @@
 --> 
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>BIENVENIDOS A HUMTRUSA & COMERCIO S.A.</title>
- 
-
+<%
+		BeanSeguridad beanSeguridad = null;
+		beanSeguridad = (BeanSeguridad) request.getSession().getAttribute("beanSeguridad");
+		if(beanSeguridad != null){
+			String fechaIngreso = estandarizador.obtenerFechaComoCadena(beanSeguridad.getFechaActual(),"dd/MM/yyyy"); 
+			pageContext.setAttribute("fechaingreso", fechaIngreso);
+		}else{
+			%>
+					<script type="text/javascript">
+						console.log("usu ");  
+					</script> 
+			<%
+		}
+%>
 <style type="text/css">
 .estilo_fondo {
 	background-image: url("../../vistas/Login/logo8.jpg");

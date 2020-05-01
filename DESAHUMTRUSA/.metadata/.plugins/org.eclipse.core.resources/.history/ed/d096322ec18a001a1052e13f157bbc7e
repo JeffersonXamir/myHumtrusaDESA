@@ -1,0 +1,74 @@
+package com.humtrusa.beans;
+
+import java.util.List;
+
+import javax.ejb.Stateless;
+
+import org.hibernate.Session;
+
+import com.humtrusa.Sessionfactory.HibernateSessionFactory;
+import com.humtrusa.daoext.GenProveedoresDAOEXT;
+import com.humtrusa.entidades.Genproveedores;
+import com.humtrusa.estandarizadores.estandarizador;
+
+/**
+ * Session Bean implementation class BAdministracionArticulos
+ */
+@Stateless
+public class BAdministracionArticulos implements BAdministracionArticulosLocal {
+
+    /**
+     * Default constructor. 
+     */
+    public BAdministracionArticulos() {
+        // TODO Auto-generated constructor stub
+    }
+    
+    public String listarArticuloPedido(long codempresa, long codarticulo,String descripcion) {
+		System.out.println("listarArticuloPedido");
+    	List<Genproveedores> lsProveedores = null;
+		Session ses = null;
+		StringBuffer strBuff = new StringBuffer(estandarizador.CABECERA_XML);
+					
+		try{
+			
+			HibernateSessionFactory.getSession().clear();
+			ses = HibernateSessionFactory.getSession();
+			GenProveedoresDAOEXT dao = new GenProveedoresDAOEXT();
+	
+			lsProveedores = dao.listarProveedoresxFiltros(identificacion,tipoidentificacion,codempresa); 
+			strBuff.append("<response success='true' total_registros='"+lsProveedores.size()+"'>");
+			if(lsProveedores!=null && lsProveedores.size()>0){
+			
+				for(Genproveedores cxe :lsProveedores){
+									
+					strBuff.append("<proveedores>");
+					strBuff.append("<codempresa>"+cxe.getCodempresa()+"</codempresa>");
+					strBuff.append("<desempresa>"+"humtrusa"+"</desempresa>");
+					strBuff.append("<codagencia>"+1l+"</codagencia>");
+					strBuff.append("<desagencia>"+"humtrusa SA"+"</desagencia>");
+					strBuff.append("<codproveedor>"+cxe.getCodproveedor()+"</codproveedor>");
+					strBuff.append("<desproveedor>"+(cxe.getNombres()!=null?estandarizador.estandarizarCadena(cxe.getNombres()):"")+"</desproveedor>");
+					strBuff.append("<apellidos>"+(cxe.getApellidos()!=null?estandarizador.estandarizarCadena(cxe.getApellidos()):"")+"</apellidos>");
+					strBuff.append("<identificacion>"+(cxe.getIdentificacion()!=null?estandarizador.estandarizarCadena(cxe.getIdentificacion()):"")+"</identificacion>");
+					strBuff.append("<telfijo>"+(cxe.getTelefonocelular()!=null?cxe.getTelefonocelular():"")+"</telfijo>");
+					strBuff.append("<email>"+(cxe.getEmail()!=null?estandarizador.estandarizarCadena(cxe.getEmail()):"")+"</email>");
+					strBuff.append("<fechavali>"+(cxe.getFechavalidez()!=null?estandarizador.estandarizarCadena(cxe.getFechavalidez().toString()):"")+"</fechavali>");
+					strBuff.append("</proveedores>");
+				}
+			}else{
+				strBuff.append("<proveedores></proveedores>");
+			}
+			
+			strBuff.append("</response>");
+		}catch(Exception e){
+			strBuff.delete(0,strBuff.length());
+			strBuff.append("");
+			strBuff.append("<response success='false'></response>");
+			e.printStackTrace();
+		}
+		
+		return strBuff.toString();
+	}
+
+}

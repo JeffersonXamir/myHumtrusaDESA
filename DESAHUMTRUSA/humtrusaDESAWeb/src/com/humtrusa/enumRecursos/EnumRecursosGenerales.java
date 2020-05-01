@@ -1,5 +1,7 @@
 package com.humtrusa.enumRecursos;
 
+import com.humtrusa.beans.BAdministracionProveedoresLocal;
+
 public enum EnumRecursosGenerales {
  LISTAR_ALUMNOS_FILTROS("LISTAR_ALUMNOS_FILTROS"),
  LOGIN("LOGIN"),
@@ -13,8 +15,15 @@ public enum EnumRecursosGenerales {
  
  /** RECURSOS SEGURIDAD **/
  BSEGURIDADES("servidor/BAdministracionGeneral"),
- BDEFAULT("default");
 
+
+	
+/** BEANS **/
+BARTICULOS("servidor/BAdministracionArticulos"),
+BPEDIDOCOMPRA("servidor/BAdministracionPedidoCompra"),
+	
+BDEFAULT("default");
+	
  EnumRecursosGenerales(String recurso){
 	this.recurso = recurso;
  }

@@ -1,0 +1,238 @@
+/**
+ * 
+ */
+
+var busquedasFiltros = function (configuracion){
+	
+	var ParametrosGenerales = {
+		tituloVentana : configuracion.tituloVentana,
+		ancho: configuracion.ancho,
+		alto: configuracion.alto,
+		store: configuracion.store,
+		cm: configuracion.cm,
+		registrosPorPagina: (configuracion.registrosPorPagina!=null?configuracion.registrosPorPagina:20),
+		tituloOpcionCodigo: configuracion.tituloOpcionCodigo,
+		tituloOpcionDescripcion: configuracion.tituloOpcionDescripcion,
+		apuntador: configuracion.apuntador
+	};
+	
+	var documento = {
+			instanciaAgrupador:this
+	};
+	
+	var registro = null;
+	
+	var agruparCamposPanel = function(componenteA,componenteB,porcentajeComponenteA,porcentajeComponenteB,anchoPanel,labelWidth){		
+		var panelContenedor = new Ext.Panel({
+			border:false,
+			width:anchoPanel,
+			layout:"column",
+			labelWidth:labelWidth,
+			items:[
+				new Ext.Panel({border:false,layout:"form",columnWidth:porcentajeComponenteA,items:[componenteA]}),
+				new Ext.Panel({border:false,layout:"form",columnWidth:porcentajeComponenteB,items:[componenteB],style:"text-align:'center';margin-left:8px",labelWidth:labelWidth})
+			]
+		});
+		
+		return panelContenedor;
+	};
+	
+	
+	this.abrirVentanaFiltros = function(){
+		
+		var rdBusquedaEL1 = new Ext.form.Radio({
+			boxLabel: ParametrosGenerales.tituloOpcionCodigo,//
+			//:ParametrosGenerales.tituloOpcionCodigo,
+			name:"cpBusqueda",
+			inputValue:"C",
+			checked:true
+		});
+		
+		var rdBusquedaEL2 = new Ext.form.Radio({
+			boxLabel:ParametrosGenerales.tituloOpcionDescripcion,
+			name:"cpBusqueda",
+			inputValue:"D"
+		});
+		
+		var grupoRadio = new Ext.form.RadioGroup({
+			hideLabel:true,
+			width:200,
+			height:26,
+			//rendered:true, 
+			//itemCls: 'x-check-group-alt',
+			//colums:2,
+			//vertical: true,
+			items:[rdBusquedaEL1,rdBusquedaEL2]
+		});
+		
+		var txtCodBusqueda = new Ext.form.TextField({
+			id:"txtCodBusqueda",
+			emptyText:"Criterio de Búsqueda",
+			value: "",
+			hideLabel : true,
+			maxLength:50
+		});
+		
+		var botonFiltroCancelar = new Ext.Toolbar.Button({
+			text:"Cerrar",
+			icon:"../../imagenes/cancel.png",
+			cls:"x-btn-text-icon"
+		});
+		
+		var botonFiltroAceptar = new Ext.Toolbar.Button({
+			text:"Aceptar",
+			icon:"../../imagenes/accept.png",
+			cls:"x-btn-text-icon"
+		});
+		
+		var comboFiltro = new Ext.form.ComboBox({
+		       	fieldLabel : "Estado",
+				valueField : "codigo",
+				displayField : "descripcion",
+		        triggerAction : "all",
+				editable : false,
+				fieldClass: "x-form-field",
+				hiddenName : "estadopedido",
+				mode : "local",
+				width:130,
+				//emptyText : "",
+				allowBlank : false, 
+		        width:135,
+		        store:  new Ext.data.SimpleStore({
+						autoLoad : true,
+						fields : ["codigo", "descripcion"],
+						data : [["0", "Codigo"],
+								["1", "Descripcion"]]
+					}),
+				value:1
+		    });
+		
+		var gridVentana = new Ext.grid.GridPanel({
+			region:"center",
+			store: ParametrosGenerales.store, 
+			stripeRows: true,
+			loadMask:true,
+			enableColumnMove : false,
+			clicksToEdit : 1,
+			autoScrolls : true,
+			border : false,
+			viewConfig:{emptyText:"-- No Hay Datos que Mostrar --"},
+			columns:ParametrosGenerales.cm
+		});
+		
+		var panelradio = new Ext.Panel({
+			layout:"form",
+			width: 200,
+			frame:false,
+			border:false,
+			bodyStyle:"background:#D0DEF0 repeat-x scroll left top",
+			height:28,
+			items:[grupoRadio]
+		});
+		
+		var panelnortebusqueda = new Ext.Panel({
+			width: ParametrosGenerales.ancho,
+			height: 35,
+			layout:"form",
+			frame:true,
+			bodyStyle:"padding:0px",
+			border:false,
+			autoScroll :false,
+			region: 'north', 
+			items : [
+				agruparCamposPanel(panelradio,documento.instanciaAgrupador.txtCodBusqueda,0.5,0.5,420,70)	
+			]
+		});
+		//paramsComponente.instanciaGridPrincipal = gridVentana;
+		
+		var ventanaFiltros = new Ext.Window({
+				title: ParametrosGenerales.tituloVentana, 
+				iconCls:"iconoVentanaAgrupador",
+				width: ParametrosGenerales.ancho,
+				height: ParametrosGenerales.alto,
+				closable: false,
+				modal: true,
+				layout: "border", 
+				//region : 'center',
+				items: [panelnortebusqueda,gridVentana],
+				resizable: false, 
+				draggable: false,
+				frame: true,
+				closeAction : "hide",
+				buttons: [botonFiltroAceptar, botonFiltroCancelar],
+				bbar: new Ext.PagingToolbar({
+					displayInfo:true,
+					autoShow:true, 
+					displayMsg:'Mostrando registros del {0} al {1}, con un total de: {2} registro(s)',
+					width: ParametrosGenerales.ancho-14,
+					pageSize:ParametrosGenerales.registrosPorPagina,
+					store: ParametrosGenerales.store
+				})
+		
+		});
+			
+		
+		ventanaFiltros.show();
+		ventanaFiltros.center();
+		
+		prepararVentana();
+		gridVentana.getStore().load({
+				params : { 
+					start : 0,
+					limit : 10
+				}
+		});
+		
+		
+		/**
+		 * Funciones
+		 */
+		txtCodBusqueda.on("specialkey",function(){ 
+			var campo = rdBusquedaEL1.getGroupValue();
+			//alert(rdBusquedaEL1.getGroupValue());
+			if(campo == 'C'){
+				gridVentana.getStore().baseParams.identificacion =  txtCodBusqueda.getValue();
+			}else if (campo == 'D'){
+				gridVentana.getStore().baseParams.tipoidentificacion =  txtCodBusqueda.getValue();
+			}
+			
+			gridVentana.getStore().load({params : {	start : 0, limit : 20 } });
+			
+		});
+		
+		botonFiltroAceptar.on("click",function(){
+			registroSeleccionado();
+		});
+		
+		gridVentana.on("dblclick", function() {
+			registroSeleccionado();
+		});
+		
+		botonFiltroCancelar.on("click",function(){
+			registro = null;
+			ventanaFiltros.setVisible(false);
+		});
+		
+		function registroSeleccionado(){
+			registro = gridVentana.getSelectionModel().getSelected();
+			registro = registro.data;
+		
+			if(registro != null){
+				ventanaFiltros.setVisible(false);
+				ParametrosGenerales.apuntador.getDataSelection(registro);
+			}
+		}
+		
+		this.getRegistroSel = function(){
+			return this.registro;
+		}
+		
+		function prepararVentana(){
+			txtCodBusqueda.setValue("");
+			txtCodBusqueda.fireEvent('specialkey');
+		}
+		
+	}
+	
+	
+}

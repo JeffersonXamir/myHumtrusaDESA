@@ -1,0 +1,83 @@
+package com.humtrusa.beans;
+
+import java.util.List;
+
+import javax.ejb.Stateless;
+
+import org.hibernate.Session;
+
+import com.humtrusa.Sessionfactory.HibernateSessionFactory;
+import com.humtrusa.daoext.GenArticulosDAOEXT;
+import com.humtrusa.daoext.GenProveedoresDAOEXT;
+import com.humtrusa.entidades.Genarticulos;
+import com.humtrusa.entidades.Genarticulosxempresa;
+import com.humtrusa.entidades.Genproveedores;
+import com.humtrusa.estandarizadores.estandarizador;
+
+/**
+ * Session Bean implementation class BAdministracionArticulos
+ */
+@Stateless
+public class BAdministracionArticulos implements BAdministracionArticulosLocal {
+
+    /**
+     * Default constructor. 
+     */
+    public BAdministracionArticulos() {
+        // TODO Auto-generated constructor stub
+    }
+    
+    public String listarArticuloPedido(long codempresa, long codarticulo,String descripcion) {
+		System.out.println("listarArticuloPedido");
+    	List<Object[]> lista = null;
+		Session ses = null;
+		StringBuffer strBuff = new StringBuffer(estandarizador.CABECERA_XML);
+		Genarticulos art = null;
+		Genarticulosxempresa axe = null;
+					
+		try{
+			
+			HibernateSessionFactory.getSession().clear();
+			ses = HibernateSessionFactory.getSession();
+			GenArticulosDAOEXT dao = new GenArticulosDAOEXT();
+	
+			lista = dao.listarArticulosPedido(codempresa, codarticulo, descripcion); 
+			strBuff.append("<response success='true' total_registros='"+dao.listarArticulosPedidoCount(codempresa, codarticulo, descripcion)+"'>");
+			
+			if(lista!=null && lista.size()>0){
+				
+				for (Object[] obj : lista) {
+					art = (Genarticulos) obj[0];
+					axe = (Genarticulosxempresa) obj[1];
+					
+					strBuff.append("<articulo>");
+					strBuff.append("<codarticulo>"+art.getCodarticulo()+"</codempresa>");
+					strBuff.append("<codalterno>"+estandarizador.estandarizarCadena(art.getCodalterno())+"</codalterno>");
+					strBuff.append("<descripcion>"+estandarizador.estandarizarCadena(art.getDescripcioncorta())+"</descripcion>");
+					strBuff.append("<unidad>"+estandarizador.estandarizarCadena(art.getGenunidadesmedidaByCodunidadesmedida().getDescripcion())+"</unidad>");
+					strBuff.append("<precio>"+(axe.getPrecioultimacompra()!=0l?axe.getPrecioultimacompra():0l)+"</precio>");
+					strBuff.append("<stock>"+(axe.getStockempresa()!=0l?axe.getStockempresa():0l)+"</stock>");
+					strBuff.append("<marca>"+estandarizador.estandarizarCadena(axe.getGenmarcas().getDescripcion())+"</marca>");
+					strBuff.append("<linea>"+estandarizador.estandarizarCadena(axe.getGenlineas().getDescripcion())+"</linea>");
+					strBuff.append("<sublinea>"+estandarizador.estandarizarCadena(axe.getGensublineas().getDescripcion())+"</sublinea>");
+					
+					strBuff.append("</articulo>");
+					
+				}
+				
+			}else{
+				strBuff.append("<proveedores></proveedores>");
+			}
+			
+			strBuff.append("</response>");
+		}catch(Exception e){
+			strBuff.delete(0,strBuff.length());
+			strBuff.append("");
+			strBuff.append("<response success='false'></response>");
+			e.printStackTrace();
+		}
+		
+		return strBuff.toString();
+	}
+
+}

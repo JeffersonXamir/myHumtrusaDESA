@@ -1,0 +1,21 @@
+<jboss>
+	<enterprise-beans>
+	
+		<session>
+			<ejb-name>BAdministracionGeneral</ejb-name>
+			<jndi-name>servidor/BAdministracionGeneral</jndi-name>
+		</session>
+		<session>
+			<ejb-name>BAdministracionProveedores</ejb-name>
+			<jndi-name>servidor/BAdministracionProveedores</jndi-name>
+		</session>
+		<session>
+			<ejb-name>BMenu</ejb-name>
+			<jndi-name>servidor/BMenu</jndi-name>
+		</session>
+		<session>
+			<ejb-name>BAdministracionArticulos</ejb-name>
+			<jndi-name>servidor/BAdministracionArticulos</jndi-name>
+		</session>
+	</enterprise-beans>
+</jboss>

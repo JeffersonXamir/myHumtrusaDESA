@@ -1,0 +1,24 @@
+package com.humtrusa.daoext;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import com.humtrusa.Sessionfactory.HibernateSessionFactory;
+
+public class GenParametrosDAOEXT {
+	
+	public String obtenerParametroGeneral() {
+		Session ses = HibernateSessionFactory.getSession();
+		Query query =null;
+		String retorno = "";
+		
+		try {
+			//query = ses.createQuery("from gen")
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+}

@@ -28,99 +28,7 @@ var PlantillasProceso = function() {
 	var ptr = this;
 
 	var parametrosTransportador = {
-		listarSistemas : {
-			orden : "COMBO_SISTEMAS",
-			nombreMetodo : "obtenerCmbSistemasXML",
-			tipo : "XML",
-			parametros : []
-		},
-		obtenerEmpresas : {
-			orden : "OBTENER_EMPRESAS",
-			nombreMetodo : "obtieneEmpresasxUsuario",
-			tipo : "XML",
-			parametros : [{
-						nombre : "USUARIO_LOGONEADO",
-						prototipo : "String",
-						tipoParametro : "SEGURIDADES"
-					}]
-		},
-		obtenerAgencias : {
-			orden : "OBTENER_AGENCIAS",
-			nombreMetodo : "obtenerAgencia",
-			tipo : "XML",
-			parametros : [{
-						nombre : "codigoEmpresa",
-						prototipo : "long",
-						tipoParametro : "NORMAL"
-					}, {
-						nombre : "USUARIO_LOGONEADO",
-						prototipo : "String",
-						tipoParametro : "SEGURIDADES"
-					}]
-		},
-		obtenerDocumentos : {
-			orden : "OBTENER_DOCUMENTOS",
-			nombreMetodo : "obtenerDocumentos",
-			tipo : "XML",
-			parametros : [{
-						nombre : "codsistema",
-						prototipo : "String",
-						tipoParametro : "NORMAL"
-					}
-			// {nombre:"USUARIO_LOGONEADO",prototipo:"String",tipoParametro:"SEGURIDADES"}
-			]
-		},
-		obtenerFechas : {
-			orden : "OBTENER_FECHAS",
-			nombreMetodo : "obtenerFechas",
-			tipo : "XML",
-			parametros : [
-					// {nombre:"codigoEmpresa",prototipo:"long",tipoParametro:"NORMAL"},
-					// {nombre:"USUARIO_LOGONEADO",prototipo:"String",tipoParametro:"SEGURIDADES"}
-					{
-				nombre : "codsistema",
-				prototipo : "String",
-				tipoParametro : "NORMAL"
-			}, {
-				nombre : "coddocumento",
-				prototipo : "String",
-				tipoParametro : "NORMAL"
-			}, {
-				nombre : "codempresa",
-				prototipo : "long",
-				tipoParametro : "NORMAL"
-			}]
-		},
-		obtenerObservaciones : {
-			orden : "OBTENER_OBSERVACIONES",
-			nombreMetodo : "obtenerObservaciones",
-			tipo : "XML",
-			parametros : [
-					// {nombre:"codigoEmpresa",prototipo:"long",tipoParametro:"NORMAL"},
-					// {nombre:"USUARIO_LOGONEADO",prototipo:"String",tipoParametro:"SEGURIDADES"}
-					{
-				nombre : "codsistema",
-				prototipo : "String",
-				tipoParametro : "NORMAL"
-			}, {
-				nombre : "coddocumento",
-				prototipo : "String",
-				tipoParametro : "NORMAL"
-			}, {
-				nombre : "codempresa",
-				prototipo : "long",
-				tipoParametro : "NORMAL"
-			}]
-		},
-		obtenerTipos : {
-			orden : "OBTENER_TIPOS",
-			nombreMetodo : "obtenerTiposCmpr",
-			tipo : "XML",
-			parametros : [
-			// {nombre:"codigoEmpresa",prototipo:"long",tipoParametro:"NORMAL"},
-			// {nombre:"USUARIO_LOGONEADO",prototipo:"String",tipoParametro:"SEGURIDADES"}
-			]
-		},
+		
 		listarDetallePlantillas : {
 			orden : "LISTAR_DETALLE_PLANTILLA",
 			nombreMetodo : "obtenerDetallePlantilla",
@@ -131,7 +39,7 @@ var PlantillasProceso = function() {
 						tipoParametro : "NORMAL"
 					}, {
 						nombre : "codplantilla",
-						prototipo : "String",
+						prototipo : "String", 
 						tipoParametro : "NORMAL"
 					}]
 		},
@@ -596,6 +504,7 @@ var PlantillasProceso = function() {
 					regex : /^\d+(\.\d{1,2})?$/
 				}),
 		txtEmail : new Ext.form.TextField({
+					id:"pruebalabel",
 					fieldLabel : "",
 					name : "nombreProveedor",
 					labelSeparator :" ",
@@ -632,7 +541,8 @@ var PlantillasProceso = function() {
 				allowBlank : false,
 				onTriggerClick : function() {
 					//abrirAgrupador(this, "A");
-					alert("jolaaax");
+					//alert("jolaaax");
+					abrirAgrupadorProveedor();
 				}
 		}),
 		cmbesTransportista : new Ext.form.ComboBox({
@@ -734,7 +644,7 @@ var PlantillasProceso = function() {
 	 */
 	var botones = {
 		cmdGuardar : new Ext.Button({
-					text : "Aprobar Compra",
+					text : "Guardar Pedido",
 					formBind : true,
 					cls : "x-btn-text-icon",
 					icon : "../../imagenes/disk.png"
@@ -804,6 +714,7 @@ var PlantillasProceso = function() {
 				store : storeDatos.storeGrid,
 				columns : [
 						new Ext.grid.RowNumberer(), 
+						{dataIndex : "codarticulo",header : "codarticulo",width : 100,hidden : true,hideable : true},
 						{
 							dataIndex : 'codalterno',
 							name : 'codalterno',
@@ -812,12 +723,15 @@ var PlantillasProceso = function() {
 							editor : new Ext.form.ChooserField({
 										allowBlank : false,
 										onTriggerClick : function() {
-											abrirAgrupador(this, "A");
+											//abrirAgrupador(this, "A");
+											alert("on tigger");
+											AgrupadorArticulo();
 										},
 										listeners : {
 											scope : this,
 											specialkey : function(t, e) {
-												abrirVentanaSpecialKey(t, e);
+												//abrirVentanaSpecialKey(t, e);
+												alert("listener special key");
 											}
 										}
 									})
@@ -826,8 +740,8 @@ var PlantillasProceso = function() {
 							type : 'string',
 							name : 'descripcion',
 							header : 'Descripci&oacute;n',
-							width : 240,
-							editor : new Ext.form.TextField({value:""})
+							width : 240
+							//editor : new Ext.form.TextField({value:""})
 						},{
 							dataIndex : 'unidad',
 							type : 'string',
@@ -843,7 +757,8 @@ var PlantillasProceso = function() {
 							header : 'Cant. Solicitada',
 							width : 90,
 							align:'right',
-							editor : new Ext.form.TextField({maskRe:/[0-9]/,value:0.00})
+							editor : new Ext.form.TextField({maskRe:/[0-9.]/,value:0.00}),
+							renderer : Ext.util.Format.monedaSinSimbolo
 						}, {
 							dataIndex : 'cantrecibida',
 							type : 'string',
@@ -851,7 +766,8 @@ var PlantillasProceso = function() {
 							header : 'Cant. Recibida',
 							width : 90,
 							align:'right',
-							editor : new Ext.form.TextField({maskRe:/[0-9.]/,value:0.00})
+							editor : new Ext.form.TextField({maskRe:/[0-9.]/,value:0.00}),
+							renderer : Ext.util.Format.monedaSinSimbolo
 						},{
 							dataIndex : 'precio',
 							type : 'string',
@@ -859,7 +775,8 @@ var PlantillasProceso = function() {
 							header : 'P. Unit',
 							width : 100,
 							align:'right',
-							editor : new Ext.form.TextField({maskRe:/[0-9.]/,value:0.00})
+							editor : new Ext.form.TextField({maskRe:/[0-9.]/,value:0.00}),
+							renderer : Ext.util.Format.monedaSinSimbolo
 						},{
 							dataIndex : 'subtotal',
 							type : 'string',
@@ -867,7 +784,8 @@ var PlantillasProceso = function() {
 							header : 'SubTotal',
 							width : 100,
 							align:'right',
-							editor : new Ext.form.TextField({maskRe:/[0-9.]/,value:0.00})
+							editor : new Ext.form.TextField({maskRe:/[0-9.]/,value:0.00}),
+							renderer : Ext.util.Format.monedaSinSimbolo
 						},{
 							dataIndex : 'porcdescuento',
 							type : 'string',
@@ -875,7 +793,8 @@ var PlantillasProceso = function() {
 							header : '(%) Dsct',
 							width : 100,
 							align:'right',
-							editor : new Ext.form.TextField({maskRe:/[0-9.]/,value:0.00})
+							editor : new Ext.form.TextField({maskRe:/[0-9.]/,value:0.00}),
+							renderer : Ext.util.Format.monedaSinSimbolo
 						},{
 							dataIndex : 'descuento',
 							type : 'string',
@@ -883,7 +802,8 @@ var PlantillasProceso = function() {
 							header : 'Descuento',
 							width : 100,
 							align:'right',
-							editor : new Ext.form.TextField({maskRe:/[0-9.]/,value:0.00})
+							editor : new Ext.form.TextField({maskRe:/[0-9.]/,value:0.00}),
+							renderer : Ext.util.Format.monedaSinSimbolo4
 						},{
 							dataIndex : 'porciva',
 							type : 'string',
@@ -891,7 +811,8 @@ var PlantillasProceso = function() {
 							header : '(%) Iva',
 							width : 100,
 							align:'right',
-							editor : new Ext.form.TextField({maskRe:/[0-9.]/,value:0.12})
+							editor : new Ext.form.TextField({maskRe:/[0-9.]/,value:0.12}),
+							renderer : Ext.util.Format.monedaSinSimbolo
 						},{
 							dataIndex : 'iva',
 							type : 'string',
@@ -899,7 +820,8 @@ var PlantillasProceso = function() {
 							header : 'IVA', 
 							width : 100,
 							align:'right',
-							editor : new Ext.form.TextField({maskRe:/[0-9.]/,value:0.00})
+							editor : new Ext.form.TextField({maskRe:/[0-9.]/,value:0.00}),
+							renderer : Ext.util.Format.monedaSinSimbolo4
 						},{
 							dataIndex : 'total',
 							type : 'string',
@@ -907,7 +829,8 @@ var PlantillasProceso = function() {
 							header : 'Total',  
 							width : 100,
 							align:'right',
-							editor : new Ext.form.NumberField({maskRe:/[0-9.]/,value:0.00})
+							editor : new Ext.form.NumberField({maskRe:/[0-9.]/,value:0.00}),
+							renderer : Ext.util.Format.monedaSinSimbolo4
 						}
 						// checkColumnCabecera,
 						//checkColumnSumariza
@@ -1113,7 +1036,7 @@ var PlantillasProceso = function() {
 		buttonAlign : "center",
 		region : "center",
 		items : [panelSecundario,PanelgridDatos,panelSurTotales], 
-		buttons : [ botones.cmdCancelar]
+		buttons : [ botones.cmdGuardar,botones.cmdCancelar]
 	});
 
 	/* Ventana del proceso */
@@ -1170,7 +1093,7 @@ var PlantillasProceso = function() {
 
 	};
 	
-	function setTotales(){
+	function setTotales(subtotal,neto,descuento,iva,total){
 		var subTotalGeneral = document.getElementById("subTotalGeneral");
 		var descuentoGeneral = document.getElementById("descuentoGeneral");
 		var netoGeneral = document.getElementById("netoGeneral");
@@ -1178,6 +1101,12 @@ var PlantillasProceso = function() {
 		var totalGeneral = document.getElementById("totalGeneral"); 
 		
 		//seteo
+		subTotalGeneral.innerHTML = Ext.util.Format.monedaSinSimbolo((subtotal!=null?subtotal:0));
+		descuentoGeneral.innerHTML = Ext.util.Format.monedaSinSimbolo((descuento!=null?descuento:0));
+		netoGeneral.innerHTML = Ext.util.Format.monedaSinSimbolo((neto!=null?neto:0));
+		impuestoGeneral.innerHTML = Ext.util.Format.monedaSinSimbolo((iva!=null?iva:0));
+		totalGeneral.innerHTML = Ext.util.Format.monedaSinSimbolo((total!=null?total:0));
+		/** 
 		var sg = 196.80;
 		subTotalGeneral.innerHTML = Ext.util.Format.monedaSinSimbolo(sg);
 		totalGeneral.innerHTML = Ext.util.Format.monedaSinSimbolo(220.416);
@@ -1185,7 +1114,7 @@ var PlantillasProceso = function() {
 		netoGeneral.innerHTML = Ext.util.Format.monedaSinSimbolo(sg);
 		var x = (sg*0.12);
 		impuestoGeneral.innerHTML = Ext.util.Format.monedaSinSimbolo(23.616);
-		/** 
+		
 		subTotalGeneral.innerHTML = Ext.util.Format.monedaSinSimbolo(0);
 		totalGeneral.innerHTML = Ext.util.Format.monedaSinSimbolo(0);
 		descuentoGeneral.innerHTML = Ext.util.Format.monedaSinSimbolo(0.00);
@@ -1194,78 +1123,9 @@ var PlantillasProceso = function() {
 		**/
 	} 
 	
-	var agregarDetalle = function() {
+	
 
-		var grid = Ext.getCmp("gridDatos");
-		var gridDatos = Ext.getCmp("gridDatos");
-		gridDatos.store.commitChanges();
-		// var sel = grid.getSelectionModel().getSelectedCell();
-
-		var recd = grid.store.getAt(grid.store.getCount() - 1);
-
-		var sel = gridDatos.getSelectionModel().getSelectedCell();
-
-		var aux = gridDatos;
-		var Fila = Ext.data.Record.create([{
-					name : "numcuenta"
-				}, {
-					name : "numcuentaid"
-				}, {
-					name : "descripcion"
-				}, {
-					name : "debito"
-				}, {
-					name : "credito"
-				}, {
-					name : "cabeceradetalle"
-				}, {
-					name : "sumariza"
-				}]);
-		var tmpEst = new Fila({
-					numcuenta : '',
-					descripcion : '',
-					debito : '',
-					credito : '',
-					cabeceradetalle : '',
-					sumariza : false
-				});
-		aux.stopEditing();
-		aux.store.insert(aux.store.getCount(), tmpEst);
-		aux.getView().refresh();
-		aux.startEditing(aux.store.getCount() - 1, 1);
-
-	}
-
-	var eliminarDetalle = function() {
-		var gridDatos = Ext.getCmp("gridDatos");
-		var sel = gridDatos.getSelectionModel().getSelectedCell();
-		var borrame = gridDatos.getStore().getAt(sel[0]);
-
-		var cantreg = gridDatos.store.getCount();
-
-		var existe = 0;
-
-		for (r = 0; r < cantreg; r++) {
-			var reg = gridDatos.store.getAt(r);
-			if ((reg.get('numcuenta') == borrame.get('numcuenta'))) {
-				existe++;
-			}
-		}
-
-		if (existe > 0) {
-			Ext.Msg.show({
-						title : "Error",
-						msg : "Ya existe un detalle con esta cuenta.",
-						icon : Ext.Msg.ERROR,
-						buttons : Ext.Msg.OK
-					});
-		}
-
-		gridDatos.getStore().remove(borrame);
-		gridDatos.store.commitChanges();
-		gridDatos.getView().refresh();
-
-	};
+	
 
 	Ext.getCmp("gridDatos").on('beforeedit', function(e) {
 				// validaEdicionDetalle(e);
@@ -1292,7 +1152,8 @@ var PlantillasProceso = function() {
 			var fila = store.getAt(i);
 
 			if (i < store.getCount() - 1)
-				cadena = cadena + "{numcuenta:'" + fila.get('numcuenta')
+				cadena = cadena + "{numcuenta:'" + fila
+				.get('numcuenta')
 						+ "',numcuentaid:'" + fila.get('numcuentaid')
 						+ "',descripcion:'" + fila.get('descripcion')
 						+ "',debito:'" + fila.get('debito') + "',credito:'"
@@ -1544,528 +1405,497 @@ var PlantillasProceso = function() {
 		Ext.Ajax.request(parametros);
 	}
 
-	/** ********************************************************************************************** */
-
-	var storeAgrupadorCuenta = new Ext.data.Store({
-				url : '../../servlet/SAdministracionCuentas',
-				baseParams : '{orden:LISTAR_CUENTAS_VARIABLES}',
-				reader : new Ext.data.XmlReader({
-							record : 'objeto',
-							totalRecords : '@total_registros',
-							success : '@success',
-							fields : [{
-										name : 'codigo'
-									}, {
-										name : 'descripcion'
-									}, {
-										name : 'cuentaagencia'
-									}, {
-										name : 'nivel'
-									}, {
-										name : 'nivelmaximo'
-									}]
-						})
-			});
-	var agrCuenta = new Etech.componentes.AgrupadorAvanzado({
-				url : '../../servlet/SAdministracionCuentas',
-				tituloVentana : 'Agrupador',
-				nombreCampoCodigo : 'codigo',
-				nombreCampoDescripcion : 'descripcion',
-				nombreParametroAccion : "LISTAR_CUENTAS_VARIABLES",
-				registrosPorPagina : 10,
-				widthVentana : 620,
-				heightVentana : 340,
-				store : storeAgrupadorCuenta,
-				modoBusquedaIncompleta : true,
-				cm : [{
-							sortable : true,
-							dataIndex : 'cuentaagencia',
-							name : 'cuentaagencia',
-							header : 'Cuenta Agencia'
-						}, {
-							sortable : true,
-							dataIndex : 'codigo',
-							name : 'codigo',
-							header : 'Cï¿½digo',
-							type : 'string',
-							width : 180
-						}, {
-							sortable : true,
-							dataIndex : 'descripcion',
-							name : 'descripcion',
-							header : 'Descripcion',
-							type : 'string',
-							width : 300
-						}, {
-							sortable : true,
-							dataIndex : 'nivel',
-							name : 'nivel',
-							header : 'Nivel',
-							type : 'string',
-							width : 300
-						}, {
-							sortable : true,
-							dataIndex : 'nivelmaximo',
-							name : 'nivelmaximo',
-							header : 'Nivel Maximo',
-							hidden : true,
-							type : 'string'
-						}]
-			});
-
-	this.cargarCuenta = function() {
-		// var gridPrincipal = grillaClasificaciones;
-		var registroseleccionado = agrCuenta.registroSeleccionado;
-		var gridDatos = Ext.getCmp("gridDatos");
-		var sel = gridDatos.getSelectionModel().getSelectedCell();
-		if (registroseleccionado.get('descripcion') == '') {
-			gridDatos.store.getAt(sel[0]).set("numcuenta", "");
-			gridDatos.store.commitChanges();
-			// agrCuentas.abrirVentana();
+	
+	
+	/**************************/
+	/**
+	 * Calculos Grid
+	 */
+	function calcularValoresGenerales(grid) { //subtotal,neto,descuento,iva,total
+		var store = grid.getStore();
+		if(store.getCount() <= 0){
+			setTotales('0.00','0.00','0.00','0.00');
 			return;
 		}
-
-		var codigo = registroseleccionado.get("codigo");
-		var descripcion = registroseleccionado.get("descripcion");
-		var cuentaagencia = registroseleccionado.get("cuentaagencia");
-		var nivel = registroseleccionado.get("nivel");
-		var nivelmaximo = registroseleccionado.get("nivelmaximo");
-
-		if (!Ext.getCmp("porvariable").getValue()) {
-			if (nivel != nivelmaximo) {
-				Ext.Msg.show({
-							title : "Atenci&oacute;n",
-							msg : 'Solo se pueden escoger cuentas de nivel mï¿½ximo.',
-							icon : Ext.Msg.INFO,
-							buttons : Ext.Msg.OK,
-							fn : function() {
-								gridDatos.store.getAt(sel[0]).set("numcuenta",
-										"");
-								gridDatos.store.commitChanges();
-								// agrCuentas.abrirVentana();
-								return;
-							}
-						});
+		var Subtotal = 0;
+		var Descuento = 0;	
+		var Iva = 0;
+		var neto = 0;
+		var Total = 0;
+			
+		store.each(function(record){
+			if(record.get('codarticulo')){
+				Subtotal += record.get('subtotal')*1;
+				Descuento += record.get('descuento')*1;
+				Iva += record.get('iva')*1;
+				//Neto += record.get('neto')*1;
+				Total += record.get('total')*1;
 			}
-		}
-
-		var record = gridDatos.store.getAt(sel[0]);
-
-		record.set("numcuenta", cuentaagencia);
-
-		if (!Ext.getCmp("porvariable").getValue())
-			record.set("numcuentaid", codigo);
-		else
-			record.set("numcuenta", codigo);
-		// record.set("descripion",descripcion);
-
-		gridDatos.store.commitChanges();
-
-	};
-
-	function abrirAgrupador(t, tipo) {
+		});
+		setTotales((Subtotal*1),(neto*1),(Descuento*1),(Iva*1),(Total*1));
+	}
+	
+	function calcularValoresDetalle(record){
 		
+		var cantidad = record.get("cantsolicitada") || 0;
+		var precio = record.get("precio") || 0;
+		var subtotal = record.get("subtotal") || 0;
+		var porcdescuento = record.get("porcdescuento") || 0;
+		var descuento = record.get("descuento") || 0;
+		var porciva = record.get("porciva") || 0;
+		var iva = record.get("iva") || 0;
+		var total = record.get("total") || 0;
+		//var neto = record.get("valorneto") || 0;
+		//var impuesto = record.get("impuesto") || 0; 
+				
+		subtotal = (precio-0).toFixed(4) * cantidad;		
+		subtotal = (subtotal-0).toFixed(2);
+		
+		descuento = subtotal * porcdescuento /100; 		
+		descuento = (descuento-0).toFixed(4);
+		
+		porcdescuento = (porcdescuento-0).toFixed(4);
+		
+		iva = (subtotal * porciva);
+		
+		console.log(subtotal +" "+descuento +" "+iva );
+		total = ((subtotal-descuento)+iva);
+		total = (total-0).toFixed(4);
+		//neto = subtotal - descuento;
+		
+		var grid = Ext.getCmp('gridDatos');
+		var store = grid.getStore();
+		store.suspendEvents();
+		
+		record.set("precio", (precio-0).toFixed(4));
+		record.set("subtotal", (subtotal-0).toFixed(2));
+		record.set("descuento", (descuento-0).toFixed(4));
+		record.set("porcdescuento",(porcdescuento-0).toFixed(4));
+		//record.set("valorneto", (neto-0).toFixed(2));
+		record.set("total", (total-0).toFixed(4));
+		//record.set("porcdescuento",(porcdescuento-0).toFixed(4)||0);
+		record.set("iva",(iva-0).toFixed(4)||0);
+		/***********	RESUMIR EVENTOS Y DISPARAR LOS CAMBIOS	**********/	
+		store.resumeEvents();
+		record.commit();
+	}
+	/*************************/
+	/**
+	 * Acciones Grid
+	 */
+	Ext.getCmp("gridDatos").on('beforeedit',function(e){
+	 
+		//alert("beforeedit")
+	});
+	
+	Ext.getCmp("gridDatos").on('afteredit',function(e){
+	 	calcularValoresDetalle(e.record);
+	 	calcularValoresGenerales(Ext.getCmp("gridDatos"));
+		//alert("afteredit");
+	});
+	
+	Ext.getCmp("gridDatos").on('validateedit',function(e){
+		//alert("validateedit");
+		var gridDatos = Ext.getCmp("gridDatos");
+		
+		switch(e.field){
+				case 'cantsolicitada':
+					//if(e.value == 0 || e.value == ''){ return false; }
+					e.value = e.value || '0';
+					if((e.value*1) <= 0.00){
+						Ext.MessageBox.show({
+							title: 'Atención',
+							msg: 'La Cantidad Solicitada no puede ser menor a 0.',
+							buttons: Ext.MessageBox.OK,
+							scope:this,
+							fn:function(){
+								var celda = gridDatos.getSelectionModel().getSelectedCell();					
+								gridDatos.startEditing(celda[0],celda[1]);	 
+							},
+							icon: Ext.MessageBox.INFO			
+						});						
+						return false;
+					}
+					return true;
+					break;
+			
+				case 'codalterno':					
+					//global = e.record.get('codalterno');										
+					return true;
+					break;
+					
+				default :
+					return true;
+		}		
+	});
+	
+	Ext.getCmp("gridDatos").on("render", function () {
+			var gridDatos = Ext.getCmp("gridDatos");
+			var mapGridDetalle = new Ext.KeyMap(gridDatos.body,[
+				{ 
+				 	key:Ext.EventObject.ENTER, 
+				 	fn:agregarDetalle(),
+				 	scope:this
+				},
+				{
+					key:Ext.EventObject.F2,
+					fn:function(){														
+						var celda = gridDatos.getSelectionModel().getSelectedCell();					
+						gridDatos.startEditing(celda[0],celda[1]);
+					}
+				}]);
+		});
+	/************************/
+	/**
+	 *Eliminar Detalles Grid
+	 */
+	var eliminarDetalle = function() {
 		var gridDatos = Ext.getCmp("gridDatos");
 		var sel = gridDatos.getSelectionModel().getSelectedCell();
-		var numcuenta = gridDatos.store.getAt(sel[0]).get("numcuenta");
-		var cuentaagencia = gridDatos.store.getAt(sel[0]).get("cuentaagencia");
+		var borrame = gridDatos.getStore().getAt(sel[0]);
 
-		agrCuenta.campoCodigo.setValue(t.getValue());
+		var cantreg = gridDatos.store.getCount();
 
-		if (!Ext.getCmp("porvariable").getValue()) {
-			agrCuenta.modificarParametrosConsulta({
-				orden : "LISTAR_CUENTAS_VARIABLES",
-				// selecciona:'',
-				// codsistema:componentes.cmbSistemas.getValue(),
-				codempresa : componentes.cmbEmpresas.getValue(),
-				codagencia : componentes.cmbAgencias.getValue()
-					// tipo:'',
-					// coddocumento:componentes.cmbDocumentos.getValue()
+		var existe = 0;
 
-				});
-		} else {
-			agrCuenta.modificarParametrosConsulta({
-						orden : "LISTAR_OBJETOS",
-						selecciona : '',
-						codsistema : componentes.cmbSistemas.getValue(),
-						codempresa : componentes.cmbEmpresas.getValue(),
-						tipo : 'V',
-						coddocumento : componentes.cmbDocumentos.getValue()
-
+		for (r = 0; r < cantreg; r++) {
+			var reg = gridDatos.store.getAt(r);
+			if ((reg.get('codalterno') == borrame.get('codalterno'))) {
+				existe++;
+			}
+		}
+		/*
+		if (existe > 0) {
+			Ext.Msg.show({
+						title : "Error",
+						msg : "El Articulo ya est&aacute; Seleccionado.",
+						icon : Ext.Msg.ERROR,
+						buttons : Ext.Msg.OK
 					});
-
 		}
-
-		if (tipo == "A" || agrCuenta.campoCodigo.getValue().length == "") {
-			agrCuenta.abrirVentana();
-		} else {
-			agrCuenta.dispararSpecialKey();
-		}
-
-	};
-
-	function abrirVentanaSpecialKey(t, e) {
-		var gridDatos = Ext.getCmp("gridDatos");
-		if (e.getKey() == Ext.EventObject.ENTER
-				|| e.getKey() == Ext.EventObject.TAB) {
-			var sel = gridDatos.getSelectionModel().getSelectedCell();
-
-			if (t.getValue() == '' /*
-									 * &&
-									 * gridDatos.store.getAt(sel[0]).get("descripcion")!=''
-									 */) {
-				gridDatos.store.getAt(sel[0]).set('numcuenta', '');
-				// gridDatos.store.getAt(sel[0]).set('descripcion','');
-				gridDatos.store.commitChanges();
-				return;
-			} else {
-				abrirAgrupador(t, "B");
-			}
-		}
-	};
-
-	agrCuenta.on('actualizado', this.cargarCuenta);
-
-	/** ********************************************************************************************** */
-
-	var storeAgrupadorDescripcion = new Ext.data.Store({
-				url : '../../servlet/SAdministracionCuentas',
-				baseParams : '{orden:LISTAR_OBJETOS}',
-				reader : new Ext.data.XmlReader({
-							record : 'objeto',
-							totalRecords : '@total_registros',
-							success : '@success',
-							fields : [{
-										name : 'codigo'
-									}, {
-										name : 'descripcion'
-									}]
-						})
-			});
-	var agrDescripcion = new Etech.componentes.AgrupadorAvanzado({
-				url : '../../servlet/SAdministracionCuentas',
-				tituloVentana : 'Agrupador',
-				nombreCampoCodigo : 'codigo',
-				nombreCampoDescripcion : 'descripcion',
-				nombreParametroAccion : "LISTAR_OBJETOS",
-				registrosPorPagina : 10,
-				widthVentana : 620,
-				heightVentana : 340,
-				store : storeAgrupadorDescripcion,
-				modoBusquedaIncompleta : true,
-				cm : [{
-							sortable : true,
-							dataIndex : 'codigo',
-							name : 'codigo',
-							header : 'Cï¿½digo',
-							type : 'string',
-							width : 180
-						}, {
-							sortable : true,
-							dataIndex : 'descripcion',
-							name : 'descripcion',
-							header : 'Descripcion',
-							type : 'string',
-							width : 300
-						}]
-			});
-
-	this.cargarDescripcion = function() {
-		// var gridPrincipal = grillaClasificaciones;
-		var gridDatos = Ext.getCmp("gridDatos");
-		var registroseleccionado = agrDescripcion.registroSeleccionado;
-		var sel = gridDatos.getSelectionModel().getSelectedCell();
-		if (registroseleccionado.get('descripcion') == '') {
-			gridDatos.store.getAt(sel[0]).set("descripcion", "");
-			gridDatos.store.commitChanges();
-			// agrCuentas.abrirVentana();
-			return;
-		}
-
-		var codigo = registroseleccionado.get("codigo");
-		var descripcion = registroseleccionado.get("descripcion");
-
-		var record = gridDatos.store.getAt(sel[0]);
-
-		// record.set("numcuenta",codigo);
-		// record.set("descripion",descripcion);
-		record.set("descripcion", codigo);
-
+		*/
+		gridDatos.getStore().remove(borrame);
 		gridDatos.store.commitChanges();
-
-	};
-
-	function abrirAgrupadorDescripcion(t, tipo) {
-		var gridDatos = Ext.getCmp("gridDatos");
-		var sel = gridDatos.getSelectionModel().getSelectedCell();
-		// var numcuenta = gridDatos.store.getAt(sel[0]).get("numcuenta");
-
-		agrDescripcion.campoCodigo.setValue(t.getValue());
-		agrDescripcion.modificarParametrosConsulta({
-					orden : "LISTAR_OBJETOS",
-					selecciona : '',
-					codsistema : componentes.cmbSistemas.getValue(),
-					codempresa : componentes.cmbEmpresas.getValue(),
-					tipo : 'D',
-					coddocumento : componentes.cmbDocumentos.getValue()
-
-				});
-
-		if (tipo == "A" || agrDescripcion.campoCodigo.getValue().length == "") {
-			agrDescripcion.abrirVentana();
-		} else {
-			agrDescripcion.dispararSpecialKey();
-		}
-
-	};
-
-	function abrirVentanaSpecialKeyDescripcion(t, e) {
-		var gridDatos = Ext.getCmp("gridDatos");
-		if (e.getKey() == Ext.EventObject.ENTER
-				|| e.getKey() == Ext.EventObject.TAB) {
-			var sel = gridDatos.getSelectionModel().getSelectedCell();
-			// if(t.getValue()=='' &&
-			// gridDatos.store.getAt(sel[0]).get("descripcion")!=''){
-			if (t.getValue() == '') {
-				// gridDatos.store.getAt(sel[0]).set('numcuenta','');
-				gridDatos.store.getAt(sel[0]).set('descripcion', '');
-				gridDatos.store.commitChanges();
-				return;
-			} else {
-				abrirAgrupadorDescripcion(t, "B");
-			}
-		}
-	};
-
-	agrDescripcion.on('actualizado', this.cargarDescripcion);
-
-	/** ********************************************************************************************** */
-
-	var storeAgrupadorDebito = new Ext.data.Store({
-				url : '../../servlet/SAdministracionCuentas',
-				baseParams : '{orden:LISTAR_OBJETOS}',
-				reader : new Ext.data.XmlReader({
-							record : 'objeto',
-							totalRecords : '@total_registros',
-							success : '@success',
-							fields : [{
-										name : 'codigo'
-									}, {
-										name : 'descripcion'
-									}]
-						})
-			});
-	var agrDebito = new Etech.componentes.AgrupadorAvanzado({
-				url : '../../servlet/SAdministracionCuentas',
-				tituloVentana : 'Agrupador',
-				nombreCampoCodigo : 'codigo',
-				nombreCampoDescripcion : 'descripcion',
-				nombreParametroAccion : "LISTAR_OBJETOS",
-				registrosPorPagina : 10,
-				widthVentana : 620,
-				heightVentana : 340,
-				store : storeAgrupadorDebito,
-				modoBusquedaIncompleta : true,
-				cm : [{
-							sortable : true,
-							dataIndex : 'codigo',
-							name : 'codigo',
-							header : 'Cï¿½digo',
-							type : 'string',
-							width : 180
-						}, {
-							sortable : true,
-							dataIndex : 'descripcion',
-							name : 'descripcion',
-							header : 'Descripcion',
-							type : 'string',
-							width : 300
-						}]
-			});
-
-	this.cargarDebito = function() {
-		// var gridPrincipal = grillaClasificaciones;
-		var gridDatos = Ext.getCmp("gridDatos");
-		var registroseleccionado = agrDebito.registroSeleccionado;
-		var sel = gridDatos.getSelectionModel().getSelectedCell();
-		if (registroseleccionado.get('descripcion') == '') {
-			gridDatos.store.getAt(sel[0]).set("debito", "");
-			gridDatos.store.commitChanges();
-			// agrCuentas.abrirVentana();
-			return;
-		}
-
-		var codigo = registroseleccionado.get("codigo");
-		var descripcion = registroseleccionado.get("descripcion");
-
-		var record = gridDatos.store.getAt(sel[0]);
-
-		// record.set("numcuenta",codigo);
-		// record.set("descripion",descripcion);
-		record.set("debito", codigo);
-
-		gridDatos.store.commitChanges();
-
-	};
-
-	function abrirAgrupadorDebito(t, tipo) {
+		gridDatos.getView().refresh();
 		
+		calcularValoresGenerales(gridDatos);
+ 
+	};
+	
+	
+	/**********************/
+	/**
+	 * Agregar Detalle Al Grid
+	 */
+	var agregarDetalle = function() {
+		
+		var retorno = validarGrid();
+		if(retorno == null)
+			return;	
+		
+		var grid = Ext.getCmp("gridDatos");
 		var gridDatos = Ext.getCmp("gridDatos");
+		gridDatos.store.commitChanges();
+		// var sel = grid.getSelectionModel().getSelectedCell();
+		
+		var recd = grid.store.getAt(grid.store.getCount() - 1);
+	
 		var sel = gridDatos.getSelectionModel().getSelectedCell();
-		// var numcuenta = gridDatos.store.getAt(sel[0]).get("numcuenta");
-
-		agrDebito.campoCodigo.setValue(t.getValue());
-		agrDebito.modificarParametrosConsulta({
-					orden : "LISTAR_OBJETOS",
-					selecciona : '',
-					codsistema : componentes.cmbSistemas.getValue(),
-					codempresa : componentes.cmbEmpresas.getValue(),
-					tipo : 'N',
-					coddocumento : componentes.cmbDocumentos.getValue()
-
+		
+		var aux = gridDatos;
+		var Fila = Ext.data.Record.create([
+				{name : "codalterno"},
+				{name : "descripcion"},
+				{name : "unidad"},
+				{name : "cantsolicitada"},
+				{name : "cantrecibida"},
+				{name : "precio"},
+				{name : "subtotal"},
+				{name : "porcdescuento"},
+				{name : "descuento"},
+				{name : "porciva"},
+				{name : "iva"},
+				{name : "total"}
+				]);
+		var tmpEst = new Fila({
+					codalterno : '',
+					descripcion : '',
+					unidad : '',
+					cantsolicitada : '0',
+					cantrecibida : '0.00',
+					precio : '0',
+					subtotal:'0.00',
+					porciva : '0',
+					iva : '0',
+					porcdescuento:'0'
 				});
-
-		if (tipo == "A" || agrDebito.campoCodigo.getValue().length == "") {
-			agrDebito.abrirVentana();
-		} else {
-			agrDebito.dispararSpecialKey();
-		}
+		aux.stopEditing();
+		aux.store.insert(aux.store.getCount(), tmpEst);
+		aux.getView().refresh();
+		aux.startEditing(aux.store.getCount() - 1, 2);
 
 	};
-
-	function abrirVentanaSpecialKeyDebito(t, e) {
-		var gridDatos = Ext.getCmp("gridDatos");
-		if (e.getKey() == Ext.EventObject.ENTER
-				|| e.getKey() == Ext.EventObject.TAB) {
-			var sel = gridDatos.getSelectionModel().getSelectedCell();
-			// if(t.getValue()=='' &&
-			// gridDatos.store.getAt(sel[0]).get("descripcion")!=''){
-			if (t.getValue() == '') {
-				// gridDatos.store.getAt(sel[0]).set('numcuenta','');
-				gridDatos.store.getAt(sel[0]).set('debito', '');
-				gridDatos.store.commitChanges();
-				return;
-			} else {
-				abrirAgrupadorDebito(t, "B");
-			}
-		}
-	};
-
-	agrDebito.on('actualizado', this.cargarDebito);
-
-	/** ********************************************************************************************** */
-
-	var storeAgrupadorCredito = new Ext.data.Store({
-				url : '../../servlet/SAdministracionCuentas',
-				baseParams : '{orden:LISTAR_OBJETOS}',
-				reader : new Ext.data.XmlReader({
-							record : 'objeto',
-							totalRecords : '@total_registros',
-							success : '@success',
-							fields : [{
-										name : 'codigo'
-									}, {
-										name : 'descripcion'
-									}]
-						})
-			});
-	var agrCredito = new Etech.componentes.AgrupadorAvanzado({
-				url : '../../servlet/SAdministracionCuentas',
-				tituloVentana : 'Agrupador',
-				nombreCampoCodigo : 'codigo',
-				nombreCampoDescripcion : 'descripcion',
-				nombreParametroAccion : "LISTAR_OBJETOS",
-				registrosPorPagina : 10,
-				widthVentana : 620,
-				heightVentana : 340,
-				store : storeAgrupadorCredito,
-				modoBusquedaIncompleta : true,
-				cm : [{
-							sortable : true,
-							dataIndex : 'codigo',
-							name : 'codigo',
-							header : 'Cï¿½digo',
-							type : 'string',
-							width : 180
-						}, {
-							sortable : true,
-							dataIndex : 'descripcion',
-							name : 'descripcion',
-							header : 'Descripcion',
-							type : 'string',
-							width : 300
-						}]
-			});
-
-	this.cargarCredito = function() {
-		// var gridPrincipal = grillaClasificaciones;
-		var gridDatos = Ext.getCmp("gridDatos");
-		var registroseleccionado = agrCredito.registroSeleccionado;
-		var sel = gridDatos.getSelectionModel().getSelectedCell();
-
-		if (registroseleccionado.get('descripcion') == '') {
-			gridDatos.store.getAt(sel[0]).set("credito", "");
-			gridDatos.store.commitChanges();
-			// agrCuentas.abrirVentana();
+	
+	function validarGrid (){ 
+		var grid = Ext.getCmp("gridDatos");
+		var filas = grid.store.getCount(); 
+		var sel = grid.getSelectionModel().getSelectedCell();
+		var filaAnterior = null;
+		var retorno = "";
+		var mensaje = "Debe Seleccionar un Articulo";
+		var mensajeProveedor = "Debe Seleccionar un Proveedor";
+		
+		var proveedor = componentes.tfcodProveedor.getValue();
+		
+		if(proveedor == null || proveedor == ""){
+			Ext.MessageBox.show({title:"Atenci\xf3n", msg:mensajeProveedor, buttons:Ext.MessageBox.OK, icon:Ext.MessageBox.ERROR});
 			return;
 		}
-
-		var codigo = registroseleccionado.get("codigo");
-		var descripcion = registroseleccionado.get("descripcion");
-
-		var record = gridDatos.store.getAt(sel[0]);
-
-		// record.set("numcuenta",codigo);
-		// record.set("descripion",descripcion);
-		record.set("credito", codigo);
-
-		gridDatos.store.commitChanges();
-
-	};
-
-	function abrirAgrupadorCredito(t, tipo) {
 		
-		var gridDatos = Ext.getCmp("gridDatos");
-		var sel = gridDatos.getSelectionModel().getSelectedCell();
-		// var numcuenta = gridDatos.store.getAt(sel[0]).get("numcuenta");
-
-		agrCredito.campoCodigo.setValue(t.getValue());
-		agrCredito.modificarParametrosConsulta({
-					orden : "LISTAR_OBJETOS",
-					selecciona : '',
-					codsistema : componentes.cmbSistemas.getValue(),
-					codempresa : componentes.cmbEmpresas.getValue(),
-					tipo : 'N',
-					coddocumento : componentes.cmbDocumentos.getValue()
-
-				});
-
-		if (tipo == "A" /* || agrCredito.campoCodigo.getValue().length == "" */) {
-			agrCredito.abrirVentana();
-		} else {
-			agrCredito.dispararSpecialKey();
-		}
-
-	};
-
-	function abrirVentanaSpecialKeyCredito(t, e) {
-		var gridDatos = Ext.getCmp("gridDatos");
-		if (e.getKey() == Ext.EventObject.ENTER
-				|| e.getKey() == Ext.EventObject.TAB) {
-			var sel = gridDatos.getSelectionModel().getSelectedCell();
-			// if(t.getValue()=='' &&
-			// gridDatos.store.getAt(sel[0]).get("descripcion")!=''){
-			if (t.getValue() == '') {
-				// gridDatos.store.getAt(sel[0]).set('numcuenta','');
-				gridDatos.store.getAt(sel[0]).set('credito', '');
-				gridDatos.store.commitChanges();
-				return;
-			} else {
-				abrirAgrupadorCredito(t, "B");
+		if(filas > 0){
+			filaAnterior = grid.store.getAt(sel[0]).get("codalterno");
+			//alert(filaAnterior);
+			if(filaAnterior <= 0 ){
+				 //Ext.MessageBox.ERROR({ });
+				 Ext.MessageBox.show({title:"Atenci\xf3n", msg:mensaje, buttons:Ext.MessageBox.OK, icon:Ext.MessageBox.ERROR});
+				 retorno = null;
 			}
 		}
+		return retorno;
+	}
+	
+	function validarExisteArt(codigo){
+	 	var gridDatos = Ext.getCmp("gridDatos");
+	 	var cantreg = gridDatos.store.getCount();
+		var existe = 0;
+		var mensaje = "Este Articulo ya Fue Seleccionado";
+		for (r = 0; r < cantreg; r++) {
+			var reg = gridDatos.store.getAt(r);
+			if (reg.get('codarticulo') == codigo) {
+				existe++;
+			}
+		}
+		if(existe > 0){
+			 Ext.MessageBox.show({title:"Atenci\xf3n", msg:mensaje, buttons:Ext.MessageBox.OK, icon:Ext.MessageBox.ERROR,fn:function(){
+				gridDatos.startEditing(gridDatos.store.getCount() - 1, 2);
+			}});
+			 return true;
+		}
+		return false;
+	}
+	
+	var insertGridArt = function (data){
+			//alert("hoa"+data.descripcion)
+			var gridDatos = Ext.getCmp("gridDatos");
+			var sel = gridDatos.getSelectionModel().getSelectedCell();
+			var record = gridDatos.store.getAt(sel[0]);
+			
+			var existe = validarExisteArt(data.codarticulo);
+			if(existe){
+				gridDatos.startEditing(gridDatos.store.getCount() - 1, 2);
+			}else{
+		
+			//record.set("numcuenta",codigo);
+			record.set("codarticulo",data.codarticulo);
+			record.set("codalterno", data.codalterno);
+			record.set("descripcion", data.descripcion);
+			record.set("unidad", data.unidad);
+			record.set("precio", data.precio);
+			record.set("cantsolicitada", 0);
+			record.set("subtotal", 0);
+			record.set("porcdescuento", 0);
+			record.set("descuento", 0);
+			record.set("porciva", Ext.util.Format.monedaSinSimbolo((data.iva/100)));
+			record.set("iva", 0);
+			record.set("total", 0);
+			
+			
+			gridDatos.store.commitChanges();
+			gridDatos.startEditing(gridDatos.store.getCount() - 1, 5);
+			
+			}
+	}
+	
+	/*************************************************************************************************************************/
+	/**
+	 * Ventana Filtros Version 1.0 Janchundia
+	 */
+	
+	var check = new Ext.grid.CheckboxSelectionModel();
+	var modeloDatos = {
+		storeGridPrincipal : new Ext.data.Store({
+			url : "../../servlet/SAdministracionProveedores",
+			autoLoad :false,
+			baseParams : {
+				orden : "LISTAR_PROVEEDORES_X_FILTROS",
+				start : 0,
+				limit : 20,
+				codempresa : '',
+				identificacion : '', 
+				tipoidentificacion : ''
+			},
+			reader : new Ext.data.XmlReader({
+						success : "@success",
+						record : "proveedores",
+						totalRecords : "@totalRegistros"
+					}, [
+						{name : "codempresa"}, 
+						{name : "desempresa"},
+						{name : "codagencia"}, 
+						{name : "desagencia"},
+						{name : "codproveedor"},
+						{name : "desproveedor"},
+						{name : "identificacion"},
+						{name : "telfijo"}, 
+						{name : "email"}, 
+						{name : "fechavali"},
+						{name : "documento"}, 
+						{name : "fecha"}
+						])
+		}),
+		columnasGridPrincipal : [new Ext.grid.RowNumberer(), check, 
+				{dataIndex : "codempresa",header : "Codempresa",width : 100,hidden : true},
+				{dataIndex : "desempresa",header : "Empresa",cellActions : [{iconCls : "icono-seleccion",qtip : "Visualizar"}],width : 100},
+				{dataIndex : "codagencia",header : "codagencia",width : 100,hidden : true}, 
+				{dataIndex : "desagencia",header : "Agencia",cellActions : [{iconCls : "icono-seleccion",qtip : "Visualizar"}],width : 100}, 
+				{dataIndex : "codproveedor",header : "codproveedor",width : 100,hidden : true},
+				{dataIndex : "desproveedor",header : "Proveedor",width : 100}, 
+				{dataIndex : "identificacion",header : "identificacion",width : 100}, 
+				{dataIndex : "telfijo",header : "Telef Fijo",width : 100}, 
+				{dataIndex : "email",header : "email",width : 100},
+				{dataIndex : "fechavali",header : "Validez",width : 100},
+				{dataIndex : "documento",header : "Documento",width : 100,hidden : true},
+				{dataIndex : "fecha",header : "Fecha",width : 100,id : "idfecha",hidden : true}
+				]
+		
 	};
-
-	agrCredito.on('actualizado', this.cargarCredito);
+	
+	var ventanaF = new busquedasFiltros({
+		tituloVentana: "Panel b&uacute;squeda Proveedores",
+		ancho: 600,
+		alto: 400,
+		store : modeloDatos.storeGridPrincipal,
+		cm : modeloDatos.columnasGridPrincipal,
+		registrosPorPagina: 20,
+		tituloOpcionCodigo:"Codigo",
+		tituloOpcionDescripcion:"Descripcion",
+		apuntador : this
+	});
+	
+	function abrirAgrupadorProveedor(){
+		ventanaF.abrirVentanaFiltros();
+	};
+		
+	this.getDataSelection = function(data){
+		if (data == null)
+			return;
+		
+		seteoProveedor(data);
+	}
+	
+	function seteoProveedor(data){
+		componentes.tfcodProveedor.setValue(data.codproveedor),
+		componentes.txtEmail.setValue(data.desproveedor),
+		componentes.txtFax.setValue(data.identificacion),
+		componentes.cmbesTransportista.setValue("S"),
+		componentes.txttelefono.setValue(data.telfijo)
+	}
+	
+	/*************************************************************************************************************************/
+	/**
+	 * Ventana Filtros Version 1.0 Janchundia
+	 */
+	var AgrupadorArticulo = function(){
+	
+		var JsonRetorno = null;
+		var check1 = new Ext.grid.CheckboxSelectionModel();
+		var modeloArticulo = {
+			storeGridArticulos : new Ext.data.Store({
+				url : "../../servlet/SAdministracionArticulos",
+				autoLoad :false,
+				baseParams : {
+					orden : "LISTAR_ARTICULOS_PEDIDOS",
+					start : 0,
+					limit : 20,
+					codempresa : document.parametrosSesion.codigoEmpresa,
+					codigo : '0', 
+					descripcion : ''
+				},
+				reader : new Ext.data.XmlReader({
+							success : "@success",
+							record : "articulo",
+							totalRecords : "@totalRegistros"
+						}, [
+							{name : "codarticulo"}, 
+							{name : "codalterno"}, 
+							{name : "descripcion"},
+							{name : "unidad"}, 
+							{name : "precio"},
+							{name : "stock"},
+							{name : "marca"},
+							{name : "linea"},
+							{name : "sublinea"},
+							{name : "iva"}
+							/*
+							{name : "fechavali"},
+							{name : "documento"}, 
+							{name : "fecha"}*/
+							])
+			}),
+			columnasGridArticulos : [new Ext.grid.RowNumberer(), check1, 
+					{dataIndex : "codarticulo",header : "codarticulo",width : 100,hidden : true},
+					{dataIndex : "codalterno",header : "Cod. Articulo",cellActions : [{iconCls : "icono-seleccion",qtip : "Visualizar"}],width : 100},
+					{dataIndex : "descripcion",header : "Descripci&oacute;n",width : 100,hidden : false}, 
+					{dataIndex : "unidad",header : "U. Medida", cellActions : [{iconCls : "icono-seleccion",qtip : "Visualizar"}],width : 100}, 
+					{dataIndex : "precio",header : "Precio",width : 100,hidden : false},
+					{dataIndex : "stock",header : "Stock",width : 100}, 
+					{dataIndex : "marca",header : "Marca",width : 100}, 
+					{dataIndex : "linea",header : "Linea",width : 100}, 
+					{dataIndex : "sublinea",header : "SubLinea",width : 100},
+					{dataIndex : "iva",header : "iva",width : 100,hidden : true, hideable:true}
+					/*{dataIndex : "fechavali",header : "Validez",width : 100},
+					{dataIndex : "documento",header : "Documento",width : 100,hidden : true},
+					{dataIndex : "fecha",header : "Fecha",width : 100,id : "idfecha",hidden : true}*/
+					]
+			
+		};
+		
+			var ventanaArticulos = new busquedasFiltros({
+				tituloVentana: "Panel b&uacute;squeda Articulos",
+				ancho: 600,
+				alto: 400,
+				store : modeloArticulo.storeGridArticulos,
+				cm : modeloArticulo.columnasGridArticulos,
+				registrosPorPagina: 20,
+				tituloOpcionCodigo:"Codigo",
+				tituloOpcionDescripcion:"Descripcion",
+				apuntador : this
+			});
+			
+			//this.abrirAgrupadorArticulos = function(){
+				//ventanaArticulos.abrirVentanaFiltros();
+			//};
+				
+			this.getDataSelection = function(data){
+				if (data == null)
+					return; 
+				
+				JsonRetorno = data;
+				//alert(data.descripcion);
+				insertGridArt(data);
+			}
+			
+			
+			this.seleccionado = function(){
+				return JsonRetorno;	
+			};
+			
+			/*function seteoArticulo(data){
+				alert("estamos bien");
+			}*/
+			ventanaArticulos.abrirVentanaFiltros();
+	}
 
 };
+
+	

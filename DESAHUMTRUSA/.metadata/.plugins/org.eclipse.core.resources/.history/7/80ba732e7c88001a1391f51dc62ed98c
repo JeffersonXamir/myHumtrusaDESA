@@ -1,0 +1,10 @@
+package com.humtrusa.Sessionfactory;
+
+import org.hibernate.Session;
+import com.humtrusa.entidades.*;
+
+public class HwHibernateDAO implements HwHibernateDAO{
+	public Session getSession() {
+		return HibernateSessionFactory.getSession();
+	}
+}

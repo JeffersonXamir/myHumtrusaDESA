@@ -1,0 +1,18 @@
+package com.humtrusa.beans;
+
+import javax.ejb.Stateless;
+
+/**
+ * Session Bean implementation class BAdministracionArticulos
+ */
+@Stateless
+public class BAdministracionArticulos implements BAdministracionArticulosLocal {
+
+    /**
+     * Default constructor. 
+     */
+    public BAdministracionArticulos() {
+        // TODO Auto-generated constructor stub
+    }
+
+}

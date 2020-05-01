@@ -1,0 +1,131 @@
+package com.humtrusa.entidades;
+// Generated 27/04/2020 6:17:58 by Hibernate Tools 3.5.0.Final
+
+
+import java.util.List;
+import javax.naming.InitialContext;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.hibernate.LockMode;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Example;
+
+/**
+ * Home object for domain model class Invstock.
+ * @see com.humtrusa.entidades.Invstock
+ * @author Hibernate Tools
+ */
+public class InvstockHome {
+
+    private static final Log log = LogFactory.getLog(InvstockHome.class);
+
+    private final SessionFactory sessionFactory = getSessionFactory();
+    
+    protected SessionFactory getSessionFactory() {
+        try {
+            return (SessionFactory) new InitialContext().lookup("SessionFactory");
+        }
+        catch (Exception e) {
+            log.error("Could not locate SessionFactory in JNDI", e);
+            throw new IllegalStateException("Could not locate SessionFactory in JNDI");
+        }
+    }
+    
+    public void persist(Invstock transientInstance) {
+        log.debug("persisting Invstock instance");
+        try {
+            sessionFactory.getCurrentSession().persist(transientInstance);
+            log.debug("persist successful");
+        }
+        catch (RuntimeException re) {
+            log.error("persist failed", re);
+            throw re;
+        }
+    }
+    
+    public void attachDirty(Invstock instance) {
+        log.debug("attaching dirty Invstock instance");
+        try {
+            sessionFactory.getCurrentSession().saveOrUpdate(instance);
+            log.debug("attach successful");
+        }
+        catch (RuntimeException re) {
+            log.error("attach failed", re);
+            throw re;
+        }
+    }
+    
+    public void attachClean(Invstock instance) {
+        log.debug("attaching clean Invstock instance");
+        try {
+            sessionFactory.getCurrentSession().lock(instance, LockMode.NONE);
+            log.debug("attach successful");
+        }
+        catch (RuntimeException re) {
+            log.error("attach failed", re);
+            throw re;
+        }
+    }
+    
+    public void delete(Invstock persistentInstance) {
+        log.debug("deleting Invstock instance");
+        try {
+            sessionFactory.getCurrentSession().delete(persistentInstance);
+            log.debug("delete successful");
+        }
+        catch (RuntimeException re) {
+            log.error("delete failed", re);
+            throw re;
+        }
+    }
+    
+    public Invstock merge(Invstock detachedInstance) {
+        log.debug("merging Invstock instance");
+        try {
+            Invstock result = (Invstock) sessionFactory.getCurrentSession()
+                    .merge(detachedInstance);
+            log.debug("merge successful");
+            return result;
+        }
+        catch (RuntimeException re) {
+            log.error("merge failed", re);
+            throw re;
+        }
+    }
+    
+    public Invstock findById( com.humtrusa.entidades.InvstockId id) {
+        log.debug("getting Invstock instance with id: " + id);
+        try {
+            Invstock instance = (Invstock) sessionFactory.getCurrentSession()
+                    .get("com.humtrusa.entidades.Invstock", id);
+            if (instance==null) {
+                log.debug("get successful, no instance found");
+            }
+            else {
+                log.debug("get successful, instance found");
+            }
+            return instance;
+        }
+        catch (RuntimeException re) {
+            log.error("get failed", re);
+            throw re;
+        }
+    }
+    
+    public List findByExample(Invstock instance) {
+        log.debug("finding Invstock instance by example");
+        try {
+            List results = sessionFactory.getCurrentSession()
+                    .createCriteria("com.humtrusa.entidades.Invstock")
+                    .add(Example.create(instance))
+            .list();
+            log.debug("find by example successful, result size: " + results.size());
+            return results;
+        }
+        catch (RuntimeException re) {
+            log.error("find by example failed", re);
+            throw re;
+        }
+    } 
+}
+

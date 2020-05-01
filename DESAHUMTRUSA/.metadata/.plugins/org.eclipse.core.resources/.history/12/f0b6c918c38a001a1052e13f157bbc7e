@@ -1,0 +1,61 @@
+package com.humtrusa.administracion;
+
+import java.io.IOException;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.humtrusa.beans.BAdministracionArticulosLocal;
+import com.humtrusa.beans.BAdministracionProveedoresLocal;
+import com.humtrusa.enumRecursos.EnumRecursosGenerales;
+
+/**
+ * Servlet implementation class SAdministracionArticulos
+ */
+public class SAdministracionArticulos extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	 BAdministracionArticulosLocal beanArticulos;
+	
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public SAdministracionArticulos() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+	
+	/**
+	 * @see Servlet#init(ServletConfig)
+	 */
+	public void init() throws ServletException {
+		Context context;
+		try {
+			context = new InitialContext();
+			this.beanArticulos = (BAdministracionArticulosLocal) context.lookup(EnumRecursosGenerales.BARTICULOS.getRecurso());
+		}catch (NamingException e) {
+			e.printStackTrace();
+		}
+	}
+}

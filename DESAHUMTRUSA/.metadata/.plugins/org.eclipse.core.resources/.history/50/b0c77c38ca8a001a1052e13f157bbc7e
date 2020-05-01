@@ -1,0 +1,100 @@
+package com.humtrusa.administracion;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.humtrusa.beans.BAdministracionArticulosLocal;
+import com.humtrusa.beans.BAdministracionProveedoresLocal;
+import com.humtrusa.enumRecursos.EnumRecursosArticulos;
+import com.humtrusa.enumRecursos.EnumRecursosGenerales;
+import com.humtrusa.enumRecursos.EnumRecursosProveedores;
+import com.humtrusa.modelo.Seguridades;
+import com.humtrusa.servicios.BeanSeguridad;
+
+/**
+ * Servlet implementation class SAdministracionArticulos
+ */
+public class SAdministracionArticulos extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	 BAdministracionArticulosLocal beanArticulos;
+	
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public SAdministracionArticulos() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		procesar(request,response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		procesar(request,response);
+	}
+	
+	public String listarArticulosPedido(HttpServletRequest request){
+		System.out.println("listarArticulosPedido");
+		Seguridades bseguridad = new Seguridades();
+		
+		long codempresa = bseguridad.getCodigoEmpresa();
+		String codarticulo = (!"0".equals(request.getParameter("identificacion"))?request.getParameter("identificacion"):"0"); 
+		String descripcion = (request.getParameter("descripcion")!=null && !request.getParameter("descripcion").replace(" ","").equals(""))?request.getParameter("descripcion"):"";
+				
+		return beanArticulos.listarArticuloPedido(codempresa, Long.parseLong(codarticulo), descripcion);
+	}
+	
+	
+	private void procesar(HttpServletRequest request,
+			HttpServletResponse response)throws ServletException, IOException{
+		//response.setContentType("text/xml");
+		response.setCharacterEncoding("ISO-8859-1");
+		PrintWriter out = response.getWriter();
+		System.out.println("orden "+request.getParameter("orden"));
+		EnumRecursosArticulos enumOrdenes = EnumRecursosArticulos.valueOf(request.getParameter("orden"));
+		
+		switch(enumOrdenes){
+			
+			case LISTAR_ARTICULOS_PEDIDOS: 
+				//response.setContentType("text/xml");
+				out.print(listarArticulosPedido(request));
+				break;
+				
+			default:
+				break;
+				
+		}
+		
+		out.flush();
+		out.close();
+	}
+	
+	/**
+	 * @see Servlet#init(ServletConfig)
+	 */
+	public void init() throws ServletException {
+		Context context;
+		try {
+			context = new InitialContext();
+			this.beanArticulos = (BAdministracionArticulosLocal) context.lookup(EnumRecursosGenerales.BARTICULOS.getRecurso());
+		}catch (NamingException e) {
+			e.printStackTrace();
+		}
+	}
+}

@@ -1,5 +1,5 @@
 package com.humtrusa.entidades;
-// Generated 20/03/2020 14:36:48 by Hibernate Tools 3.5.0.Final
+// Generated 30/04/2020 17:56:07 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -25,16 +25,24 @@ public class Genempresas implements java.io.Serializable {
 	private String escontribuyenteespecial;
 	private String numresolucion;
 	private Long lineagrupoempresarial;
+	private Set genparametroses = new HashSet(0);
+	private Set genarticulosxempresas = new HashSet(0);
 	private Set genperfileses = new HashSet(0);
+	private Set genmarcases = new HashSet(0);
+	private Set gensublineasdoses = new HashSet(0);
 	private Set genagenciases = new HashSet(0);
+	private Set invstockloteses = new HashSet(0);
+	private Set gensublineases = new HashSet(0);
+	private Set genlineases = new HashSet(0);
 
 	public Genempresas() {
 	}
 
 	public Genempresas(Genpaises genpaises, String nombre, String gerente, String ruccontador, String tipoidreplegal,
 			String idreplegal, String codusuario, Date fecha, String hostcorreo, String rucempresa, Long tipoidempresa,
-			String escontribuyenteespecial, String numresolucion, Long lineagrupoempresarial, Set genperfileses,
-			Set genagenciases) {
+			String escontribuyenteespecial, String numresolucion, Long lineagrupoempresarial, Set genparametroses,
+			Set genarticulosxempresas, Set genperfileses, Set genmarcases, Set gensublineasdoses, Set genagenciases,
+			Set invstockloteses, Set gensublineases, Set genlineases) {
 		this.genpaises = genpaises;
 		this.nombre = nombre;
 		this.gerente = gerente;
@@ -49,8 +57,15 @@ public class Genempresas implements java.io.Serializable {
 		this.escontribuyenteespecial = escontribuyenteespecial;
 		this.numresolucion = numresolucion;
 		this.lineagrupoempresarial = lineagrupoempresarial;
+		this.genparametroses = genparametroses;
+		this.genarticulosxempresas = genarticulosxempresas;
 		this.genperfileses = genperfileses;
+		this.genmarcases = genmarcases;
+		this.gensublineasdoses = gensublineasdoses;
 		this.genagenciases = genagenciases;
+		this.invstockloteses = invstockloteses;
+		this.gensublineases = gensublineases;
+		this.genlineases = genlineases;
 	}
 
 	public Long getCodempresa() {
@@ -173,6 +188,22 @@ public class Genempresas implements java.io.Serializable {
 		this.lineagrupoempresarial = lineagrupoempresarial;
 	}
 
+	public Set getGenparametroses() {
+		return this.genparametroses;
+	}
+
+	public void setGenparametroses(Set genparametroses) {
+		this.genparametroses = genparametroses;
+	}
+
+	public Set getGenarticulosxempresas() {
+		return this.genarticulosxempresas;
+	}
+
+	public void setGenarticulosxempresas(Set genarticulosxempresas) {
+		this.genarticulosxempresas = genarticulosxempresas;
+	}
+
 	public Set getGenperfileses() {
 		return this.genperfileses;
 	}
@@ -181,12 +212,52 @@ public class Genempresas implements java.io.Serializable {
 		this.genperfileses = genperfileses;
 	}
 
+	public Set getGenmarcases() {
+		return this.genmarcases;
+	}
+
+	public void setGenmarcases(Set genmarcases) {
+		this.genmarcases = genmarcases;
+	}
+
+	public Set getGensublineasdoses() {
+		return this.gensublineasdoses;
+	}
+
+	public void setGensublineasdoses(Set gensublineasdoses) {
+		this.gensublineasdoses = gensublineasdoses;
+	}
+
 	public Set getGenagenciases() {
 		return this.genagenciases;
 	}
 
 	public void setGenagenciases(Set genagenciases) {
 		this.genagenciases = genagenciases;
+	}
+
+	public Set getInvstockloteses() {
+		return this.invstockloteses;
+	}
+
+	public void setInvstockloteses(Set invstockloteses) {
+		this.invstockloteses = invstockloteses;
+	}
+
+	public Set getGensublineases() {
+		return this.gensublineases;
+	}
+
+	public void setGensublineases(Set gensublineases) {
+		this.gensublineases = gensublineases;
+	}
+
+	public Set getGenlineases() {
+		return this.genlineases;
+	}
+
+	public void setGenlineases(Set genlineases) {
+		this.genlineases = genlineases;
 	}
 
 }

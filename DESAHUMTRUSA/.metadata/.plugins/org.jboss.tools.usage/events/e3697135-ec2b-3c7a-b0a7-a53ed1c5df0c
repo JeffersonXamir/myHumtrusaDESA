@@ -1,11 +1,11 @@
-#Sun Apr 26 14:00:08 COT 2020
+#Thu Apr 30 17:55:52 COT 2020
 vl=How many times the 'Finish' button pressed during the day
 l=Wizard class name
 ct=jbt
-d=1587927607359
+d=1588287352740
 c=0
 cmp=usage
 a=finishWizard
 cl=org.hibernate.eclipse.console.wizards.NewReverseEngineeringFileWizard
 v=2.2.202
-s=0
+s=5

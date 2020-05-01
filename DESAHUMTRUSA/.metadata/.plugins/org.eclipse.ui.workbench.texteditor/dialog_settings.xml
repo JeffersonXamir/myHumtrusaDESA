@@ -6,35 +6,35 @@
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
-		<item key="selection" value="this.abr"/>
+		<item key="selection" value="Aprobar"/>
 		<list key="findhistory">
-			<item value="this.abr"/>
-			<item value="estado"/>
-			<item value="botones"/>
-			<item value="sett"/>
-			<item value="set"/>
-			<item value="Estado"/>
-			<item value="botones}"/>
-			<item value="abrirV"/>
-			<item value="PanelgridDatos"/>
+			<item value="Aprobar"/>
+			<item value="parametrosTransportador"/>
+			<item value="firee"/>
+			<item value="fire"/>
+			<item value="event"/>
+			<item value="Fire"/>
+			<item value="Fir"/>
+			<item value="startEditing"/>
 			<item value="gridDatos"/>
-			<item value="abrirventana"/>
-			<item value="new Ext.form.FieldSet"/>
-			<item value="fiel"/>
-			<item value="fiels"/>
-			<item value="fielse"/>
+			<item value="agregarDetalle"/>
+			<item value="nuevo"/>
+			<item value=".set"/>
+			<item value="insertGridArt"/>
+			<item value="AgrupadorArticulo"/>
+			<item value="SetearSeleccionado"/>
 		</list>
 		<list key="replacehistory">
-			<item value="Return"/>
 			<item value="return"/>
+			<item value="Return"/>
 			<item value="String"/>
 			<item value="entidades"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="1077"/>
-		<item key="DIALOG_Y_ORIGIN" value="144"/>
-		<item key="DIALOG_WIDTH" value="284"/>
+		<item key="DIALOG_X_ORIGIN" value="888"/>
+		<item key="DIALOG_Y_ORIGIN" value="189"/>
+		<item key="DIALOG_WIDTH" value="282"/>
 		<item key="DIALOG_HEIGHT" value="391"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 	</section>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 27/04/2020 6:28:46 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.humtrusa.entidades.Genbodegas" table="genbodegas" catalog="cursoextjs">
+        <id name="codbodega" type="java.lang.Long">
+            <column name="codbodega" />
+            <generator class="identity" />
+        </id>
+        <property name="codestado" type="java.lang.Long">
+            <column name="codestado" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="80" />
+        </property>
+        <property name="tipobodega" type="java.lang.Long">
+            <column name="tipobodega" />
+        </property>
+        <property name="ubicacion" type="string">
+            <column name="ubicacion" length="30" />
+        </property>
+        <property name="codusuario" type="string">
+            <column name="codusuario" length="30" />
+        </property>
+        <property name="fecharegistro" type="date">
+            <column name="fecharegistro" length="10" />
+        </property>
+        <set name="bodegasxagenciases" table="bodegasxagencias" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codbodega" />
+            </key>
+            <one-to-many class="com.humtrusa.entidades.Bodegasxagencias" />
+        </set>
+    </class>
+</hibernate-mapping>

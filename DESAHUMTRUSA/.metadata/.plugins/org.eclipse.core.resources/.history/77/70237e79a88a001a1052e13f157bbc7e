@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 27/04/2020 6:28:46 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.humtrusa.entidades.Genproveedores" table="genproveedores" catalog="cursoextjs">
+        <id name="codproveedor" type="long">
+            <column name="codproveedor" />
+            <generator class="assigned" />
+        </id>
+        <property name="codciudad" type="java.lang.Long">
+            <column name="codciudad" />
+        </property>
+        <property name="codmonedas" type="java.lang.Long">
+            <column name="codmonedas" />
+        </property>
+        <property name="codempresa" type="java.lang.Long">
+            <column name="codempresa" />
+        </property>
+        <property name="nombres" type="string">
+            <column name="nombres" length="80" />
+        </property>
+        <property name="apellidos" type="string">
+            <column name="apellidos" length="80" />
+        </property>
+        <property name="tipoidentificacion" type="string">
+            <column name="tipoidentificacion" length="15" />
+        </property>
+        <property name="identificacion" type="string">
+            <column name="identificacion" length="15" />
+        </property>
+        <property name="estransportista" type="string">
+            <column name="estransportista" length="2" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="65535" />
+        </property>
+        <property name="telefonofijo1" type="string">
+            <column name="telefonofijo1" length="15" />
+        </property>
+        <property name="telefonofijo2" type="string">
+            <column name="telefonofijo2" length="15" />
+        </property>
+        <property name="telefonocelular" type="string">
+            <column name="telefonocelular" length="15" />
+        </property>
+        <property name="fax" type="string">
+            <column name="fax" length="20" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="80" />
+        </property>
+        <property name="origen" type="string">
+            <column name="origen" length="15" />
+        </property>
+        <property name="contribespecial" type="string">
+            <column name="contribespecial" length="15" />
+        </property>
+        <property name="contacto" type="string">
+            <column name="contacto" length="15" />
+        </property>
+        <property name="fechavalidez" type="date">
+            <column name="fechavalidez" length="10" />
+        </property>
+        <property name="diascredito" type="java.lang.Long">
+            <column name="diascredito" />
+        </property>
+        <property name="numcuotas" type="java.lang.Long">
+            <column name="numcuotas" />
+        </property>
+        <property name="codusuario" type="java.lang.Long">
+            <column name="codusuario" />
+        </property>
+        <property name="fecha" type="java.lang.Long">
+            <column name="fecha" />
+        </property>
+        <property name="cobratransporte" type="string">
+            <column name="cobratransporte" length="1" />
+        </property>
+        <property name="placa" type="string">
+            <column name="placa" length="10" />
+        </property>
+        <set name="facOrdenesCompras" table="fac_ordenes_compra" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codproveedor" />
+            </key>
+            <one-to-many class="com.humtrusa.entidades.FacOrdenesCompra" />
+        </set>
+    </class>
+</hibernate-mapping>

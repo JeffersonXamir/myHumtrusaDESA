@@ -105,4 +105,24 @@
     <servlet-name>SMenu</servlet-name>
     <url-pattern>/servelet/SMenu</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SAdministracionArticulos</display-name>
+    <servlet-name>SAdministracionArticulos</servlet-name>
+    <servlet-class>com.humtrusa.administracion.SAdministracionArticulos</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SAdministracionArticulos</servlet-name>
+    <url-pattern>/servlet/SAdministracionArticulos</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SAdministracionPedidoCompra</display-name>
+    <servlet-name>SAdministracionPedidoCompra</servlet-name>
+    <servlet-class>com.humtrusa.administracion.SAdministracionPedidoCompra</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SAdministracionPedidoCompra</servlet-name>
+    <url-pattern>/servlet/SAdministracionPedidoCompra</url-pattern>
+  </servlet-mapping>
 </web-app>

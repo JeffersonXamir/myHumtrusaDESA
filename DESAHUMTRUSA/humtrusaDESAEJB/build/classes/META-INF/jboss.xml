@@ -13,5 +13,13 @@
 			<ejb-name>BMenu</ejb-name>
 			<jndi-name>servidor/BMenu</jndi-name>
 		</session>
+		<session>
+			<ejb-name>BAdministracionArticulos</ejb-name>
+			<jndi-name>servidor/BAdministracionArticulos</jndi-name>
+		</session>
+		<session>
+			<ejb-name>BAdministracionPedidoCompra</ejb-name>
+			<jndi-name>servidor/BAdministracionPedidoCompra</jndi-name>
+		</session>
 	</enterprise-beans>
 </jboss>

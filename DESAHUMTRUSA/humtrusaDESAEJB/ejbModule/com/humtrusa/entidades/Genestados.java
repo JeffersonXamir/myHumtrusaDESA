@@ -1,5 +1,5 @@
 package com.humtrusa.entidades;
-// Generated 20/03/2020 14:36:48 by Hibernate Tools 3.5.0.Final
+// Generated 30/04/2020 17:56:07 by Hibernate Tools 3.5.0.Final
 
 import java.util.Date;
 import java.util.HashSet;
@@ -15,12 +15,14 @@ public class Genestados implements java.io.Serializable {
 	private String codusuario;
 	private Date fecha;
 	private Set genperfileses = new HashSet(0);
+	private Set genarticulosxempresas = new HashSet(0);
 	private Set genusuarioses = new HashSet(0);
 	private Set genopcioneses = new HashSet(0);
 	private Set usuariosxagencias = new HashSet(0);
 	private Set genregioneses = new HashSet(0);
 	private Set genciudadeses = new HashSet(0);
 	private Set genprovinciases = new HashSet(0);
+	private Set genunidadesmedidas = new HashSet(0);
 	private Set genagenciases = new HashSet(0);
 
 	public Genestados() {
@@ -32,19 +34,21 @@ public class Genestados implements java.io.Serializable {
 		this.fecha = fecha;
 	}
 
-	public Genestados(String descripcion, String codusuario, Date fecha, Set genperfileses, Set genusuarioses,
-			Set genopcioneses, Set usuariosxagencias, Set genregioneses, Set genciudadeses, Set genprovinciases,
-			Set genagenciases) {
+	public Genestados(String descripcion, String codusuario, Date fecha, Set genperfileses, Set genarticulosxempresas,
+			Set genusuarioses, Set genopcioneses, Set usuariosxagencias, Set genregioneses, Set genciudadeses,
+			Set genprovinciases, Set genunidadesmedidas, Set genagenciases) {
 		this.descripcion = descripcion;
 		this.codusuario = codusuario;
 		this.fecha = fecha;
 		this.genperfileses = genperfileses;
+		this.genarticulosxempresas = genarticulosxempresas;
 		this.genusuarioses = genusuarioses;
 		this.genopcioneses = genopcioneses;
 		this.usuariosxagencias = usuariosxagencias;
 		this.genregioneses = genregioneses;
 		this.genciudadeses = genciudadeses;
 		this.genprovinciases = genprovinciases;
+		this.genunidadesmedidas = genunidadesmedidas;
 		this.genagenciases = genagenciases;
 	}
 
@@ -86,6 +90,14 @@ public class Genestados implements java.io.Serializable {
 
 	public void setGenperfileses(Set genperfileses) {
 		this.genperfileses = genperfileses;
+	}
+
+	public Set getGenarticulosxempresas() {
+		return this.genarticulosxempresas;
+	}
+
+	public void setGenarticulosxempresas(Set genarticulosxempresas) {
+		this.genarticulosxempresas = genarticulosxempresas;
 	}
 
 	public Set getGenusuarioses() {
@@ -134,6 +146,14 @@ public class Genestados implements java.io.Serializable {
 
 	public void setGenprovinciases(Set genprovinciases) {
 		this.genprovinciases = genprovinciases;
+	}
+
+	public Set getGenunidadesmedidas() {
+		return this.genunidadesmedidas;
+	}
+
+	public void setGenunidadesmedidas(Set genunidadesmedidas) {
+		this.genunidadesmedidas = genunidadesmedidas;
 	}
 
 	public Set getGenagenciases() {

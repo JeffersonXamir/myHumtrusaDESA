@@ -1,0 +1,11 @@
+#Sat May 02 04:46:41 COT 2020
+vl=0 \= failed, 1 \= successful
+l=Server Runtime ID
+ct=server
+d=1588412801238
+c=1
+cmp=server
+a=new
+cl=org.jboss.ide.eclipse.as.71
+v=3.8.0
+s=0

@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.json.JSONObject;
+import org.json.*;
 
-import com.etech.servicios.general.LocalizadorRecursos;
+import com.humtrusa.General.LocalizadorBean;
 import com.humtrusa.beans.BAdministracionGeneralLocal;
 import com.humtrusa.entidades.Genusuarios;
 import com.humtrusa.enumRecursos.EnumRecursosGenerales;
@@ -26,7 +26,7 @@ import java.io.PrintWriter;
 public class SAdministracionGeneral extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private BAdministracionGeneralLocal beanGeneral;
-	private LocalizadorRecursos localizador;
+	private LocalizadorBean localizador;
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -63,7 +63,7 @@ public class SAdministracionGeneral extends HttpServlet {
 		String str="";
 		try {		
 		str = beanGeneral.ACCESOLOGIN(user,pass);
-		Genusuarios usuario = null; 
+		Genusuarios usuario = null;
 		JSONObject obj = new JSONObject(str);
 			if(obj.getBoolean("exito")) {
 				usuario = beanGeneral.obtenerUsuario(user);
@@ -151,7 +151,7 @@ public class SAdministracionGeneral extends HttpServlet {
 	
 	public void init() throws ServletException {
 		System.out.println("puta holaaaaaaaaaaaaaaaaaaaaa");
-		localizador = new LocalizadorRecursos();
+		localizador = new LocalizadorBean();
 		//beanGeneral = (BAdministracionGeneralLocal)localizador.obtenerBean(EnumRecursos.BADMINISTRACION_VENDEDORES);
 		beanGeneral =(BAdministracionGeneralLocal)localizador.obtenerBean("servidor/BAdministracionGeneral");
 	}

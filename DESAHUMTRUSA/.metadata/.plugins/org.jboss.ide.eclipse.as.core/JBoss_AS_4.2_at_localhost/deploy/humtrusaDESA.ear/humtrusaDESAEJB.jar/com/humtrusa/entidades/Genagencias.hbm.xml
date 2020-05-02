@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/05/2020 8:22:47 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.humtrusa.entidades.Genagencias" table="genagencias" catalog="cursoextjs">
+        <id name="codagencia" type="java.lang.Long">
+            <column name="codagencia" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="genciudades" class="com.humtrusa.entidades.Genciudades" fetch="select">
+            <column name="codciudad" />
+        </many-to-one>
+        <many-to-one name="genestados" class="com.humtrusa.entidades.Genestados" fetch="select">
+            <column name="codestado" />
+        </many-to-one>
+        <many-to-one name="genempresas" class="com.humtrusa.entidades.Genempresas" fetch="select">
+            <column name="codempresa" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="100" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="65535" />
+        </property>
+        <property name="tipoagencia" type="java.lang.Long">
+            <column name="tipoagencia" />
+        </property>
+        <property name="numeroruc" type="string">
+            <column name="numeroruc" length="20" />
+        </property>
+        <property name="telefono1" type="string">
+            <column name="telefono1" length="10" />
+        </property>
+        <property name="telefono2" type="string">
+            <column name="telefono2" length="10" />
+        </property>
+        <property name="fax" type="string">
+            <column name="fax" length="10" />
+        </property>
+        <property name="celular" type="string">
+            <column name="celular" length="10" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="80" />
+        </property>
+        <property name="usuariocambioestado" type="string">
+            <column name="usuariocambioestado" length="30" />
+        </property>
+        <property name="fechacambioestado" type="date">
+            <column name="fechacambioestado" length="10" />
+        </property>
+        <property name="codusuario" type="string">
+            <column name="codusuario" length="30" />
+        </property>
+        <property name="fecharegistro" type="date">
+            <column name="fecharegistro" length="10" />
+        </property>
+        <property name="codtipolocal" type="string">
+            <column name="codtipolocal" length="16777215" />
+        </property>
+        <property name="nombrecomercial" type="string">
+            <column name="nombrecomercial" length="80" />
+        </property>
+        <property name="direccionmatriz" type="string">
+            <column name="direccionmatriz" length="65535" />
+        </property>
+        <property name="web" type="string">
+            <column name="web" length="65535" />
+        </property>
+        <set name="facDetalleComprases" table="fac_detalle_compras" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codagenciapedido" not-null="true" />
+            </key>
+            <one-to-many class="com.humtrusa.entidades.FacDetalleCompras" />
+        </set>
+        <set name="facOrdenesCompras" table="fac_ordenes_compra" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codagenciapedido" not-null="true" />
+            </key>
+            <one-to-many class="com.humtrusa.entidades.FacOrdenesCompra" />
+        </set>
+        <set name="usuariosxagencias" table="usuariosxagencia" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codagencia" />
+            </key>
+            <one-to-many class="com.humtrusa.entidades.Usuariosxagencia" />
+        </set>
+    </class>
+</hibernate-mapping>

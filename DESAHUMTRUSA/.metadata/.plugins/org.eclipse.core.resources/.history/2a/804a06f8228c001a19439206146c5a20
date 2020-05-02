@@ -1,0 +1,31 @@
+package com.humtrusa.beans;
+
+import java.util.Date;
+
+import javax.ejb.Remote;
+
+@Remote
+public interface BAdministracionPedidoCompraLocal {
+	
+	 public String guardarPedido(
+	    		String codEmpresa,
+	            String codagenciapedido,
+	            String numerocompra,
+	            String tipopedido,
+	            String codestado,
+	            String tipopago,
+	            String codproveedor,
+	            String codusuariocreacion,
+	            Date fechacreacion,
+	            String descripcion,
+	            Date fecha_requerida,
+	            Date fecha_promesa,
+	            double subtotal,
+	            double descuento,
+	            double porcimpuesto,
+	            double impuesto,
+	            double total,
+	            //Detalle Pedido
+	            String detallePedido 
+	    		);
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/05/2020 8:22:47 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.humtrusa.entidades.Genrecursos" table="genrecursos" catalog="cursoextjs">
+        <composite-id name="id" class="com.humtrusa.entidades.GenrecursosId">
+            <key-property name="codrecurso" type="long">
+                <column name="codrecurso" />
+            </key-property>
+            <key-property name="codopcion" type="long">
+                <column name="codopcion" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="genopciones" class="com.humtrusa.entidades.Genopciones" update="false" insert="false" fetch="select">
+            <column name="codopcion" not-null="true" />
+        </many-to-one>
+        <property name="tipo" type="string">
+            <column name="tipo" length="1" not-null="true" />
+        </property>
+        <property name="url" type="string">
+            <column name="url" length="200" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

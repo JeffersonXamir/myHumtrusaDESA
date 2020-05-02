@@ -1,0 +1,9 @@
+package com.humtrusa.daoext;
+
+public class FacDetalleComprasDAOEXT {
+	
+	public String guardarPedido() {
+		
+		return "";
+	}
+}

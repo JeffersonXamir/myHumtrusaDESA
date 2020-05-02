@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/05/2020 8:22:47 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.humtrusa.entidades.Genprovincias" table="genprovincias" catalog="cursoextjs">
+        <id name="codprovincia" type="java.lang.Long">
+            <column name="codprovincia" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="genestados" class="com.humtrusa.entidades.Genestados" fetch="select">
+            <column name="codestado" />
+        </many-to-one>
+        <many-to-one name="genpaises" class="com.humtrusa.entidades.Genpaises" fetch="select">
+            <column name="codpais" not-null="true" />
+        </many-to-one>
+        <many-to-one name="genregiones" class="com.humtrusa.entidades.Genregiones" fetch="select">
+            <column name="codregion" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="50" />
+        </property>
+        <property name="codusuario" type="string">
+            <column name="codusuario" length="30" />
+        </property>
+        <property name="fecharegistro" type="date">
+            <column name="fecharegistro" length="10" />
+        </property>
+        <property name="codarea" type="string">
+            <column name="codarea" length="3" />
+        </property>
+        <set name="genciudadeses" table="genciudades" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codprovincia" not-null="true" />
+            </key>
+            <one-to-many class="com.humtrusa.entidades.Genciudades" />
+        </set>
+    </class>
+</hibernate-mapping>

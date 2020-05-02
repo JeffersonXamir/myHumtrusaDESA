@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="ejbModule"/>
+	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_191">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
@@ -43,7 +43,6 @@
 	<classpathentry kind="lib" path="/humtrusaDESA/lib/jdom-2.0.6-junit.jar"/>
 	<classpathentry kind="lib" path="/humtrusaDESA/lib/jdom-2.0.6-sources.jar"/>
 	<classpathentry kind="lib" path="/humtrusaDESA/lib/jdom-2.0.6.jar"/>
-	<classpathentry kind="lib" path="/humtrusaDESA/lib/json.jar"/>
 	<classpathentry kind="lib" path="/humtrusaDESA/lib/jss-4.2.5.jar"/>
 	<classpathentry kind="lib" path="/humtrusaDESA/lib/jxl.jar"/>
 	<classpathentry kind="lib" path="/humtrusaDESA/lib/log4j-1.2.16.jar"/>
@@ -75,6 +74,6 @@
 	<classpathentry kind="lib" path="/humtrusaDESA/lib/xmlsec-1.4.2-ADSI-1.1.jar"/>
 	<classpathentry kind="lib" path="/humtrusaDESA/lib/xmlsec-1.5.5.jar"/>
 	<classpathentry kind="lib" path="/humtrusaDESA/lib/xstream-1.4.1.jar"/>
-	<classpathentry kind="lib" path="/humtrusaDESA/lib/org.apache.axis2.eclipse.service.plugin_1.7.9.jar"/>
-	<classpathentry kind="output" path="build/classes"/>
+	<classpathentry kind="lib" path="lib/org.json.jar"/>
+	<classpathentry kind="output" path="build"/>
 </classpath>

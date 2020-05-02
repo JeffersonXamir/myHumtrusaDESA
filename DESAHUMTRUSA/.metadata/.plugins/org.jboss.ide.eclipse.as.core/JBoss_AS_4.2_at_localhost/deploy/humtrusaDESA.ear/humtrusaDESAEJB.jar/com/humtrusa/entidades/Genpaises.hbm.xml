@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/05/2020 8:22:47 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.humtrusa.entidades.Genpaises" table="genpaises" catalog="cursoextjs">
+        <id name="codpais" type="long">
+            <column name="codpais" />
+            <generator class="assigned" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="nombre" length="50" not-null="true" />
+        </property>
+        <property name="codusuario" type="string">
+            <column name="codusuario" length="30" not-null="true" />
+        </property>
+        <property name="fecharegisto" type="date">
+            <column name="fecharegisto" length="10" not-null="true" />
+        </property>
+        <property name="codinternacional" type="string">
+            <column name="codinternacional" length="4" />
+        </property>
+        <set name="genprovinciases" table="genprovincias" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codpais" not-null="true" />
+            </key>
+            <one-to-many class="com.humtrusa.entidades.Genprovincias" />
+        </set>
+        <set name="genempresases" table="genempresas" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codpais" />
+            </key>
+            <one-to-many class="com.humtrusa.entidades.Genempresas" />
+        </set>
+        <set name="genciudadeses" table="genciudades" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codpais" not-null="true" />
+            </key>
+            <one-to-many class="com.humtrusa.entidades.Genciudades" />
+        </set>
+        <set name="genregioneses" table="genregiones" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="codpais" not-null="true" />
+            </key>
+            <one-to-many class="com.humtrusa.entidades.Genregiones" />
+        </set>
+    </class>
+</hibernate-mapping>

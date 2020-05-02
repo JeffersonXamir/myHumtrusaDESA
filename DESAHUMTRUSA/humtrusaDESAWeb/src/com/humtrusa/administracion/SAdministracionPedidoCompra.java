@@ -2,6 +2,7 @@ package com.humtrusa.administracion;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -17,6 +18,7 @@ import com.humtrusa.beans.BAdministracionPedidoCompraLocal;
 import com.humtrusa.enumRecursos.EnumPedidoCompra;
 import com.humtrusa.enumRecursos.EnumRecursosArticulos;
 import com.humtrusa.enumRecursos.EnumRecursosGenerales;
+import com.humtrusa.estandarizadores.estandarizador;
 
 /**
  * Servlet implementation class SAdministracionPedidoCompra
@@ -48,6 +50,56 @@ public class SAdministracionPedidoCompra extends HttpServlet {
 		procesar(request,response);
 	}
 	
+	public String guardarPedido(HttpServletRequest request) {
+		
+		String codEmpresa = request.getParameter("codEmpresa");
+        String codagenciapedido = request.getParameter("codagenciapedido");
+        String numerocompra= request.getParameter("numerocompra");
+        String tipopedido= request.getParameter("tipopedido");
+        String codestado= request.getParameter("codestado");
+        String tipopago= request.getParameter("tipopago");
+        String codproveedor= request.getParameter("codproveedor");
+        String codusuariocreacion= request.getParameter("codusuariocreacion");
+        Date fechacreacion= estandarizador.obtenerFecha(request.getParameter("fechacreacion"));
+        String descripcion= request.getParameter("descripcion");
+        Date fecha_requerida= estandarizador.obtenerFecha(request.getParameter("fecha_requerida"));
+        Date fecha_promesa= estandarizador.obtenerFecha(request.getParameter("fecha_promesa"));
+        double subtotal= Double.parseDouble(request.getParameter("subtotal"));
+        double descuento= Double.parseDouble(request.getParameter("descuento"));
+        double porcimpuesto= Double.parseDouble(request.getParameter("porcimpuesto"));
+        double impuesto= Double.parseDouble(request.getParameter("impuesto"));
+        double total = Double.parseDouble(request.getParameter("total"));
+        //Detalle Pedido
+        String detallePedido= request.getParameter("detallePedido");
+        String retorno = "";
+		try {
+			retorno = bpedido.guardarPedido(
+        						Long.parseLong(codEmpresa),
+        						Long.parseLong(codagenciapedido),
+        						numerocompra,
+        						Long.parseLong(tipopedido),
+        						Long.parseLong(codestado),
+        						Long.parseLong(tipopago),
+        						Long.parseLong(codproveedor),
+        						codusuariocreacion,
+        						fechacreacion,
+        						descripcion,
+        						fecha_requerida,
+        						fecha_promesa,
+        						subtotal,
+        						descuento,
+        						porcimpuesto,
+        						impuesto,
+        						total,
+        						detallePedido
+        		);
+		}catch (Exception e) {
+			e.printStackTrace();
+			e.getMessage();
+		}
+		return retorno;
+	}
+	
 	private void procesar(HttpServletRequest request,
 			HttpServletResponse response)throws ServletException, IOException{
 		//response.setContentType("text/xml");
@@ -60,7 +112,7 @@ public class SAdministracionPedidoCompra extends HttpServlet {
 			
 			case GUARDAR_PEDIDO: 
 				//response.setContentType("text/xml");
-				//out.print(listarArticulosPedido(request));
+				out.print(guardarPedido(request));
 				break;
 				
 			default:

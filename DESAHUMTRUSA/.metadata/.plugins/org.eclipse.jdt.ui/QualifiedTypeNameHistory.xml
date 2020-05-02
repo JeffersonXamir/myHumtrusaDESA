@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="com.humtrusa.beans.BAdministracionGeneral"/>
-<fullyQualifiedTypeName name="org.json.JSONArray"/>
-<fullyQualifiedTypeName name="javax.servlet.http.HttpServletRequest"/>
 <fullyQualifiedTypeName name="com.humtrusa.servicios.ControladorVistas"/>
 <fullyQualifiedTypeName name="com.humtrusa.modelo.Vistas"/>
 <fullyQualifiedTypeName name="com.humtrusa.modelo.UtilidadesControladorVistas"/>
@@ -26,9 +23,7 @@
 <fullyQualifiedTypeName name="com.etech.datos.daoext.GenestadosDAOEXT"/>
 <fullyQualifiedTypeName name="com.humtrusa.entidades.GenestadosHome"/>
 <fullyQualifiedTypeName name="com.humtrusa.daoext.GenestadosDAOEXT"/>
-<fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="org.json.JSONException"/>
-<fullyQualifiedTypeName name="org.json.JSONObject"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="com.humtrusa.entidades.Genusuarios"/>
 <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
@@ -36,10 +31,8 @@
 <fullyQualifiedTypeName name="com.humtrusa.beans.BAdministracionGeneralLocal"/>
 <fullyQualifiedTypeName name="org.hibernate.Transaction"/>
 <fullyQualifiedTypeName name="java.util.Vector"/>
-<fullyQualifiedTypeName name="com.humtrusa.General.LocalizadorBean"/>
 <fullyQualifiedTypeName name="com.humtrusa.entidades.Genagencias"/>
 <fullyQualifiedTypeName name="com.humtrusa.entidades.Genempresas"/>
-<fullyQualifiedTypeName name="com.humtrusa.Sessionfactory.HwHibernateDAO"/>
 <fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="com.humtrusa.daoext.GenArticulosDAOEXT"/>
 <fullyQualifiedTypeName name="com.humtrusa.entidades.Genarticulos"/>
@@ -58,4 +51,13 @@
 <fullyQualifiedTypeName name="javax.ejb.Remote"/>
 <fullyQualifiedTypeName name="com.humtrusa.enumRecursos.EnumPedidoCompra"/>
 <fullyQualifiedTypeName name="com.humtrusa.beans.BAdministracionPedidoCompraLocal"/>
+<fullyQualifiedTypeName name="com.humtrusa.entidades.FacDetalleCompras"/>
+<fullyQualifiedTypeName name="org.json.JSONObject"/>
+<fullyQualifiedTypeName name="com.humtrusa.General.LocalizadorBean"/>
+<fullyQualifiedTypeName name="com.humtrusa.Sessionfactory.HwIBaseHibernateDAO"/>
+<fullyQualifiedTypeName name="com.humtrusa.Sessionfactory.HwHibernateDAO"/>
+<fullyQualifiedTypeName name="com.humtrusa.entidades.FacOrdenesCompraHome"/>
+<fullyQualifiedTypeName name="com.humtrusa.entidades.Gentipopagos"/>
+<fullyQualifiedTypeName name="com.humtrusa.daoext.GentipopagosDAOEXT"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="cursoextjs" match-name="alumnos"/>
+  <table-filter match-catalog="cursoextjs" match-name="bodegasxagencias"/>
+  <table-filter match-catalog="cursoextjs" match-name="calificaciones"/>
+  <table-filter match-catalog="cursoextjs" match-name="fac_detalle_compras"/>
+  <table-filter match-catalog="cursoextjs" match-name="fac_ordenes_compra"/>
+  <table-filter match-catalog="cursoextjs" match-name="genagencias"/>
+  <table-filter match-catalog="cursoextjs" match-name="genarticulos"/>
+  <table-filter match-catalog="cursoextjs" match-name="genarticulosxempresa"/>
+  <table-filter match-catalog="cursoextjs" match-name="genbodegas"/>
+  <table-filter match-catalog="cursoextjs" match-name="genciudades"/>
+  <table-filter match-catalog="cursoextjs" match-name="genconsultas"/>
+  <table-filter match-catalog="cursoextjs" match-name="genempresas"/>
+  <table-filter match-catalog="cursoextjs" match-name="genestados"/>
+  <table-filter match-catalog="cursoextjs" match-name="genlineas"/>
+  <table-filter match-catalog="cursoextjs" match-name="genmarcas"/>
+  <table-filter match-catalog="cursoextjs" match-name="genopciones"/>
+  <table-filter match-catalog="cursoextjs" match-name="genpaises"/>
+  <table-filter match-catalog="cursoextjs" match-name="genparametros"/>
+  <table-filter match-catalog="cursoextjs" match-name="genperfiles"/>
+  <table-filter match-catalog="cursoextjs" match-name="genproveedores"/>
+  <table-filter match-catalog="cursoextjs" match-name="genprovincias"/>
+  <table-filter match-catalog="cursoextjs" match-name="genrecursos"/>
+  <table-filter match-catalog="cursoextjs" match-name="genregiones"/>
+  <table-filter match-catalog="cursoextjs" match-name="gensublineas"/>
+  <table-filter match-catalog="cursoextjs" match-name="gensublineasdos"/>
+  <table-filter match-catalog="cursoextjs" match-name="gentipobodegas"/>
+  <table-filter match-catalog="cursoextjs" match-name="genunidadesmedida"/>
+  <table-filter match-catalog="cursoextjs" match-name="genusuarios"/>
+  <table-filter match-catalog="cursoextjs" match-name="inv_movimientos"/>
+  <table-filter match-catalog="cursoextjs" match-name="invlotes"/>
+  <table-filter match-catalog="cursoextjs" match-name="invstock"/>
+  <table-filter match-catalog="cursoextjs" match-name="invstocklotes"/>
+  <table-filter match-catalog="cursoextjs" match-name="materias"/>
+  <table-filter match-catalog="cursoextjs" match-name="permisosxperfil"/>
+  <table-filter match-catalog="cursoextjs" match-name="permisosxusuario"/>
+  <table-filter match-catalog="cursoextjs" match-name="usuariosxagencia"/>
+</hibernate-reverse-engineering>

@@ -1,0 +1,29 @@
+package com.humtrusa.daoext;
+
+import java.util.Date;
+
+public class FacDetalleComprasDAOEXT {
+	
+	public String guardarPedido(
+			String codEmpresa,
+            String codagenciapedido,
+            String numerocompra,
+            String tipopedido,
+            String codestado,
+            String tipopago,
+            String codproveedor,
+            String codusuariocreacion,
+            Date fechacreacion,
+            String descripcion,
+            Date fecha_requerida,
+            Date fecha_promesa,
+            double subtotal,
+            double descuento,
+            double porcimpuesto,
+            double impuesto,
+            double total,
+            String detallePedido) {
+		
+		return "";
+	}
+}

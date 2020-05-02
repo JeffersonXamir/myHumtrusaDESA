@@ -1,0 +1,50 @@
+package com.humtrusa.beans;
+
+import java.util.Date;
+
+import javax.ejb.Stateless;
+
+import com.humtrusa.daoext.FacDetalleComprasDAOEXT;
+import com.humtrusa.estandarizadores.estandarizador;
+
+/**
+ * Session Bean implementation class BAdministracionPedidoCompra
+ */
+@Stateless
+public class BAdministracionPedidoCompra implements BAdministracionPedidoCompraLocal {
+
+    /**
+     * Default constructor. 
+     */
+    public BAdministracionPedidoCompra() {
+        // TODO Auto-generated constructor stub
+    }
+    
+    public String guardarPedido(
+    		String codEmpresa,
+            String codagenciapedido,
+            String numerocompra,
+            String tipopedido,
+            String codestado,
+            String tipopago,
+            String codproveedor,
+            String codusuariocreacion,
+            Date fechacreacion,
+            String descripcion,
+            Date fecha_requerida,
+            Date fecha_promesa,
+            double subtotal,
+            double descuento,
+            double porcimpuesto,
+            double impuesto,
+            double total,
+            //Detalle Pedido
+            String detallePedido 
+    		) {
+    	FacDetalleComprasDAOEXT daoPed = new FacDetalleComprasDAOEXT();
+    	
+    	daoPed.guardarPedido(codEmpresa, codagenciapedido, numerocompra, tipopedido, codestado, tipopago, codproveedor, codusuariocreacion, fechacreacion, descripcion, fecha_requerida, fecha_promesa, subtotal, descuento, porcimpuesto, impuesto, total, detallePedido);
+    	
+    	return "";
+    }
+}

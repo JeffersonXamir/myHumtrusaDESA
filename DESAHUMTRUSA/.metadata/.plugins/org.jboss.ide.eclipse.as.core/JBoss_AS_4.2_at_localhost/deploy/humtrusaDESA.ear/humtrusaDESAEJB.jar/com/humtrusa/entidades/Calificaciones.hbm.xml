@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/05/2020 8:22:47 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.humtrusa.entidades.Calificaciones" table="calificaciones" catalog="cursoextjs">
+        <id name="idSecuencial" type="java.lang.Long">
+            <column name="id_secuencial" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="materias" class="com.humtrusa.entidades.Materias" fetch="select">
+            <column name="id_materia" not-null="true" />
+        </many-to-one>
+        <many-to-one name="alumnos" class="com.humtrusa.entidades.Alumnos" fetch="select">
+            <column name="id_alumno" not-null="true" />
+        </many-to-one>
+        <property name="calificacion1" type="double">
+            <column name="calificacion1" precision="5" not-null="true" />
+        </property>
+        <property name="calificacion2" type="double">
+            <column name="calificacion2" precision="5" not-null="true" />
+        </property>
+        <property name="calificacion3" type="double">
+            <column name="calificacion3" precision="5" not-null="true" />
+        </property>
+        <property name="promedio" type="java.lang.Double">
+            <column name="promedio" precision="5" />
+        </property>
+    </class>
+</hibernate-mapping>

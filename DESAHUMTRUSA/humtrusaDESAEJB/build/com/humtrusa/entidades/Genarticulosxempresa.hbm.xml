@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/05/2020 8:22:47 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.humtrusa.entidades.Genarticulosxempresa" table="genarticulosxempresa" catalog="cursoextjs">
+        <id name="codarticuloempresa" type="java.lang.Long">
+            <column name="codarticuloempresa" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="gensublineas" class="com.humtrusa.entidades.Gensublineas" fetch="select">
+            <column name="codsublineas" />
+        </many-to-one>
+        <many-to-one name="genmarcas" class="com.humtrusa.entidades.Genmarcas" fetch="select">
+            <column name="codmarca" />
+        </many-to-one>
+        <many-to-one name="gensublineasdos" class="com.humtrusa.entidades.Gensublineasdos" fetch="select">
+            <column name="codsublineasdos" />
+        </many-to-one>
+        <many-to-one name="genestados" class="com.humtrusa.entidades.Genestados" fetch="select">
+            <column name="codestado" />
+        </many-to-one>
+        <many-to-one name="genempresas" class="com.humtrusa.entidades.Genempresas" fetch="select">
+            <column name="codempresa" />
+        </many-to-one>
+        <many-to-one name="genarticulos" class="com.humtrusa.entidades.Genarticulos" fetch="select">
+            <column name="codarticulo" />
+        </many-to-one>
+        <many-to-one name="genlineas" class="com.humtrusa.entidades.Genlineas" fetch="select">
+            <column name="codlineas" />
+        </many-to-one>
+        <many-to-one name="genusuarios" class="com.humtrusa.entidades.Genusuarios" fetch="select">
+            <column name="usuariocambioestado" length="30" />
+        </many-to-one>
+        <property name="stockminimo" type="java.lang.Double">
+            <column name="stockminimo" precision="7" />
+        </property>
+        <property name="seinventaria" type="string">
+            <column name="seinventaria" length="1" />
+        </property>
+        <property name="esvendible" type="string">
+            <column name="esvendible" length="1" />
+        </property>
+        <property name="preciocompra" type="java.lang.Double">
+            <column name="preciocompra" precision="7" scale="4" />
+        </property>
+        <property name="porcdsctocompra" type="java.lang.Double">
+            <column name="porcdsctocompra" precision="7" scale="4" />
+        </property>
+        <property name="porcdsctoventa" type="java.lang.Double">
+            <column name="porcdsctoventa" precision="7" scale="4" />
+        </property>
+        <property name="porcdsctomaximo" type="java.lang.Double">
+            <column name="porcdsctomaximo" precision="7" scale="4" />
+        </property>
+        <property name="stockempresa" type="java.lang.Double">
+            <column name="stockempresa" precision="7" />
+        </property>
+        <property name="incluyeivaventas" type="string">
+            <column name="incluyeivaventas" length="1" />
+        </property>
+        <property name="importado" type="string">
+            <column name="importado" length="1" />
+        </property>
+        <property name="precioultimacompra" type="java.lang.Double">
+            <column name="precioultimacompra" precision="7" scale="4" />
+        </property>
+        <property name="fechaultimacompra" type="date">
+            <column name="fechaultimacompra" length="10" />
+        </property>
+        <property name="remate" type="string">
+            <column name="remate" length="1" />
+        </property>
+        <property name="fechacambioestado" type="date">
+            <column name="fechacambioestado" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

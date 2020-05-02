@@ -1,0 +1,131 @@
+package com.humtrusa.entidades;
+// Generated 02/05/2020 8:22:48 by Hibernate Tools 3.5.0.Final
+
+
+import java.util.List;
+import javax.naming.InitialContext;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.hibernate.LockMode;
+import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Example;
+
+/**
+ * Home object for domain model class Genperfiles.
+ * @see com.humtrusa.entidades.Genperfiles
+ * @author Hibernate Tools
+ */
+public class GenperfilesHome {
+
+    private static final Log log = LogFactory.getLog(GenperfilesHome.class);
+
+    private final SessionFactory sessionFactory = getSessionFactory();
+    
+    protected SessionFactory getSessionFactory() {
+        try {
+            return (SessionFactory) new InitialContext().lookup("SessionFactory");
+        }
+        catch (Exception e) {
+            log.error("Could not locate SessionFactory in JNDI", e);
+            throw new IllegalStateException("Could not locate SessionFactory in JNDI");
+        }
+    }
+    
+    public void persist(Genperfiles transientInstance) {
+        log.debug("persisting Genperfiles instance");
+        try {
+            sessionFactory.getCurrentSession().persist(transientInstance);
+            log.debug("persist successful");
+        }
+        catch (RuntimeException re) {
+            log.error("persist failed", re);
+            throw re;
+        }
+    }
+    
+    public void attachDirty(Genperfiles instance) {
+        log.debug("attaching dirty Genperfiles instance");
+        try {
+            sessionFactory.getCurrentSession().saveOrUpdate(instance);
+            log.debug("attach successful");
+        }
+        catch (RuntimeException re) {
+            log.error("attach failed", re);
+            throw re;
+        }
+    }
+    
+    public void attachClean(Genperfiles instance) {
+        log.debug("attaching clean Genperfiles instance");
+        try {
+            sessionFactory.getCurrentSession().lock(instance, LockMode.NONE);
+            log.debug("attach successful");
+        }
+        catch (RuntimeException re) {
+            log.error("attach failed", re);
+            throw re;
+        }
+    }
+    
+    public void delete(Genperfiles persistentInstance) {
+        log.debug("deleting Genperfiles instance");
+        try {
+            sessionFactory.getCurrentSession().delete(persistentInstance);
+            log.debug("delete successful");
+        }
+        catch (RuntimeException re) {
+            log.error("delete failed", re);
+            throw re;
+        }
+    }
+    
+    public Genperfiles merge(Genperfiles detachedInstance) {
+        log.debug("merging Genperfiles instance");
+        try {
+            Genperfiles result = (Genperfiles) sessionFactory.getCurrentSession()
+                    .merge(detachedInstance);
+            log.debug("merge successful");
+            return result;
+        }
+        catch (RuntimeException re) {
+            log.error("merge failed", re);
+            throw re;
+        }
+    }
+    
+    public Genperfiles findById( java.lang.Long id) {
+        log.debug("getting Genperfiles instance with id: " + id);
+        try {
+            Genperfiles instance = (Genperfiles) sessionFactory.getCurrentSession()
+                    .get("com.humtrusa.entidades.Genperfiles", id);
+            if (instance==null) {
+                log.debug("get successful, no instance found");
+            }
+            else {
+                log.debug("get successful, instance found");
+            }
+            return instance;
+        }
+        catch (RuntimeException re) {
+            log.error("get failed", re);
+            throw re;
+        }
+    }
+    
+    public List findByExample(Genperfiles instance) {
+        log.debug("finding Genperfiles instance by example");
+        try {
+            List results = sessionFactory.getCurrentSession()
+                    .createCriteria("com.humtrusa.entidades.Genperfiles")
+                    .add(Example.create(instance))
+            .list();
+            log.debug("find by example successful, result size: " + results.size());
+            return results;
+        }
+        catch (RuntimeException re) {
+            log.error("find by example failed", re);
+            throw re;
+        }
+    } 
+}
+

@@ -28,6 +28,7 @@
   <table-filter match-catalog="cursoextjs" match-name="gensublineas"/>
   <table-filter match-catalog="cursoextjs" match-name="gensublineasdos"/>
   <table-filter match-catalog="cursoextjs" match-name="gentipobodegas"/>
+  <table-filter match-catalog="cursoextjs" match-name="gentipopagos"/>
   <table-filter match-catalog="cursoextjs" match-name="genunidadesmedida"/>
   <table-filter match-catalog="cursoextjs" match-name="genusuarios"/>
   <table-filter match-catalog="cursoextjs" match-name="inv_movimientos"/>

@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/05/2020 8:22:47 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.humtrusa.entidades.FacOrdenesCompra" table="fac_ordenes_compra" catalog="cursoextjs">
+        <composite-id name="id" class="com.humtrusa.entidades.FacOrdenesCompraId">
+            <key-property name="idOrdencompra" type="long">
+                <column name="id_ordencompra" />
+            </key-property>
+            <key-property name="codagenciapedido" type="long">
+                <column name="codagenciapedido" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="gentipopagos" class="com.humtrusa.entidades.Gentipopagos" fetch="select">
+            <column name="tipopago" />
+        </many-to-one>
+        <many-to-one name="genestados" class="com.humtrusa.entidades.Genestados" fetch="select">
+            <column name="codestado" />
+        </many-to-one>
+        <many-to-one name="genagencias" class="com.humtrusa.entidades.Genagencias" update="false" insert="false" fetch="select">
+            <column name="codagenciapedido" not-null="true" />
+        </many-to-one>
+        <many-to-one name="genproveedores" class="com.humtrusa.entidades.Genproveedores" fetch="select">
+            <column name="codproveedor" />
+        </many-to-one>
+        <many-to-one name="genusuariosByCodusuariocreacion" class="com.humtrusa.entidades.Genusuarios" fetch="select">
+            <column name="codusuariocreacion" length="30" />
+        </many-to-one>
+        <many-to-one name="genusuariosByUsuariomodificacion" class="com.humtrusa.entidades.Genusuarios" fetch="select">
+            <column name="usuariomodificacion" length="30" />
+        </many-to-one>
+        <many-to-one name="genusuariosByUsuariocambioestado" class="com.humtrusa.entidades.Genusuarios" fetch="select">
+            <column name="usuariocambioestado" length="30" />
+        </many-to-one>
+        <property name="numerocompra" type="string">
+            <column name="numerocompra" />
+        </property>
+        <property name="tipopedido" type="java.lang.Long">
+            <column name="tipopedido" />
+        </property>
+        <property name="fechacreacion" type="date">
+            <column name="fechacreacion" length="10" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="65535" />
+        </property>
+        <property name="fechaRequerida" type="date">
+            <column name="fecha_requerida" length="10" />
+        </property>
+        <property name="fechaPromesa" type="date">
+            <column name="fecha_promesa" length="10" />
+        </property>
+        <property name="subtotal" type="java.lang.Double">
+            <column name="subtotal" precision="7" scale="4" />
+        </property>
+        <property name="descuento" type="java.lang.Double">
+            <column name="descuento" precision="7" scale="4" />
+        </property>
+        <property name="porcimpuesto" type="java.lang.Double">
+            <column name="porcimpuesto" precision="7" scale="4" />
+        </property>
+        <property name="impuesto" type="java.lang.Double">
+            <column name="impuesto" precision="7" scale="4" />
+        </property>
+        <property name="total" type="java.lang.Double">
+            <column name="total" precision="7" scale="4" />
+        </property>
+        <property name="observaciones" type="string">
+            <column name="observaciones" length="65535" />
+        </property>
+        <property name="motivoanulacion" type="string">
+            <column name="motivoanulacion" length="65535" />
+        </property>
+        <property name="fechamodificacion" type="date">
+            <column name="fechamodificacion" length="10" />
+        </property>
+        <property name="fechacambioestado" type="string">
+            <column name="fechacambioestado" length="30" />
+        </property>
+        <set name="invMovimientoses" table="inv_movimientos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_faccompra" />
+                <column name="codagencia" />
+            </key>
+            <one-to-many class="com.humtrusa.entidades.InvMovimientos" />
+        </set>
+        <set name="facDetalleComprases" table="fac_detalle_compras" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_ordencompra" not-null="true" />
+                <column name="codagenciapedido" not-null="true" />
+            </key>
+            <one-to-many class="com.humtrusa.entidades.FacDetalleCompras" />
+        </set>
+    </class>
+</hibernate-mapping>

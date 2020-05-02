@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 02/05/2020 8:22:47 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.humtrusa.entidades.InvMovimientos" table="inv_movimientos" catalog="cursoextjs">
+        <id name="idMovimiento" type="java.lang.Long">
+            <column name="id_movimiento" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="genusuarios" class="com.humtrusa.entidades.Genusuarios" fetch="select">
+            <column name="codusuario" length="30" />
+        </many-to-one>
+        <many-to-one name="bodegasxagencias" class="com.humtrusa.entidades.Bodegasxagencias" fetch="select">
+            <column name="codbodegaagenciadestino" />
+        </many-to-one>
+        <many-to-one name="facOrdenesCompra" class="com.humtrusa.entidades.FacOrdenesCompra" fetch="select">
+            <column name="id_faccompra" />
+            <column name="codagencia" />
+        </many-to-one>
+        <property name="idFacventa" type="java.lang.Long">
+            <column name="id_facventa" />
+        </property>
+        <property name="tipoMov" type="java.lang.Long">
+            <column name="tipo_mov" />
+        </property>
+        <property name="motivo" type="string">
+            <column name="motivo" length="100" />
+        </property>
+        <property name="fecharegistro" type="timestamp">
+            <column name="fecharegistro" length="19" />
+        </property>
+        <property name="anio" type="string">
+            <column name="anio" length="5" />
+        </property>
+        <property name="codbodegaagenciaorigen" type="java.lang.Long">
+            <column name="codbodegaagenciaorigen" />
+        </property>
+    </class>
+</hibernate-mapping>
